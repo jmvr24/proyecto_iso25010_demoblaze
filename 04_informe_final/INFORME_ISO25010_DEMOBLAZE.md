@@ -274,43 +274,188 @@ El recuadro rojo destaca el comprobante generado en el navegador, en el cual se 
 
 ## 3. Selección de criterios ISO/IEC 25010 y definición de población y muestra
 
-Define qué características y subcaracterísticas de la norma se evalúan y a quién se aplican los instrumentos con usuarios.
+La guía de trabajo práctico señala que no es posible evaluar la totalidad de un software con un solo instrumento, por lo que exige seleccionar características y subcaracterísticas concretas del estándar y advierte que "a mayor cantidad de dimensiones elegidas, mayor exigencia metodológica". Atendiendo a este criterio, elegimos tres características y nueve subcaracterísticas del modelo de calidad de producto definido en la norma ISO/IEC 25010:2023 (International Organization for Standardization y International Electrotechnical Commission, 2023). En esta sección fundamentamos el alcance seleccionado, justificamos las dimensiones excluidas, presentamos las equivalencias terminológicas con la edición de 2011 y delimitamos la población y la muestra para las pruebas con usuarios.
 
 ### 3.1. Características y subcaracterísticas seleccionadas
 
-Justifica las tres dimensiones elegidas y cada subcaracterística del alcance acordado.
+En la Tabla 5 detallamos las tres características y las nueve subcaracterísticas que conforman el alcance de esta evaluación, junto con su definición conceptual y el aspecto concreto del flujo de compra de DemoBlaze que se examina en cada una.
+
+Tabla 5. Características y subcaracterísticas evaluadas
+
+| Característica (2023) | Subcaracterística (2023) | Definición | Aspecto del flujo de compra que se evalúa |
+| :--- | :--- | :--- | :--- |
+| Adecuación funcional | Pertinencia funcional | Capacidad del producto de software para ofrecer un conjunto de funciones que faciliten la realización de las tareas y los objetivos del usuario. | Si las funciones del flujo permiten comprar sin pasos redundantes ni carencias: retroalimentación al agregar al carrito y número de clics para localizar un producto. |
+| Eficiencia de desempeño | Comportamiento temporal | Grado en que los tiempos de respuesta y de procesamiento del producto cumplen lo esperado cuando ejecuta sus funciones. | Tiempos de respuesta de los servicios web y tiempos de renderizado de la interfaz en el navegador. |
+| Eficiencia de desempeño | Capacidad | Grado en que los límites máximos de un parámetro del producto cumplen lo requerido al operar bajo condiciones de carga. | Comportamiento del sistema y tasa de fallos de las peticiones HTTP con 50 usuarios concurrentes. |
+| Eficiencia de desempeño | Utilización de recursos | Grado en que las cantidades y los tipos de recursos empleados por el producto al llevar a cabo sus funciones resultan adecuados. | Recursos consumidos solo del lado del cliente y de la red (peso total transferido y peticiones HTTP en la carga inicial), porque no hay acceso al servidor. |
+| Capacidad de interacción | Aprendibilidad | Capacidad del producto para permitir que el usuario aprenda su funcionamiento dentro de un tiempo especificado. | Si un comprador nuevo logra completar las tareas del flujo de compra sin extraviarse en la navegación. |
+| Capacidad de interacción | Operabilidad | Capacidad del producto para contar con atributos que permitan al usuario operarlo y controlarlo con facilidad. | Facilidad para operar el flujo de compra, tasa de éxito en las tareas asignadas y presencia de enlaces que funcionan sin errores de red. |
+| Capacidad de interacción | Protección contra errores de usuario | Capacidad del sistema para prevenir que los usuarios cometan errores durante su operación. | Si el formulario del modal Place Order valida las entradas y bloquea el envío de datos incompletos o inválidos, y si la eliminación en el carrito previene borrados accidentales. |
+| Capacidad de interacción | Involucramiento del usuario | Capacidad del producto para presentar sus funciones e información de forma atractiva y motivadora para el usuario (en 2011 se llamaba Estética de la interfaz de usuario). | Consistencia tipográfica entre los elementos de la interfaz y consistencia cromática de los componentes entre las vistas del flujo. |
+| Capacidad de interacción | Inclusividad | Capacidad de un producto para ser utilizado por personas con distintos contextos, capacidades, edades o culturas (en 2011 formaba parte de Accesibilidad). | Relación de contraste entre texto y fondo, etiquetado de campos en modales, validez del marcado y ausencia de violaciones críticas de accesibilidad. |
+
+Fuente: elaboración propia a partir de ISO/IEC 25010:2023 (International Organization for Standardization y International Electrotechnical Commission, 2023) y de las definiciones de ISO 25000 (s. f.).
+
+Seleccionamos estas tres características porque el flujo de compra de punta a punta es una tarea ejecutada directamente por el usuario final desde el navegador. En una transacción de comercio electrónico el comprador percibe directamente tres aspectos: que las funciones disponibles resulten pertinentes para elegir el artículo y confirmar la orden sin pasos superfluos (Adecuación funcional), que las páginas y peticiones carguen en un tiempo razonable incluso cuando varios compradores concurren en la tienda (Eficiencia de desempeño) y que la interfaz sea fácil de aprender y operar, prevenga equivocaciones al ingresar los datos de pago y sea accesible para distintos perfiles de comprador (Capacidad de interacción).
+
+Además de su relevancia para el comprador, estas tres dimensiones son las que pueden medirse con rigor desde fuera del sistema mediante pruebas automatizadas sobre el cliente y la red combinadas con observación directa y cuestionarios aplicados a usuarios reales. Limitar el alcance a estas nueve subcaracterísticas nos permite cumplir la exigencia de triangulación metodológica de la guía sin dispersar la recolección de evidencias en dimensiones para las cuales no tenemos acceso técnico.
 
 ### 3.2. Características excluidas
 
-Explica por qué no se evalúan las demás características de la norma.
+Excluimos del alcance las seis características restantes del modelo ISO/IEC 25010:2023: Compatibilidad, Fiabilidad, Seguridad, Mantenibilidad, Flexibilidad y Protección (en inglés, Safety, incorporada como característica nueva en la edición de 2023). Esta decisión responde a que DemoBlaze es un sistema externo en producción sobre el cual no tenemos acceso al servidor, a los registros internos de fallos ni al código fuente del backend, lo que impide auditar la mantenibilidad del software o el uso interno de recursos del servidor. Asimismo, carecemos de autorización de BlazeMeter para ejecutar pruebas dinámicas de seguridad, las cuales resultan intrusivas cuando se dirigen contra un sitio en producción perteneciente a un tercero. La propia guía de la docente menciona Seguridad y Fiabilidad entre los ejemplos posibles de evaluación, pero comprobar un parámetro de fiabilidad como una disponibilidad operativa del 99,9 % exige monitorear el servicio de manera continua durante una ventana prolongada que este trabajo académico no tiene.
+
+Dentro de las tres características que sí seleccionamos, también dejamos fuera del alcance evaluativo las subcaracterísticas de Completitud funcional, Corrección funcional, Reconocibilidad de la adecuación, Asistencia al usuario y Autodescriptividad. El archivo de evidencia técnica `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json` agrupa algunos registros bajo las claves completitudFuncional y correccionFuncional. En este informe, los hallazgos relativos a la ausencia de un buscador por texto (buscadorPorTexto) y a la imposibilidad de modificar la cantidad de unidades en el carrito (modificacionCantidadEnCarrito) se analizan dentro de Pertinencia funcional, mientras que la comprobación de que el recorrido entre catálogo, producto y carrito opera de principio a fin (correccionFuncional) se emplea en el Paso 1 como validación del funcionamiento operativo inicial, por lo que no se evalúan como subcaracterísticas independientes.
 
 ### 3.3. Equivalencias entre las ediciones 2023 y 2011 de la norma
 
-Relaciona los nombres de ISO/IEC 25010:2023 con los de la edición de 2011.
+En este trabajo adoptamos como referencia principal la norma ISO/IEC 25010:2023, que reemplazó técnicamente a la primera edición de 2011 (International Organization for Standardization y International Electrotechnical Commission, 2011, 2023). Dado que buena parte de la literatura de ingeniería de software y varias herramientas de auditoría aún emplean las denominaciones de 2011, en la Tabla 6 relacionamos los nombres de ambas ediciones para las características y subcaracterísticas vinculadas con nuestro alcance.
+
+Tabla 6. Equivalencias entre ISO/IEC 25010:2023 e ISO/IEC 25010:2011 para el alcance evaluado
+
+| Nombre en 2023 | Nombre en 2011 | Cambio |
+| :--- | :--- | :--- |
+| Capacidad de interacción | Usabilidad | Cambio de nombre. |
+| Aprendibilidad | Aprendibilidad | Sin cambio. |
+| Operabilidad | Operabilidad | Sin cambio. |
+| Protección contra errores de usuario | Protección contra errores de usuario | Sin cambio. |
+| Involucramiento del usuario | Estética de la interfaz de usuario | Reemplazo. |
+| Inclusividad y Asistencia al usuario | Accesibilidad | Accesibilidad se dividió en dos subcaracterísticas; en este trabajo se evalúa solo Inclusividad. |
+| Autodescriptividad | No existía | Nueva. |
+| Pertinencia funcional, Comportamiento temporal, Capacidad, Utilización de recursos | Pertinencia funcional, Comportamiento temporal, Capacidad, Utilización de recursos | Sin cambio. |
+| Flexibilidad | Portabilidad | Cambio de nombre (excluida). |
+| Protección (Safety) | No existía | Nueva característica (excluida). |
+
+Fuente: elaboración propia a partir de Starke (s. f.), que reproduce el resumen de cambios de ISO, y de International Organization for Standardization y International Electrotechnical Commission (2011, 2023).
+
+Los nombres en español empleados en las tablas y en la prosa de este informe corresponden a los acordados por el grupo. El portal iso25000.com traduce Learnability como Aprendizabilidad y User engagement como Involucración del usuario (ISO 25000, s. f.).
 
 ### 3.4. Población incluyente y excluyente
 
-Delimita con criterios concretos quiénes pueden participar en el estudio y quiénes quedan fuera.
+De acuerdo con el numeral 3 de la guía de la docente, antes de aplicar los instrumentos cualitativos y cuantitativos es necesario delimitar con precisión a quién se va a estudiar mediante criterios de inclusión y exclusión. Como explicamos en el apartado 1.6, DemoBlaze es una tienda demostrativa que no cuenta con compradores ni transacciones comerciales reales; por consiguiente, definimos la población de estudio como el conjunto de compradores en línea potenciales que podrían interactuar con un comercio electrónico de tecnología de estas características. En la Tabla 7 establecemos los criterios que delimitan quiénes forman parte de la población incluyente y quiénes quedan descartados en la población excluyente.
+
+Tabla 7. Criterios de inclusión y exclusión de la población
+
+| Criterio | Población incluyente | Población excluyente | Razón |
+| :--- | :--- | :--- | :--- |
+| Edad | Personas mayores de edad (18 años o más). | Personas menores de edad. | El flujo de compra simula el diligenciamiento de una tarjeta bancaria y la celebración de una compra en línea, operaciones orientadas a personas mayores de edad. |
+| Experiencia en comercio electrónico | Personas que han comprado en línea al menos una vez. | Personas que nunca han realizado una compra por internet. | Se requiere que el participante reconozca las convenciones básicas de un carrito de compras digital para que los extravíos observados obedezcan al diseño de DemoBlaze y no al desconocimiento general del medio. |
+| Conocimiento previo del sitio | Personas sin experiencia previa de uso o estudio sobre DemoBlaze. | Personas que ya conocen DemoBlaze antes de la sesión de prueba. | El conocimiento previo del catálogo o de la interfaz impediría evaluar en condiciones reales la aprendibilidad del sistema ante un primer contacto. |
+| Relación con la evaluación técnica | Personas externas a la ejecución de las pruebas técnicas de este proyecto. | Quienes participaron en las pruebas técnicas de este trabajo. | Quienes diseñaron o corrieron las pruebas automatizadas ya conocen de antemano la estructura del flujo y sus fallas, lo cual sesgaría la observación directa y las respuestas del cuestionario. |
+
+Fuente: elaboración propia a partir de la guía de la docente (numeral 3) y de `03_investigacion_usuarios_ux/README.md`.
+
+`[PENDIENTE: integrante 3, confirmar población]`
 
 ### 3.5. Tamaño y características de la muestra
 
-Justifica el tamaño de la muestra y describe el perfil de los participantes.
+Para la aplicación de la observación directa y del cuestionario SUS seleccionamos una muestra no probabilística por conveniencia compuesta por n = 5 participantes que cumplen los criterios de la población incluyente. Sustentamos este tamaño en Nielsen (2000), según quien un estudio con cinco participantes encuentra cerca del 85 % de los problemas de usabilidad de una interfaz. El cálculo parte de la fórmula N(1 - (1 - L)^n), donde N es el total de problemas, n el número de usuarios y L la proporción que encuentra un solo usuario, con un valor típico de L = 31 %. La estimación vale siempre que los participantes correspondan a usuarios comparables ("comparable users") que utilicen el sitio de maneras razonablemente similares.
+
+Una muestra de n = 5 participantes sirve para descubrir problemas de interacción durante la observación de tareas, pero no tiene alcance para generalizar estadísticamente el puntaje del cuestionario SUS a toda la población. De hecho, el mismo Nielsen (2000) recomienda evaluar al menos 20 usuarios cuando se realizan estudios cuantitativos orientados a estimar métricas de usabilidad con precisión estadística. Por esta razón, en este informe reportamos el puntaje SUS junto con su intervalo de confianza y lo interpretamos como un indicio descriptivo sobre la percepción de los cinco participantes evaluados, sin atribuirle carácter de medida poblacional.
+
+Conforme a los lineamientos definidos en `03_investigacion_usuarios_ux/README.md`, la caracterización de la muestra se documenta mediante cinco perfiles anónimos (Participante 1 a Participante 5), registrando para cada persona su edad, su grado de familiaridad con el comercio electrónico, el dispositivo y el navegador web utilizados durante la prueba y el tipo de conexión a internet empleada.
+
+`[PENDIENTE: integrante 3, perfiles de los 5 participantes]`
 
 ## 4. Instrumentos de medición, métricas y parámetros de comportamiento
 
-Fija, antes de medir, el instrumento, la métrica y el límite de decisión de cada subcaracterística.
+El numeral 4 de la guía de la docente establece que el diseño de la evaluación debe fijar de antemano los instrumentos, las métricas y los parámetros o límites de aceptación que determinan si el software cumple o no cada criterio, sin recurrir a datos numéricos ficticios. En consecuencia, en este capítulo definimos exclusivamente las fórmulas operativas y los umbrales de decisión, mientras que los valores medidos en las pruebas se reservan para el Punto 5. Dado que la norma ISO/IEC 25010 define el modelo de características y subcaracterísticas de calidad pero no prescribe umbrales numéricos, cada límite de comportamiento declara de manera explícita su fuente documental real, ya sea la guía de la docente, los criterios de Core Web Vitals y Google Lighthouse, las pautas WCAG 2.1 del W3C, los estudios de referencia de Sauro o una decisión justificada del grupo.
 
 ### 4.1. Tabla de instrumentos, métricas y límites de decisión
 
-Reúne en una tabla, con las cuatro columnas de la guía, cada subcaracterística, su instrumento, su fórmula y su umbral con la fuente.
+En la Tabla 8 consolidamos la matriz metodológica de evaluación desglosada por subcaracterística, conservando en la primera, tercera, cuarta y quinta columna los encabezados literales de la guía de la docente e incorporando la subcaracterística específica y la fuente documental de cada umbral.
+
+Tabla 8. Instrumentos, métricas y límites de decisión por subcaracterística
+
+| Dimensión ISO 25010 | Subcaracterística | Instrumento de Recolección / Herramienta | Métrica a Evaluar | Parámetros y Límites de Comportamiento (Umbrales de Éxito/Fracaso) | Fuente del umbral |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Adecuación funcional | Pertinencia funcional | Playwright (prueba funcional automatizada) y observación directa (Tareas 2 y 3) | Retroalimentación persistente: RP (%) = (acciones críticas que dejan una señal visible en la página después de ejecutarse, sin depender solo de un diálogo nativo del navegador / acciones críticas evaluadas) x 100. Acciones críticas evaluadas: agregar al carrito (Add to cart) y confirmar la compra (Purchase). Dato complementario de la observación: número de verificaciones forzadas en la Tarea 2 | RP = 100 % | Decisión del grupo apoyada en Laubheimer (2018). |
+| Adecuación funcional | Pertinencia funcional | Playwright y observación directa (Tarea 1) | Clics para localizar un producto: C = número de clics desde index.html hasta abrir la página de detalle del producto objetivo (Sony vaio i5) | C ≤ 3 clics | Decisión del grupo. |
+| Eficiencia de desempeño | Comportamiento temporal | k6 con 50 usuarios virtuales concurrentes | Tiempo de respuesta promedio: T (s) = suma de las duraciones de las peticiones HTTP / número de peticiones | T < 2,0 s con 50 usuarios concurrentes | Guía de la docente, numeral 4. |
+| Eficiencia de desempeño | Comportamiento temporal | Lighthouse en emulación móvil con throttling simulado (RTT 150 ms, ~1,6 Mbps, CPU x4) y PageSpeed Insights | Largest Contentful Paint (LCP): tiempo desde el inicio de la navegación hasta que se pinta el elemento de contenido más grande | LCP ≤ 2,5 s | Walton y Pollard (2025), Core Web Vitals. |
+| Eficiencia de desempeño | Comportamiento temporal | Lighthouse (mismas condiciones) y PageSpeed Insights | First Contentful Paint (FCP): tiempo hasta que se pinta el primer contenido | FCP ≤ 1,8 s | Walton (2023). |
+| Eficiencia de desempeño | Comportamiento temporal | Lighthouse (mismas condiciones) y PageSpeed Insights | Cumulative Layout Shift (CLS): suma de los desplazamientos inesperados del contenido durante la carga. Mide la estabilidad visual mientras la página termina de cargar, un aspecto del comportamiento de la página en el tiempo | CLS ≤ 0,1 | Mihajlija y Walton (2023), Core Web Vitals. |
+| Eficiencia de desempeño | Comportamiento temporal | Lighthouse (mismas condiciones) y PageSpeed Insights | Puntaje de rendimiento de Lighthouse (0 a 100), que combina las métricas de carga ponderadas | Puntaje ≥ 90 | Chrome for Developers (2019b), rango "Good". |
+| Eficiencia de desempeño | Comportamiento temporal | Script de medición HTTP con Playwright o Node.js | Tiempo de respuesta HTTP de los servicios /view y /bycat de la API: promedio de las duraciones de N peticiones | Propuesto: < 2,0 s, por extensión del límite de la guía. `[PENDIENTE: integrante 1, tiempos de respuesta de /view y /bycat; si no se miden, la fila se retira]` | Guía de la docente, numeral 4 (extensión propuesta por el grupo). |
+| Eficiencia de desempeño | Capacidad | k6 con 50 usuarios virtuales concurrentes | Tasa de error: E (%) = (peticiones HTTP fallidas / peticiones HTTP totales) x 100 | E ≤ 1 % (una tasa mayor al 1 % indica fallo de rendimiento) | Guía de la docente, numeral 4. |
+| Eficiencia de desempeño | Utilización de recursos | Lighthouse y GTmetrix | Peso total transferido: P (KiB) = suma de los bytes transferidos por todas las peticiones de la carga inicial de index.html / 1.024 | P < 1.600 KiB | Chrome for Developers (2019a). |
+| Eficiencia de desempeño | Utilización de recursos | Lighthouse y GTmetrix | Número de peticiones HTTP de la carga inicial de index.html | Propuesto: < 50 peticiones. `[PENDIENTE: integrante 4, decisión del grupo sobre este umbral, que no tiene fuente externa]` | Decisión técnica del integrante 1, sin fuente externa. |
+| Capacidad de interacción | Aprendibilidad | Observación directa (Tareas 1, 2 y 3) | Extravíos: X(p, t) = número de extravíos del participante p en la tarea t, según la definición operativa del apartado 4.2. Datos complementarios: promedio de extravíos por tarea y proporción de participantes con 2 o menos | Una tarea falla si algún participante registra más de 2 extravíos en ella | Guía de la docente, numeral 4 ("si el usuario se extravía más de 2 veces en una tarea básica, el diseño de interacción falla"). |
+| Capacidad de interacción | Aprendibilidad | Cuestionario SUS, ítems 4 y 10 | Subescala de aprendizaje (dato complementario): A = ((5 - X4) + (5 - X10)) x 12,5, de 0 a 100, donde X4 y X10 son las respuestas de 1 a 5 a los ítems 4 y 10; se reporta el promedio de los 5 participantes | Sin umbral propio: se reporta como dato complementario y la decisión de Aprendibilidad depende del conteo de extravíos | Lewis y Sauro (2009) y Sauro (2011a) para su origen; Sauro (2017) para la advertencia. |
+| Capacidad de interacción | Operabilidad | Cuestionario SUS (10 ítems, escala de 1 a 5) | SUS individual = (suma de (X - 1) en los ítems impares + suma de (5 - X) en los ítems pares) x 2,5; SUS global = promedio de los 5 participantes | SUS global ≥ 68 sobre 100 | Guía de la docente, numeral 4, y Sauro (2011a). |
+| Capacidad de interacción | Operabilidad | Observación directa (Tareas 1, 2 y 3) | Éxito por tarea: S(t) (%) = (participantes que completan la tarea t sin asistencia del observador / 5) x 100 | S(t) ≥ 80 % (al menos 4 de 5) en cada tarea | Decisión del grupo apoyada en Sauro (2011b), que reporta un 78 % promedio en casi 1.200 tareas; 80 % es el valor alcanzable con n = 5 más cercano. |
+| Capacidad de interacción | Operabilidad | Check My Links y verificación de enlaces con Playwright | Enlaces rotos: número de enlaces e imágenes de las vistas del flujo que responden con HTTP 404 o 5xx | 0 enlaces rotos | Decisión del grupo. |
+| Capacidad de interacción | Protección contra errores de usuario | Playwright (pruebas negativas del formulario Place Order) y observación directa (Tarea 4) | Tasa de rechazo: R (%) = (envíos inválidos que el sistema bloquea / envíos inválidos probados) x 100. Es inválido un envío con campos obligatorios vacíos o con un número de tarjeta con formato no numérico | R = 100 % | Decisión del grupo. |
+| Capacidad de interacción | Protección contra errores de usuario | Playwright | Proporción de acciones de borrado del carrito (Delete) que piden confirmación u ofrecen deshacer | Propuesto: 100 %. `[PENDIENTE: integrante 1, prueba automatizada de Delete en el carrito; si no se mide, la fila se retira]` | Decisión del grupo. |
+| Capacidad de interacción | Involucramiento del usuario | Playwright (estilos computados) y WhatFont | Uniformidad tipográfica: UT (%), fórmula del apartado 4.2 | UT ≥ 90 % | Decisión justificada del grupo. |
+| Capacidad de interacción | Involucramiento del usuario | Playwright (estilos computados) y ColorZilla | Consistencia cromática entre componentes: CCC (%), fórmula del apartado 4.2 | CCC = 100 % | Decisión justificada del grupo. |
+| Capacidad de interacción | Inclusividad | axe-core (reglas WCAG 2.1 niveles A y AA) | Número de violaciones con impacto crítico ("critical") en index.html y cart.html | 0 violaciones críticas | Decisión del grupo basada en WCAG 2.1 (Kirkpatrick et al., 2025). |
+| Capacidad de interacción | Inclusividad | axe-core (regla color-contrast) y cálculo de la relación de contraste | Conformidad de contraste: CC (%) = (elementos de texto auditados con relación de contraste ≥ 4,5:1, o ≥ 3:1 si son texto grande / elementos de texto auditados) x 100 | CC = 100 % | Kirkpatrick et al. (2025), WCAG 2.1, criterio 1.4.3, nivel AA. |
+| Capacidad de interacción | Inclusividad | axe-core con los modales abiertos | Proporción de campos de los modales con etiqueta o nombre accesible (regla label de axe-core) | Propuesto: 100 %. `[PENDIENTE: integrante 1, auditoría de etiquetas con los modales abiertos; si no se mide, la fila se retira]` | Decisión del grupo basada en WCAG 2.1. |
+| Capacidad de interacción | Inclusividad | W3C Markup Validation Service | Número de errores de marcado HTML en index.html | Propuesto: 0 errores. `[PENDIENTE: integrante 2, validación W3C; si no se mide, la fila se retira]` | Decisión del grupo. |
+
+Fuente: elaboración propia a partir de la guía de la docente (numeral 4), del acuerdo del grupo y de las fuentes citadas en la última columna.
+
+Tres aspectos de la Tabla 8 requieren aclaración. Primero, en las métricas LCP, FCP y CLS utilizamos el operador "menor o igual" porque la documentación oficial de web.dev formula así el rango aceptable mediante la expresión "or less" (Mihajlija y Walton, 2023; Walton, 2023; Walton y Pollard, 2025), mientras que en el tiempo de respuesta promedio y en el peso transferido empleamos el operador "menor que" por fidelidad literal a la guía de la docente y a la recomendación de Lighthouse ("below 1,600 KiB"; Chrome for Developers, 2019a). Segundo, la corrida automatizada de Lighthouse se ejecutó bajo emulación móvil con throttling simulado (RTT de 150 ms, ancho de banda aproximado de 1,6 Mbps y ralentización de CPU por un factor de 4), condición más exigente que una conexión de escritorio; al respecto, Chrome for Developers (2019b) advierte que las ejecuciones en escritorio y en móvil aplican curvas de puntuación diferentes. Tercero, la subescala de aprendizaje derivada de los ítems 4 y 10 del SUS (Lewis y Sauro, 2009; Sauro, 2011a) no tiene un umbral de decisión propio porque Sauro (2017), junto con Lewis, recomienda tratar el SUS como una medida unidimensional de usabilidad percibida y no calcular sus subescalas de manera rutinaria, razón por la cual la incluimos únicamente como dato descriptivo de apoyo.
 
 ### 4.2. Definiciones operativas
 
-Precisa cómo se mide la uniformidad visual y qué cuenta como extravío en la observación directa.
+Para que las métricas de apariencia visual y de comportamiento del usuario durante las sesiones prácticas puedan replicarse sin ambigüedad, establecemos a continuación sus definiciones operativas, diferenciando con precisión el ámbito de cada indicador.
+
+#### Uniformidad tipográfica y consistencia cromática
+
+Evaluamos la consistencia visual dentro de la subcaracterística de Involucramiento del usuario mediante dos fórmulas complementarias:
+
+1. Uniformidad tipográfica: UT (%) = (elementos auditados cuya familia tipográfica computada coincide con la familia dominante del sitio / elementos auditados) x 100.
+
+2. Consistencia cromática entre componentes: CCC (%) = (elementos auditados cuyo color de texto y color de fondo efectivo son iguales a los de su homólogo en otra vista / elementos auditados que tienen homólogo en otra vista) x 100.
+
+Consideramos homólogos aquellos elementos que comparten la misma clase y cumplen la misma función interactiva en vistas distintas del flujo (por ejemplo, el botón verde de acción principal en prod.html y el de cart.html). La propiedad tipográfica queda fuera del cálculo de CCC porque ya es medida por el indicador UT. Asimismo, la relación de contraste entre el color de texto y el fondo no se incluye dentro de Involucramiento del usuario, sino que se evalúa exclusivamente en la subcaracterística de Inclusividad bajo el criterio 1.4.3 de WCAG 2.1 (Kirkpatrick et al., 2025), evitando así penalizar dos veces un mismo defecto cromático. En cuanto a los límites de decisión, fijamos UT ≥ 90 % y no 100 % porque el sitio integra librerías externas como Bootstrap cuyos estilos por defecto pueden introducir variaciones menores en ciertos controles; en cambio, un mismo componente sí debe conservar exactamente su esquema de color en todas las vistas donde aparece, razón por la cual exigimos CCC = 100 %.
+
+#### Extravío, verificaciones forzadas y éxito de tarea
+
+Para evaluar la observación directa de las tareas asignadas a los participantes, definimos de manera operativa qué eventos observables constituyen un extravío, cuáles se registran en categorías separadas y cuándo una tarea se considera exitosa:
+
+1. Eventos que suman un extravío: se contabiliza un extravío cada vez que el participante, mientras intenta resolver una tarea sin asistencia, incurre en cualquiera de tres conductas observables: primero, un desvío de ruta o de categoría al abrir una vista, un modal o un filtro que no forma parte de la ruta mínima de la tarea; segundo, un clic sobre un elemento que aparenta ser interactivo pero carece de destino útil para la tarea, o el uso del botón de retroceso del navegador o del enlace Home para deshacer un desvío previo; y tercero, pedir ayuda al observador o manifestar verbalmente que no sabe cómo continuar.
+
+2. Eventos que no cuentan como extravío: excluimos del conteo de extravíos los errores de digitación o de formato cometidos cuando el participante ya se encuentra dentro del formulario correcto (como ingresar letras en el campo de tarjeta del modal Place Order o dejar casillas vacías), dado que en ese escenario no existe desorientación espacial en la navegación y el fenómeno pertenece a la subcaracterística de Protección contra errores de usuario. Tampoco suman extravío los clics repetidos por impaciencia sobre un mismo botón correcto mientras responde la red, los cuales se registran aparte como clics innecesarios. Cada extravío se cuenta como un número entero por participante y por tarea individual en las Tareas 1, 2 y 3.
+
+3. Verificaciones forzadas: definimos como verificación forzada la acción de ingresar a otra vista del sitio con el único propósito de confirmar el estado del sistema porque la interfaz no proporcionó esa información en la pantalla actual (por ejemplo, abrir la vista Cart durante la Tarea 2 para averiguar cuántos artículos se han agregado, dado que el enlace Cart de la barra superior carece de contador numérico). Estas acciones se anotan en una columna independiente, no suman al conteo de extravíos y alimentan el análisis de retroalimentación persistente en la subcaracterística de Pertinencia funcional.
+
+4. Éxito de tarea: consideramos que una tarea es exitosa cuando el participante logra completarla por sus propios medios sin recibir asistencia del observador. Si el participante finaliza la tarea con dificultad o tras desviarse de la ruta óptima, la tarea cuenta igualmente como exitosa y esa fricción queda capturada en el número de extravíos registrados; por el contrario, si solicita ayuda para poder avanzar, la tarea se califica como no exitosa y dicha solicitud añade además un extravío al registro.
+
+En la Tabla 9 presentamos las rutas mínimas de referencia y el número mínimo de clics de las cuatro tareas del protocolo de observación directa, que sirven como patrón de comparación para el conteo de clics y extravíos.
+
+Tabla 9. Rutas mínimas de referencia de las tareas de observación directa
+
+| Tarea | Objetivo | Ruta mínima | Clics mínimos |
+| :--- | :--- | :--- | :--- |
+| Tarea 1 (Exploración y búsqueda) | Localizar el computador portátil Sony vaio i5 partiendo desde index.html. | Ruta A (filtrada): en index.html, clic 1 en la categoría Laptops y clic 2 en Sony vaio i5 (prod.html?idp_=8). Ruta B (directa): en index.html, desplazamiento vertical y clic 1 directo en la tarjeta Sony vaio i5 del catálogo inicial. | 1 a 2 clics |
+| Tarea 2 (Adición al carrito) | Agregar Sony vaio i5 al carrito e identificar desde la barra de navegación cuántos productos hay en el carrito. | En prod.html?idp_=8, clic 1 en el botón Add to cart, clic 2 en aceptar el diálogo nativo del navegador con el texto "Product added" y lectura visual del enlace Cart en la barra superior. | 2 clics |
+| Tarea 3 (Checkout y pago) | Ir al carrito (cart.html), abrir el formulario Place Order y completar la orden de compra. | Desde prod.html?idp_=8, clic 1 en el enlace Cart, clic 2 en el botón Place Order, llenado de los 6 campos del formulario, clic 3 en el botón Purchase y clic 4 en el botón OK del comprobante de confirmación. | 4 clics (más escritura en 6 campos) |
+| Tarea 4 (Validación de errores) | Probar el envío del formulario Place Order con campos vacíos o tarjeta alfabética y observar la respuesta del sistema. | En cart.html, clic 1 en el botón Place Order, ingreso de nombre y texto alfabético en el campo Credit card dejando vacíos los demás campos, clic 2 en el botón Purchase y observación del comprobante generado. | 2 clics (más escritura de prueba) |
+
+Fuente: elaboración propia a partir de `03_investigacion_usuarios_ux/README.md`.
+
+Aclaramos que la Tarea 4 instruye de manera deliberada el envío del formulario con datos inválidos para observar si el participante advierte la falta de validación en el modal de pago; por esta razón, sus registros alimentan la evaluación de Protección contra errores de usuario y no se someten a la regla de decisión de extravíos de Aprendibilidad.
 
 ### 4.3. Triangulación de instrumentos
 
-Indica qué métrica automática se cruza con qué instrumento de percepción humana en cada dimensión.
+El numeral 4 de la guía de la docente exige aplicar triangulación metodológica, combinando las mediciones obtenidas mediante herramientas técnicas automatizadas con instrumentos de percepción y desempeño humano para evitar sesgos de un único método. En la Tabla 10 sintetizamos cómo se articula este cruce para cada característica y subcaracterística evaluada.
+
+Tabla 10. Triangulación entre métricas automatizadas e instrumentos humanos
+
+| Característica | Métricas automatizadas | Instrumento humano | Tipo de cruce |
+| :--- | :--- | :--- | :--- |
+| Adecuación funcional (Pertinencia funcional) | Verificación en el DOM de la retroalimentación al pulsar Add to cart y Purchase, ausencia de buscador y conteo mínimo de clics con Playwright. | Observación directa de las Tareas 1 y 2: conteo de clics reales, reacción ante la falta de buscador y registro de verificaciones forzadas al consultar el carrito. | Directo |
+| Capacidad de interacción (Aprendibilidad, Operabilidad y Protección contra errores de usuario) | Verificación de enlaces con Playwright y Check My Links, e inyección de pruebas negativas en el formulario Place Order. | Cuestionario SUS (puntaje global y subescala de aprendizaje) y observación directa de las Tareas 1 a 4 (tasas de éxito, extravíos y reacción ante la compra con datos inválidos). | Directo |
+| Capacidad de interacción (Involucramiento del usuario e Inclusividad) | Auditoría de familias tipográficas y colores computados con Playwright, WhatFont y ColorZilla; escaneo de reglas WCAG 2.1 con axe-core y validación con W3C. | Registro de comentarios espontáneos en voz alta sobre la apariencia visual o la legibilidad del texto durante la observación directa. | Condicionado al registro cualitativo |
+| Eficiencia de desempeño (Comportamiento temporal, Capacidad y Utilización de recursos) | Pruebas de carga con 50 usuarios virtuales en k6, métricas LCP, FCP, CLS, puntaje de rendimiento, peso y peticiones en Lighthouse, PageSpeed Insights y GTmetrix. | Registro de tiempos por tarea y de comentarios en voz alta sobre demoras o esperas percibidas durante la observación directa. | Indirecto |
+
+Fuente: elaboración propia a partir de la guía de la docente (numeral 4) y del diseño metodológico del grupo.
+
+En Adecuación funcional y en las tres primeras subcaracterísticas de Capacidad de interacción (Aprendibilidad, Operabilidad y Protección contra errores de usuario) la triangulación es directa, pues el mismo fenómeno técnico auditado por los scripts (como la ausencia de contador en el enlace Cart, la falta de barra de búsqueda o la aceptación de una tarjeta alfabética en el modal Place Order) se enfrenta con el comportamiento observable y las respuestas de los cinco participantes al ejecutar las Tareas 1 a 4 y al diligenciar el cuestionario SUS. En cambio, para Involucramiento del usuario e Inclusividad el contraste con la percepción humana depende de que las sesiones recojan menciones sobre el aspecto gráfico o el contraste de los textos: `[PENDIENTE: integrante 3, registro de comentarios sobre apariencia y legibilidad]`. Si durante las sesiones los participantes no formulan observaciones sobre estos dos puntos, declararemos expresamente en el Paso 4 que el cruce para ambas subcaracterísticas es débil y que su dictamen descansa principalmente en la evidencia técnica.
+
+En Eficiencia de desempeño el cruce tiene un alcance menor. No contamos con un instrumento humano diseñado para medir velocidades de red o milisegundos de renderizado, por lo que la triangulación en esta dimensión es indirecta y se apoya en los comentarios en voz alta sobre posibles demoras y en el tiempo total empleado en cada tarea. Dado que el tiempo de tarea de un participante incluye el lapso que la persona dedica a leer, pensar y decidir qué hacer, dicha medida no es directamente comparable con métricas técnicas como el LCP o el tiempo de respuesta de la API, sino que sirve únicamente para verificar si los usuarios percibieron esperas molestas durante la navegación. Esta limitación metodológica se retoma de manera explícita dentro del análisis de amenazas a la validez en el Paso 4.
 
 ## 5. Proceso de evaluación paso a paso
 
@@ -382,11 +527,41 @@ Baymard Institute. (2025, 22 de septiembre). *50 Cart Abandonment Rate Statistic
 
 Cámara Colombiana de Comercio Electrónico. (2025, 13 de junio). *Informe Trimestral del Comercio Electrónico en Colombia 2025-I*. CCCE. https://ccce.org.co/noticias/informe-trimestral-del-comercio-electronico-en-colombia-2025-i/
 
+Chrome for Developers. (2019a, 2 de mayo). *Avoid enormous network payloads*. Google. https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight
+
+Chrome for Developers. (2019b, 19 de septiembre). *Lighthouse performance scoring*. Google. https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
+
+International Organization for Standardization y International Electrotechnical Commission. (2011). *ISO/IEC 25010:2011 Systems and software engineering: Systems and software Quality Requirements and Evaluation (SQuaRE): System and software quality models*. ISO. https://www.iso.org/standard/35733.html
+
+International Organization for Standardization y International Electrotechnical Commission. (2023). *ISO/IEC 25010:2023 Systems and software engineering: Systems and software Quality Requirements and Evaluation (SQuaRE): Product quality model* (2.ª ed.). ISO. https://www.iso.org/standard/78176.html
+
+ISO 25000. (s. f.). *ISO/IEC 25010*. iso25000.com. https://iso25000.com/index.php/normas-iso-25000/iso-25010
+
+Kirkpatrick, A., O Connor, J., Campbell, A., y Cooper, M. (Eds.). (2025, 6 de mayo). *Web Content Accessibility Guidelines (WCAG) 2.1*. W3C. https://www.w3.org/TR/WCAG21/
+
 Laubheimer, P. (2018, 17 de junio). *Adding an Item to a Shopping Cart: Provide Clear, Persistent Feedback*. Nielsen Norman Group. https://www.nngroup.com/articles/cart-feedback/
+
+Lewis, J. R., y Sauro, J. (2009). The Factor Structure of the System Usability Scale. En *Proceedings of the Human Computer Interaction International Conference (HCII 2009)*. Springer. https://doi.org/10.1007/978-3-642-02806-9_12
+
+Mihajlija, M., y Walton, P. (2023, 12 de abril). *Cumulative Layout Shift (CLS)*. web.dev. https://web.dev/articles/cls
+
+Nielsen, J. (2000, 18 de marzo). *Why You Only Need to Test with 5 Users*. Nielsen Norman Group. https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
 
 Panetti, J. (2023, 23 de mayo). *Running Your Own Gatling Script in Blazemeter Cloud*. Perforce BlazeMeter. https://www.blazemeter.com/blog/gatling-script
 
+Sauro, J. (2011a, 3 de febrero). *Measuring Usability with the System Usability Scale (SUS)*. MeasuringU. https://measuringu.com/sus/
+
+Sauro, J. (2011b, 21 de marzo). *What Is A Good Task-Completion Rate?* MeasuringU. https://measuringu.com/task-completion/
+
+Sauro, J. (2017, 8 de noviembre). *Recent Advances with the System Usability Scale*. MeasuringU. https://measuringu.com/sus-advances/
+
 Scott, E. (2024, 9 de enero). *Usability Testing of Inline Form Validation: 31% Don’t Have It, 4% Get It Wrong*. Baymard Institute. https://baymard.com/research-articles/inline-form-validation
+
+Starke, G. (s. f.). *Update on ISO 25010, version 2023*. arc42 Quality Model. https://quality.arc42.org/articles/iso-25010-update-2023
+
+Walton, P. (2023, 6 de diciembre). *First Contentful Paint (FCP)*. web.dev. https://web.dev/articles/fcp
+
+Walton, P., y Pollard, B. (2025, 4 de septiembre). *Largest Contentful Paint (LCP)*. web.dev. https://web.dev/articles/lcp
 
 ## Anexos
 
