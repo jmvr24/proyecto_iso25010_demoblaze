@@ -1,7 +1,0 @@
-ID_Participante,Nombre_Referencia,Edad,Nivel_Familiaridad,Tarea_Critica_Completada,Porcentaje_Exito,Tiempo_Min_Seg,Tiempo_Segundos,Numero_Extravios,Limite_Extravios_Cumplido,Observaciones_Navegacion_Carrito,Observaciones_Formulario_Place_Order,Puntaje_SUS,Dictamen_Umbral_SUS
-U1,Gildardo 1,50,Manejo de PC,Si,100%,03:30,210,1,Si,Tenia problemas para salir de la ventana de confirmacion al anadir un producto al carrito.,No sabia como escribir el numero de tarjeta de credito,37.50,Reprobado
-U2,Luz Dary,50,Manejo de PC,Si,100%,04:05,245,1,Si,Tuvo problemas para encontrar como acceder al carrito,No sabia en que formato escribir el mes el ano y el numero de tarjeta de credito,50.00,Reprobado
-U3,Luis,28,Alto,Si,100%,02:07,127,0,Si,Intuyo como filtrar articulos y salir de la confirmacion de carrito.,Escribio los datos de la tarjeta de credito como penso que era.,57.50,Reprobado
-U4,Carlos,45,Intermedio,Si,100%,03:04,184,1,Si,Le parecio extrano que no se puedan buscar los productos por el nombre,Pregunto como escribir la tarjeta de credito y sus datos.,47.50,Reprobado
-U5,Luisa,23,Alto,Si,100%,02:37,157,1,Si,Pregunto si habia una barra de busqueda de productos,Pregunto sobre los datos de la tarjeta de credito y si debia llenar todos los campos.,45.00,Reprobado
-PROMEDIO_GLOBAL,Rango 23-50 anos (n=5),39.2,Mixto,Si,100%,03:05,184.6,0.8,Si,Cohorte joven/intermedia extrano barra de busqueda; cohorte 50 anos tuvo friccion con alert nativo y acceso al carrito.,100% presento dudas de formato y obligatoriedad en Place Order por falta de validaciones.,47.50,Reprobado
