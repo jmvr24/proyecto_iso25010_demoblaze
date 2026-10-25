@@ -1,0 +1,234 @@
+{
+  "normaReferencia": "ISO/IEC 25010:2023 (Adecuación Funcional y Capacidad de Interacción)",
+  "sistemaEvaluado": "DemoBlaze E-Commerce (https://www.demoblaze.com/index.html)",
+  "viewport": "1280x800",
+  "timestamp": "2026-10-25T02:42:56.293Z",
+  "adecuacionFuncional": {
+    "completitudFuncional": {
+      "buscadorPorTexto": {
+        "existeInputTypeSearch": false,
+        "conteoInputTypeSearch": 0,
+        "existeInputPlaceholderSearch": false,
+        "conteoInputPlaceholderSearch": 0,
+        "existeRoleSearch": false,
+        "conteoInputsVisiblesEnHome": 0,
+        "totalInputsEnDomModalesOcultos": 6,
+        "conclusion": "AUSENTE: El DOM de DemoBlaze no posee ningún campo de búsqueda (<input type=\"search\">, barra de búsqueda por texto ni filtro por palabras clave). Los únicos elementos <input> del DOM pertenecen a modales ocultos (#exampleModal, #logInModal, #signInModal)."
+      },
+      "modificacionCantidadEnCarrito": {
+        "permiteCambiarCantidad": false,
+        "observacion": "La tabla del carrito (#tbodyid) solo muestra Picture, Title, Price y un enlace Delete; carece de controles numéricos para incrementar/decrementar unidades de un mismo producto."
+      }
+    },
+    "correccionFuncional": {
+      "catalogoInicial": {
+        "categoriasDisponibles": [
+          "Phones",
+          "Laptops",
+          "Monitors"
+        ],
+        "totalProductosVistaInicial": 9,
+        "productosVistaInicial": [
+          {
+            "titulo": "Samsung galaxy s6",
+            "precio": "$360",
+            "descripcion": "The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded."
+          },
+          {
+            "titulo": "Nokia lumia 1520",
+            "precio": "$820",
+            "descripcion": "The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM."
+          },
+          {
+            "titulo": "Nexus 6",
+            "precio": "$650",
+            "descripcion": "The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM."
+          },
+          {
+            "titulo": "Samsung galaxy s7",
+            "precio": "$800",
+            "descripcion": "The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card."
+          },
+          {
+            "titulo": "Iphone 6 32gb",
+            "precio": "$790",
+            "descripcion": "It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies."
+          },
+          {
+            "titulo": "Sony xperia z5",
+            "precio": "$320",
+            "descripcion": "Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch."
+          },
+          {
+            "titulo": "HTC One M9",
+            "precio": "$700",
+            "descripcion": "The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card."
+          },
+          {
+            "titulo": "Sony vaio i5",
+            "precio": "$790",
+            "descripcion": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight."
+          },
+          {
+            "titulo": "Sony vaio i7",
+            "precio": "$790",
+            "descripcion": "REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive."
+          }
+        ]
+      },
+      "filtradoPorCategoriaLaptops": {
+        "categoriaSeleccionada": "Laptops",
+        "productosListados": [
+          "Sony vaio i5",
+          "Sony vaio i7",
+          "MacBook air",
+          "Dell i7 8gb",
+          "2017 Dell 15.6 Inch",
+          "MacBook Pro"
+        ],
+        "productoObjetivoEncontrado": true
+      },
+      "vistaDetalleProducto": {
+        "url": "https://www.demoblaze.com/prod.html?idp_=8",
+        "nombre": "Sony vaio i5",
+        "precio": "$790 *includes tax",
+        "descripcion": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.",
+        "imagenSrc": "imgs/sony_vaio_5.jpg",
+        "botonAddToCartTexto": "Add to cart"
+      },
+      "carritoDeCompras": {
+        "url": "https://www.demoblaze.com/cart.html",
+        "totalMostrado": "790",
+        "cantidadFilas": 1,
+        "items": [
+          {
+            "imagen": "imgs/sony_vaio_5.jpg",
+            "titulo": "Sony vaio i5",
+            "precio": "790",
+            "accion": "Delete"
+          }
+        ],
+        "permiteModificarCantidadUnitaria": false
+      }
+    },
+    "pertinenciaFuncional": {
+      "feedbackAgregarAlCarrito": {
+        "mecanismoUtilizado": "window.alert nativo bloqueante del navegador",
+        "tipoDialogo": "alert",
+        "textoExactoAlert": "Product added",
+        "estadoNavbarAntes": {
+          "texto": "Cart",
+          "innerHTML": "Cart",
+          "childElementCount": 0
+        },
+        "estadoNavbarDespues": {
+          "texto": "Cart",
+          "innerHTML": "Cart",
+          "childElementCount": 0,
+          "conteoBadgesEnNavbar": 0,
+          "existeContadorNumericoEnNavbar": false
+        },
+        "ausenciaContadorBadgeEnNavbar": true,
+        "hallazgo": "Al agregar un producto al carrito se lanza un alert() nativo (\"Product added\") que bloquea el hilo principal, y el enlace #cartur (\"Cart\") en la barra de navegación no muestra ningún badge o contador numérico de ítems."
+      }
+    }
+  },
+  "capacidadDeInteraccion": {
+    "proteccionContraErroresDeUsuario": {
+      "inspeccionAtributosHtml5OrderModal": [
+        {
+          "id": "name",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        },
+        {
+          "id": "country",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        },
+        {
+          "id": "card",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        },
+        {
+          "id": "month",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        },
+        {
+          "id": "year",
+          "type": "text",
+          "required": false,
+          "pattern": null,
+          "minLength": null,
+          "maxLength": null,
+          "inputMode": null
+        }
+      ],
+      "pruebaNegativa1_FormularioCompletamenteVacio": {
+        "descripcion": "Envío del formulario Place Order con los 6 campos vacíos (#name, #country, #city, #card, #month, #year).",
+        "accion": "Click en button[onclick=\"purchaseOrder()\"]",
+        "resultadoEsperado": "Validación integral de todos los campos obligatorios con mensajes inline accesibles.",
+        "resultadoObtenido": {
+          "bloqueoEnvio": true,
+          "mecanismo": "window.alert nativo",
+          "textoExactoAlert": "Please fill out Name and Creditcard.",
+          "observacion": "Solo reclama Name y Creditcard mediante un alert() nativo; ignora por completo Country, City, Month y Year."
+        }
+      },
+      "pruebaNegativa2_TarjetaAlfabeticaYCamposIncompletos": {
+        "descripcion": "Ingreso de texto alfabético inválido en tarjeta de crédito (#card = \"TARJETA_FALSA_SIN_NUMEROS_ABC\") dejando vacíos Country, City, Month y Year.",
+        "datosIngresados": {
+          "name": "Usuario Prueba QA",
+          "country": "",
+          "city": "",
+          "card": "TARJETA_FALSA_SIN_NUMEROS_ABC",
+          "month": "",
+          "year": ""
+        },
+        "resultadoEsperado": "Rechazo de la transacción por formato inválido de tarjeta (no numérico / fallo algoritmo de Luhn) y por ausencia de fecha de expiración y ubicación.",
+        "resultadoObtenido": {
+          "transaccionRechazada": false,
+          "compraProcesadaExitosamente": true,
+          "tituloModalConfirmacion": "Thank you for your purchase!",
+          "detalleReciboGenerado": "Id: 3747911\nAmount: 790 USD\nCard Number: TARJETA_FALSA_SIN_NUMEROS_ABC\nName: Usuario Prueba QA\nDate: 24/9/2026",
+          "severidadHallazgo": "CRÍTICA",
+          "conclusion": "FALLO CRÍTICO DE PROTECCIÓN CONTRA ERRORES: El sistema carece de validación de tipo de datos, longitud, expresión regular o algoritmo de Luhn sobre #card, y no valida #country, #city, #month ni #year. Emite confirmación exitosa (\"Thank you for your purchase!\") con una tarjeta alfabética (\"TARJETA_FALSA_SIN_NUMEROS_ABC\")."
+        }
+      }
+    }
+  },
+  "evidenciasVisualesGeneradas": [
+    "./01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/01_home_catalogo.png",
+    "./01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/02_detalle_producto.png",
+    "./01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/03_carrito_compras.png",
+    "./01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/04_modal_checkout_vacio.png",
+    "./01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/05_fallo_proteccion_errores_checkout.png"
+  ]
+}

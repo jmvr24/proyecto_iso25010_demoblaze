@@ -1,0 +1,621 @@
+{
+  "herramienta": "@axe-core/playwright v4.14.0",
+  "estandarEvaluado": "WCAG 2.0 / 2.1 Niveles A y AA + Best Practices",
+  "viewport": "1280x800",
+  "timestamp": "2026-10-25T02:42:53.394Z",
+  "resumenGlobal": {
+    "paginasAuditadas": 2,
+    "conteoPorSeveridadConsolidado": {
+      "critical": 2,
+      "serious": 3,
+      "moderate": 6,
+      "minor": 0
+    },
+    "totalReglasVioladasConsolidado": 11,
+    "totalNodosAfectadosConsolidado": 45
+  },
+  "paginas": {
+    "indexHtml": {
+      "url": "https://www.demoblaze.com/index.html",
+      "pageContext": "Home / Catálogo Principal (index.html)",
+      "timestamp": "2026-10-25T02:42:44.626Z",
+      "totalViolationsRules": 6,
+      "totalAffectedNodes": 34,
+      "totalPassesRules": 29,
+      "totalIncompleteRules": 1,
+      "severityCounts": {
+        "critical": 1,
+        "serious": 2,
+        "moderate": 3,
+        "minor": 0
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "nodesCount": 18,
+          "nodes": [
+            {
+              "html": "<h5>$360</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(1) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded.  </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(1) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$820</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(2) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM.  </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(2) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$650</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(3) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM. </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(3) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$800</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(4) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card. </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(4) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$790</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(5) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies. </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(5) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$320</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(6) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch. </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(6) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$700</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(7) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card.  </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(7) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$790</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(8) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight. </p>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(8) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<h5>$790</h5>",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(9) > .card.h-100 > .card-block > h5"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<p id=\"article\" class=\"card-text\">",
+              "target": [
+                ".col-md-6.mb-4.col-lg-4:nth-child(9) > .card.h-100 > .card-block > .card-text"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            }
+          ]
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+          "help": "Images must have alternative text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=playwright",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag111",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT7.a",
+            "TT7.b",
+            "EN-301-549",
+            "EN-9.1.1.1",
+            "ACT",
+            "RGAAv4",
+            "RGAA-1.1.1"
+          ],
+          "nodesCount": 2,
+          "nodes": [
+            {
+              "html": "<img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\">",
+              "target": [
+                "#nava > img[width=\"50\"][height=\"50\"][src=\"blazemeter-favicon-512x512.png\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "impact": "critical"
+            },
+            {
+              "html": "<img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\">",
+              "target": [
+                "h4 > img[width=\"50\"][height=\"50\"][src=\"blazemeter-favicon-512x512.png\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "impact": "critical"
+            }
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright",
+          "tags": [
+            "cat.semantics",
+            "best-practice"
+          ],
+          "nodesCount": 1,
+          "nodes": [
+            {
+              "html": "<html lang=\"en\">",
+              "target": [
+                "html"
+              ],
+              "failureSummary": "Fix all of the following:\n  Document does not have a main landmark",
+              "impact": "moderate"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "description": "Ensure links have discernible text",
+          "help": "Links must have discernible text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=playwright",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag244",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.2.4.4",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-6.2.1"
+          ],
+          "nodesCount": 9,
+          "nodes": [
+            {
+              "html": "<a href=\"prod.html?idp_=1\"><img class=\"card-img-top img-fluid\" src=\"imgs/galaxy_s6.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=1\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=2\"><img class=\"card-img-top img-fluid\" src=\"imgs/Lumia_1520.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=2\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=3\"><img class=\"card-img-top img-fluid\" src=\"imgs/Nexus_6.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=3\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=4\"><img class=\"card-img-top img-fluid\" src=\"imgs/galaxy_s6.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=4\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=5\"><img class=\"card-img-top img-fluid\" src=\"imgs/iphone_6.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=5\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=6\"><img class=\"card-img-top img-fluid\" src=\"imgs/xperia_z5.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=6\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=7\"><img class=\"card-img-top img-fluid\" src=\"imgs/HTC_M9.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=7\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=8\"><img class=\"card-img-top img-fluid\" src=\"imgs/sony_vaio_5.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=8\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            },
+            {
+              "html": "<a href=\"prod.html?idp_=9\"><img class=\"card-img-top img-fluid\" src=\"imgs/sony_vaio_5.jpg\" alt=\"\"></a>",
+              "target": [
+                ".card.h-100 > a[href=\"prod.html?idp_=9\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+              "impact": "serious"
+            }
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright",
+          "tags": [
+            "cat.semantics",
+            "best-practice"
+          ],
+          "nodesCount": 1,
+          "nodes": [
+            {
+              "html": "<html lang=\"en\">",
+              "target": [
+                "html"
+              ],
+              "failureSummary": "Fix all of the following:\n  Page must have a level-one heading",
+              "impact": "moderate"
+            }
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright",
+          "tags": [
+            "cat.keyboard",
+            "best-practice",
+            "RGAAv4",
+            "RGAA-9.2.1"
+          ],
+          "nodesCount": 3,
+          "nodes": [
+            {
+              "html": "<div class=\"col-lg-3\">",
+              "target": [
+                "#contcont > .row > .col-lg-3"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            },
+            {
+              "html": "<div class=\"row\" id=\"tbodyid\">",
+              "target": [
+                "#tbodyid"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            },
+            {
+              "html": "<div id=\"footc\">",
+              "target": [
+                "#footc"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            }
+          ]
+        }
+      ]
+    },
+    "cartHtml": {
+      "url": "https://www.demoblaze.com/cart.html",
+      "pageContext": "Carrito de Compras (cart.html)",
+      "timestamp": "2026-10-25T02:42:52.827Z",
+      "totalViolationsRules": 5,
+      "totalAffectedNodes": 11,
+      "totalPassesRules": 28,
+      "totalIncompleteRules": 2,
+      "severityCounts": {
+        "critical": 1,
+        "serious": 1,
+        "moderate": 3,
+        "minor": 0
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "nodesCount": 2,
+          "nodes": [
+            {
+              "html": "<a href=\"#\" onclick=\"deleteItem('065db4e1-224b-c24c-3e97-957b74c1dc7e')\">Delete</a>",
+              "target": [
+                "td:nth-child(4) > a[href=\"#\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.13 (foreground color: #0275d8, background color: #f2f2f2, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            },
+            {
+              "html": "<button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#orderModal\">Place Order</button>",
+              "target": [
+                ".btn-success"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #ffffff, background color: #34a853, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "impact": "serious"
+            }
+          ]
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+          "help": "Images must have alternative text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=playwright",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag111",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT7.a",
+            "TT7.b",
+            "EN-301-549",
+            "EN-9.1.1.1",
+            "ACT",
+            "RGAAv4",
+            "RGAA-1.1.1"
+          ],
+          "nodesCount": 3,
+          "nodes": [
+            {
+              "html": "<img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\">",
+              "target": [
+                "#nava > img[width=\"50\"][height=\"50\"][src=\"blazemeter-favicon-512x512.png\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "impact": "critical"
+            },
+            {
+              "html": "<img width=\"100\" height=\"100\" src=\"imgs/sony_vaio_5.jpg\">",
+              "target": [
+                "img[width=\"100\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "impact": "critical"
+            },
+            {
+              "html": "<img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\">",
+              "target": [
+                "h4 > img[width=\"50\"][height=\"50\"][src=\"blazemeter-favicon-512x512.png\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "impact": "critical"
+            }
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "description": "Ensure the document has a main landmark",
+          "help": "Document should have one main landmark",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright",
+          "tags": [
+            "cat.semantics",
+            "best-practice"
+          ],
+          "nodesCount": 1,
+          "nodes": [
+            {
+              "html": "<html lang=\"en\">",
+              "target": [
+                "html"
+              ],
+              "failureSummary": "Fix all of the following:\n  Document does not have a main landmark",
+              "impact": "moderate"
+            }
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright",
+          "tags": [
+            "cat.semantics",
+            "best-practice"
+          ],
+          "nodesCount": 1,
+          "nodes": [
+            {
+              "html": "<html lang=\"en\">",
+              "target": [
+                "html"
+              ],
+              "failureSummary": "Fix all of the following:\n  Page must have a level-one heading",
+              "impact": "moderate"
+            }
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "description": "Ensure all page content is contained by landmarks",
+          "help": "All page content should be contained by landmarks",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright",
+          "tags": [
+            "cat.keyboard",
+            "best-practice",
+            "RGAAv4",
+            "RGAA-9.2.1"
+          ],
+          "nodesCount": 4,
+          "nodes": [
+            {
+              "html": "<div class=\"col-lg-8\">",
+              "target": [
+                ".col-lg-8"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            },
+            {
+              "html": "<h2>Total</h2>",
+              "target": [
+                ".col-lg-1 > h2"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            },
+            {
+              "html": "<div position=\"right\" class=\"panel panel-info\">\n          <div class=\"panel-heading\">\n            <h3 class=\"panel-title\" id=\"totalp\">790</h3>\n          </div>\n        </div>",
+              "target": [
+                ".panel"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            },
+            {
+              "html": "<div id=\"footc\">",
+              "target": [
+                "#footc"
+              ],
+              "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+              "impact": "moderate"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

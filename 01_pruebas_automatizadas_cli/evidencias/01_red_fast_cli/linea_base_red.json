@@ -1,0 +1,210 @@
+{
+  "downloadSpeed": 580,
+  "uploadSpeed": 510,
+  "downloadUnit": "Mbps",
+  "uploadUnit": "Mbps",
+  "downloaded": 540,
+  "uploaded": 2210,
+  "latency": 10,
+  "bufferBloat": 22,
+  "userLocation": "Neiva, CO",
+  "serverLocations": [
+    "Bogota, CO",
+    "Miami, US"
+  ],
+  "userIp": "200.118.145.63",
+  "norma": "ISO/IEC 25010",
+  "paso": "Paso 1: Línea Base de Conectividad y Red",
+  "fecha_medicion": "2026-10-25T02:42:21.803Z",
+  "sistema_objetivo": "https://www.demoblaze.com/index.html",
+  "fast_cli_nativo": {
+    "downloadSpeed": 580,
+    "uploadSpeed": 510,
+    "downloadUnit": "Mbps",
+    "uploadUnit": "Mbps",
+    "downloaded": 540,
+    "uploaded": 2210,
+    "latency": 10,
+    "bufferBloat": 22,
+    "userLocation": "Neiva, CO",
+    "serverLocations": [
+      "Bogota, CO",
+      "Miami, US"
+    ],
+    "userIp": "200.118.145.63"
+  },
+  "fast_com": {
+    "descarga_mbps": 760,
+    "subida_mbps": 530,
+    "latencia_ms": 9,
+    "latencia_bajo_carga_ms": 13,
+    "isp": "Claro",
+    "ubicacion_cliente": "Neiva, CO",
+    "servidores_fast": "Bogota, CO  |  Miami, US",
+    "crudo_dom": {
+      "downloadValue": "760",
+      "downloadUnits": "Mbps",
+      "uploadValue": "530",
+      "uploadUnits": "Mbps",
+      "latencyValue": "9",
+      "latencyUnits": "ms",
+      "bufferbloatValue": "13",
+      "bufferbloatUnits": "ms",
+      "userIp": "200.118.145.63",
+      "userLocation": "Neiva, CO",
+      "userIsp": "Claro",
+      "serverLocations": "Bogota, CO  |  Miami, US"
+    }
+  },
+  "ping_demoblaze": {
+    "resumen_global": {
+      "promedio_combinado_ms": 358.14,
+      "min_global_ms": 157.63,
+      "max_global_ms": 1354.52
+    },
+    "frontend_web": {
+      "url": "https://www.demoblaze.com",
+      "metodo": "HEAD",
+      "iteraciones": 10,
+      "promedio_ms": 378.67,
+      "min_ms": 266.05,
+      "max_ms": 690.57,
+      "muestras": [
+        {
+          "iteracion": 1,
+          "latencia_ms": 690.57,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 2,
+          "latencia_ms": 545.28,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 3,
+          "latencia_ms": 312.99,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 4,
+          "latencia_ms": 311.74,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 5,
+          "latencia_ms": 293.94,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 6,
+          "latencia_ms": 297.94,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 7,
+          "latencia_ms": 267.76,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 8,
+          "latencia_ms": 266.41,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 9,
+          "latencia_ms": 266.05,
+          "status": "ERROR",
+          "ok": false
+        },
+        {
+          "iteracion": 10,
+          "latencia_ms": 533.98,
+          "status": 200,
+          "ok": true
+        }
+      ]
+    },
+    "backend_api_entries": {
+      "url": "https://api.demoblaze.com/entries",
+      "metodo": "GET",
+      "iteraciones": 10,
+      "promedio_ms": 337.61,
+      "min_ms": 157.63,
+      "max_ms": 1354.52,
+      "muestras": [
+        {
+          "iteracion": 1,
+          "latencia_ms": 413.38,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 2,
+          "latencia_ms": 163.89,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 3,
+          "latencia_ms": 432.82,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 4,
+          "latencia_ms": 163.69,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 5,
+          "latencia_ms": 168.99,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 6,
+          "latencia_ms": 166.64,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 7,
+          "latencia_ms": 1354.52,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 8,
+          "latencia_ms": 190.7,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 9,
+          "latencia_ms": 157.63,
+          "status": 200,
+          "ok": true
+        },
+        {
+          "iteracion": 10,
+          "latencia_ms": 163.84,
+          "status": 200,
+          "ok": true
+        }
+      ]
+    }
+  },
+  "validacion_prerrequisito_iso25010": {
+    "conexion_estable": true,
+    "veredicto": "APRUEBA (Entorno de red apto para pruebas de Eficiencia de Desempeño)"
+  }
+}
