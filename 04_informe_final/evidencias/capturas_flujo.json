@@ -1,0 +1,270 @@
+{
+  "metadatos": {
+    "fechaEjecucionUtc": "2026-10-25T06:08:31.612Z",
+    "fechaEjecucionLocal": "2026-10-25T01:08:31-05:00",
+    "herramienta": "Playwright 1.64.1, Chromium headless",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "script": "_privado/capturas_anotadas.mjs"
+  },
+  "capturas": [
+    {
+      "numero": 1,
+      "archivo": "04_informe_final/capturas/01_inicio.png",
+      "url": "https://www.demoblaze.com/index.html",
+      "elementoResaltado": {
+        "selector": "a[onclick*='notebook']",
+        "descripcion": "Enlace de la categoria Laptops en el panel lateral de navegacion"
+      },
+      "observaciones": "Carga inicial de index.html con tarjetas de productos del catalogo y barra lateral de categorias."
+    },
+    {
+      "numero": 2,
+      "archivo": "04_informe_final/capturas/02_categoria_laptops.png",
+      "url": "https://www.demoblaze.com/index.html#",
+      "elementoResaltado": {
+        "selector": "#tbodyid .card (que contiene \"Sony vaio i5\")",
+        "descripcion": "Tarjeta del producto Sony vaio i5 en el catalogo filtrado"
+      },
+      "observaciones": "Listado de computadoras portatiles tras recibir respuesta HTTP de /bycat. Se resalta la tarjeta de Sony vaio i5."
+    },
+    {
+      "numero": 3,
+      "archivo": "04_informe_final/capturas/03_detalle_producto.png",
+      "url": "https://www.demoblaze.com/prod.html?idp_=8",
+      "elementoResaltado": {
+        "selector": "a.btn-success",
+        "descripcion": "Boton Add to cart en la vista detallada del producto"
+      },
+      "observaciones": "Detalle de Sony vaio i5 cargado con descripcion, precio ($790 USD) y boton Add to cart habilitado."
+    },
+    {
+      "numero": 4,
+      "archivo": "04_informe_final/capturas/04_carrito_sin_contador.png",
+      "url": "https://www.demoblaze.com/prod.html?idp_=8#",
+      "elementoResaltado": {
+        "selector": "#cartur",
+        "descripcion": "Enlace Cart en la barra de navegacion superior"
+      },
+      "observaciones": "Tras pulsar Add to cart y aceptar el dialogo \"Product added\", el enlace Cart no presenta contador numerico ni distintivo badge (texto: \"Cart\", numero de elementos hijos: 0).",
+      "datosCartur": {
+        "texto": "Cart",
+        "numeroHijos": 0,
+        "innerHTML": "Cart"
+      }
+    },
+    {
+      "numero": 5,
+      "archivo": "04_informe_final/capturas/05_carrito.png",
+      "url": "https://www.demoblaze.com/cart.html",
+      "elementoResaltado": {
+        "selector": "button.btn-success[data-target=\"#orderModal\"]",
+        "descripcion": "Boton Place Order para abrir el modal de compra"
+      },
+      "observaciones": "Tabla de compras con 1 fila(s) y total de 790 USD. Se resalta el boton Place Order."
+    },
+    {
+      "numero": 6,
+      "archivo": "04_informe_final/capturas/06_formulario_pedido.png",
+      "url": "https://www.demoblaze.com/cart.html",
+      "elementoResaltado": {
+        "selector": "#orderModal button[onclick=\"purchaseOrder()\"]",
+        "descripcion": "Boton Purchase dentro del modal Place Order"
+      },
+      "observaciones": "Modal Place Order abierto y diligenciado con datos de prueba estructurados (Usuario de prueba USCO, tarjeta 4111111111111111).",
+      "datosFormulario": {
+        "name": "Usuario de prueba USCO",
+        "country": "Colombia",
+        "city": "Neiva",
+        "card": "4111111111111111",
+        "month": "10",
+        "year": "2026"
+      }
+    },
+    {
+      "numero": 7,
+      "archivo": "04_informe_final/capturas/07_confirmacion_compra.png",
+      "url": "https://www.demoblaze.com/cart.html",
+      "elementoResaltado": {
+        "selector": ".sweet-alert.showSweetAlert.visible p.lead",
+        "descripcion": "Texto del comprobante de compra dentro del modal emergente SweetAlert"
+      },
+      "observaciones": "Comprobante de compra generado exitosamente con titulo \"Thank you for your purchase!\".",
+      "comprobante": {
+        "titulo": "Thank you for your purchase!",
+        "textoLiteral": "Id: 5317288\nAmount: 790 USD\nCard Number: 4111111111111111\nName: Usuario de prueba USCO\nDate: 25/9/2026"
+      }
+    }
+  ],
+  "peticionesApi": [
+    {
+      "paso": 1,
+      "metodo": "GET",
+      "url": "https://api.demoblaze.com/entries",
+      "ruta": "/entries",
+      "codigoEstado": 200,
+      "cuerpoEnviado": null,
+      "timestampInicio": "2026-10-25T06:08:34.200Z",
+      "timestampFin": "2026-10-25T06:08:35.243Z"
+    },
+    {
+      "paso": 2,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/bycat",
+      "ruta": "/bycat",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cat\":\"notebook\"}",
+      "timestampInicio": "2026-10-25T06:08:36.823Z",
+      "timestampFin": "2026-10-25T06:08:37.281Z"
+    },
+    {
+      "paso": 3,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/view",
+      "ruta": "/view",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"id\":\"8\"}",
+      "timestampInicio": "2026-10-25T06:08:39.002Z",
+      "timestampFin": "2026-10-25T06:08:39.448Z"
+    },
+    {
+      "paso": 4,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/addtocart",
+      "ruta": "/addtocart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"id\":\"8f689e09-b31b-055a-813c-ae8aca825dcf\",\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\",\"prod_id\":8,\"flag\":false}",
+      "timestampInicio": "2026-10-25T06:08:40.192Z",
+      "timestampFin": "2026-10-25T06:08:40.699Z"
+    },
+    {
+      "paso": 5,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/viewcart",
+      "ruta": "/viewcart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\",\"flag\":false}",
+      "timestampInicio": "2026-10-25T06:08:42.410Z",
+      "timestampFin": "2026-10-25T06:08:42.852Z"
+    },
+    {
+      "paso": 5,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/view",
+      "ruta": "/view",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"id\":8}",
+      "timestampInicio": "2026-10-25T06:08:42.853Z",
+      "timestampFin": "2026-10-25T06:08:43.104Z"
+    },
+    {
+      "paso": 7,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/deletecart",
+      "ruta": "/deletecart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\"}",
+      "timestampInicio": "2026-10-25T06:08:45.519Z",
+      "timestampFin": "2026-10-25T06:08:46.085Z"
+    },
+    {
+      "paso": 7,
+      "metodo": "GET",
+      "url": "https://api.demoblaze.com/entries",
+      "ruta": "/entries",
+      "codigoEstado": 200,
+      "cuerpoEnviado": null,
+      "timestampInicio": "2026-10-25T06:08:48.124Z",
+      "timestampFin": "2026-10-25T06:08:48.467Z"
+    },
+    {
+      "paso": 8,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/viewcart",
+      "ruta": "/viewcart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\",\"flag\":false}",
+      "timestampInicio": "2026-10-25T06:08:48.987Z",
+      "timestampFin": "2026-10-25T06:08:49.394Z"
+    },
+    {
+      "paso": 8,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/deletecart",
+      "ruta": "/deletecart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\"}",
+      "timestampInicio": "2026-10-25T06:08:51.420Z",
+      "timestampFin": "2026-10-25T06:08:51.852Z"
+    },
+    {
+      "paso": 8,
+      "metodo": "GET",
+      "url": "https://api.demoblaze.com/entries",
+      "ruta": "/entries",
+      "codigoEstado": 200,
+      "cuerpoEnviado": null,
+      "timestampInicio": "2026-10-25T06:08:52.346Z",
+      "timestampFin": "2026-10-25T06:08:52.569Z"
+    },
+    {
+      "paso": 9,
+      "metodo": "POST",
+      "url": "https://api.demoblaze.com/viewcart",
+      "ruta": "/viewcart",
+      "codigoEstado": 200,
+      "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\",\"flag\":false}",
+      "timestampInicio": "2026-10-25T06:08:53.562Z",
+      "timestampFin": "2026-10-25T06:08:53.768Z"
+    }
+  ],
+  "dialogos": [
+    {
+      "paso": 4,
+      "tipo": "alert",
+      "textoExacto": "Product added",
+      "timestamp": "2026-10-25T06:08:40.701Z"
+    }
+  ],
+  "comprobante": {
+    "titulo": "Thank you for your purchase!",
+    "textoLiteral": "Id: 5317288\nAmount: 790 USD\nCard Number: 4111111111111111\nName: Usuario de prueba USCO\nDate: 25/9/2026",
+    "urlRedireccionTrasOk": "https://www.demoblaze.com/index.html",
+    "peticionesEntrePurchaseYRedireccion": [
+      {
+        "metodo": "POST",
+        "ruta": "/deletecart",
+        "url": "https://api.demoblaze.com/deletecart",
+        "codigoEstado": 200,
+        "cuerpoEnviado": "{\"cookie\":\"user=9a2f6759-dba8-1c1a-20c2-5f8d17d2383e\"}"
+      },
+      {
+        "metodo": "GET",
+        "ruta": "/entries",
+        "url": "https://api.demoblaze.com/entries",
+        "codigoEstado": 200,
+        "cuerpoEnviado": null
+      }
+    ]
+  },
+  "verificacionCarritoVacio": {
+    "filasEnCarrito": 0,
+    "totalMostradoEnCarrito": "",
+    "datosFormulario": {
+      "name": "Usuario de prueba USCO",
+      "card": "4111111111111111"
+    },
+    "modalConfirmacionMostrado": true,
+    "comprobante": {
+      "titulo": "Thank you for your purchase!",
+      "textoLiteral": "Id: 7686879\nAmount: 0 USD\nCard Number: 4111111111111111\nName: Usuario de prueba USCO\nDate: 25/9/2026"
+    },
+    "comportamientoObservado": "El sistema permite procesar la orden y emite comprobante exitoso (\"Thank you for your purchase!\") aun cuando el carrito no contiene productos."
+  },
+  "codigoFuente": {
+    "purchaseOrder": "function purchaseOrder() {\n  var idr = Math.floor((Math.random() * 10000000) + 1);\n  var name = document.getElementById(\"name\").value;\n  var creditcard = document.getElementById(\"card\").value;\n  var date = new Date();\n  if (name == \"\" || creditcard == \"\") {\n    alert(\"Please fill out Name and Creditcard.\");\n  } else {\n    var token = getCookie(\"tokenp_\");\n    if (token.length > 0) {\n      deleteCart(usern);\n    } else {\n      deleteCart(document.cookie);\n    }\n    swal({\n      title: \"Thank you for your purchase!\",\n      text: \"Id: \" + idr + \"\\n\" + \"Amount: \" + total + \" USD\" + \"\\n\" + \"Card Number: \" + creditcard + \"\\n\" + \"Name: \" + name + \"\\n\" + \"Date: \" + date.getDate() + \"/\" + date.getMonth() + \"/\" + date.getFullYear(),\n      type: \"success\",\n      confirmButtonColor: \"#DD6B55\",\n      confirmButtonText: \"OK\",\n      closeOnConfirm: false\n    }, function (isConfirm) {\n        if (isConfirm) {\n          location.href = 'index.html';\n        }\n      });\n  }\n}",
+    "deleteCart": "function deleteCart(idc) {\n  $.ajax({\n    type: 'POST',\n    url: API_URL + '/deletecart',\n    data: JSON.stringify({ \"cookie\": idc }),\n    contentType: \"application/json\",\n    success: function (data) {\n    }\n  });\n}"
+  }
+}

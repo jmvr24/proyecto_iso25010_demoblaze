@@ -74,7 +74,7 @@ A partir de estas evidencias, identificamos tres componentes diferenciados que e
 
 En lo relativo a la infraestructura de entrega, las cabeceras HTTP obtenidas tanto para el documento principal HTML como para los puntos de acceso de la API devuelven textualmente el valor `server: Google Frontend` (`resumenArquitectura.cabecerasDocumento.destacadas.server` y `resumenArquitectura.cabecerasApi.destacadas.server`). Nos abstenemos de atribuir plataformas de computación en la nube o tecnologías internas específicas que dicha cabecera no detalle expresamente.
 
-Durante el recorrido automatizado de referencia registramos nueve puntos de acceso de la API, detallados en la Tabla 2. Es necesario precisar que la confirmación final de la compra no se ejecutó durante dicho recorrido de inspección técnica, motivo por el cual la petición de envío del pedido no quedó capturada en este archivo y no se incorpora en el listado para preservar la fidelidad de los datos.
+Durante las inspecciones automatizadas registramos diez puntos de acceso de la API, detallados en la Tabla 2. Los primeros nueve corresponden al recorrido general de exploración (`04_informe_final/evidencias/recorrido_sitio.json`). El décimo servicio, `POST /deletecart`, fue observado al ejecutar la compra en `04_informe_final/evidencias/capturas_flujo.json` (paso 7); en dicha ejecución constatamos que el sistema no transmite ninguna petición de registro de pedido a la API, limitándose a solicitar el vaciado del carrito mediante dicho punto de acceso.
 
 Tabla 2. Servicios de la API observados durante el recorrido
 
@@ -86,11 +86,12 @@ Tabla 2. Servicios de la API observados durante el recorrido
 | POST | `/view` | Consulta de los datos detallados de un producto específico | Pasos 4 y 6 |
 | POST | `/addtocart` | Adición de un producto al carrito; el cuerpo incluye el identificador del producto y el campo `cookie` del usuario | Paso 5 |
 | POST | `/viewcart` | Recuperación de los artículos almacenados en el carrito activo | Paso 6 |
+| POST | `/deletecart` | Vaciado de los productos del carrito activo tras pulsar Purchase; no se envía una orden a la API | Capturas, paso 7 |
 | POST | `/signup` | Registro de una nueva cuenta de usuario en el sistema | Paso 9 |
 | POST | `/login` | Validación de credenciales y apertura de sesión de usuario | Paso 9 |
 | POST | `/check` | Envío del token de sesión tras iniciar sesión; interpretamos que verifica la autenticación | Paso 9 |
 
-Fuente: elaboración propia a partir de `04_informe_final/evidencias/recorrido_sitio.json`.
+Fuente: elaboración propia a partir de `04_informe_final/evidencias/recorrido_sitio.json` y `04_informe_final/evidencias/capturas_flujo.json`.
 
 ### 1.3. Propósito y público objetivo
 
@@ -112,7 +113,7 @@ Delimitamos el flujo de compra de punta a punta como la secuencia transaccional 
 
 5. Despliegue y diligenciamiento del modal de pedido: el usuario presiona el botón Place Order para abrir el formulario modal `#orderModal` y procede a diligenciar los campos de datos personales y de pago (Name, Country, City, Credit card, Month y Year). No se observó intervención de servicios de la API en el despliegue del modal ni en la captura de campos (`04_informe_final/evidencias/recorrido_sitio.json`, paso 6).
 
-6. Confirmación de la orden y obtención del comprobante: el usuario hace clic en el botón Purchase para enviar la orden y recibe en pantalla una ventana emergente de SweetAlert con el identificador de la compra, el monto, el número de tarjeta, el nombre del comprador y la fecha (`01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json`). La petición de compra no fue observada en nuestro recorrido, porque en él no se ejecutó ninguna compra.
+6. Confirmación de la orden y obtención del comprobante: el usuario hace clic en el botón Purchase para formalizar el pedido y recibe en pantalla una ventana emergente de SweetAlert con el identificador de la compra, el monto, el número de tarjeta, el nombre del comprador y la fecha (`01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json`). Al ejecutar esta acción observamos que el sistema no envía ningún pedido a la API, sino que efectúa una solicitud `POST /deletecart` para vaciar el carrito activo (`04_informe_final/evidencias/capturas_flujo.json`, paso 7) y genera el comprobante directamente en el navegador del cliente.
 
 Seleccionamos este flujo como la funcionalidad crítica del software porque constituye el núcleo transaccional sobre el cual reposa el modelo de negocio del comercio electrónico: es la única secuencia capaz de convertir una visita en una venta. Si este recorrido presenta fallos de diseño, desorientación o bloqueos de interacción, el usuario interrumpe la navegación y abandona el sitio. Asimismo, las evidencias técnicas preliminares señalan que en este trayecto se concentran los defectos de usabilidad y protección de datos más sensibles de la plataforma.
 
@@ -144,23 +145,132 @@ Como hallazgo operativo complementario a las subcaracterísticas evaluadas, obse
 
 ## 2. Modelado del sistema: casos de uso y pantallas
 
-Representa la arquitectura funcional desde la perspectiva del usuario final para que el lector entienda el sistema sin haberlo operado.
+Dado que la docente no ha operado directamente la plataforma de comercio electrónico DemoBlaze, en este capítulo modelamos su arquitectura funcional desde la perspectiva del usuario final. Para ello presentamos un diagrama general de casos de uso con su catálogo de interacciones, la especificación completa del caso de uso crítico de compra y la secuencia visual documentada mediante capturas reales del sistema en producción.
 
 ### 2.1. Diagrama de casos de uso general
 
-Muestra los actores y las principales interacciones con todo el sistema.
+Figura 1. Diagrama de casos de uso general de DemoBlaze
+
+![Figura 1. Diagrama de casos de uso general de DemoBlaze](diagramas/casos_de_uso_demoblaze.png)
+
+Fuente: elaboración propia en PlantUML a partir de `04_informe_final/evidencias/recorrido_sitio.json`.
+
+El modelado funcional identifica dos actores en el sistema: el Visitante y el Usuario registrado. El Visitante representa a cualquier persona que accede a la tienda sin autenticarse, mientras que el Usuario registrado corresponde a quien creó una cuenta en la plataforma e inició sesión. Entre ambos actores se define una relación de generalización o herencia, de modo que el Usuario registrado puede realizar todas las acciones del Visitante y cuenta además con la función exclusiva de cerrar sesión (CU-12). Conviene precisar que en DemoBlaze es posible completar una compra sin haber iniciado sesión, dado que la aplicación vincula el carrito de compras a un identificador que el navegador envía en el campo cookie dentro del cuerpo de las solicitudes HTTP (`04_informe_final/evidencias/recorrido_sitio.json`, paso 5). Por esta razón, el Visitante se relaciona directamente con el caso de uso transaccional de compra.
+
+Por otra parte, la interfaz de programación de aplicaciones (api.demoblaze.com) y el servidor de transmisión multimedia (hls.demoblaze.com) no figuran como actores en el diagrama. En la notación UML, los actores personifican entidades externas, bien sean usuarios humanos o sistemas independientes, que interactúan con las fronteras del software para obtener valor. Tanto la API como el servidor de video son componentes arquitectónicos internos de la infraestructura de DemoBlaze que atienden solicitudes desde el cliente; por ende, forman parte del sistema modelado y no de los actores que demandan sus servicios.
+
+Las relaciones de inclusión y extensión estructuran la modularidad y dependencia entre los casos de uso. Las relaciones de extensión (`<<extend>>`) representan comportamientos opcionales que condicionan o amplían el flujo de un caso de uso base. En DemoBlaze, CU-02 Paginar catálogo y CU-03 Filtrar por categoría extienden a CU-01 Explorar catálogo, debido a que el usuario puede revisar los primeros nueve artículos de la vista principal sin necesidad de filtrar por categorías ni avanzar entre páginas. De modo análogo, CU-07 Eliminar producto del carrito extiende a CU-06 Ver carrito, pues retirar un artículo constituye una decisión facultativa del comprador. En contraste, las relaciones de inclusión (`<<include>>`) señalan secuencias obligatorias que forman parte indivisible del caso de uso base. Así, CU-08 Realizar compra incluye obligatoriamente a CU-06 Ver carrito, ya que el acceso al botón de pedido exige visualizar la tabla de artículos seleccionados, e incluye a CU-09 Diligenciar formulario de pedido, puesto que la formalización de la orden requiere diligenciar y enviar el formulario modal de facturación.
+
+Dentro de este conjunto funcional, delimitamos CU-08 Realizar compra como el caso de uso crítico evaluado, marcado en el diagrama con el estereotipo `<<crítico>>`, pues sobre él recae la culminación de la transacción comercial de la tienda. La Tabla 3 presenta el catálogo completo de los catorce casos de uso modelados.
+
+Tabla 3. Catálogo de casos de uso
+
+| Código | Caso de uso | Actor principal | Evidencia (paso del recorrido o captura) |
+| :--- | :--- | :--- | :--- |
+| CU-01 | Explorar catálogo | Visitante | Recorrido del sitio, paso 1; capturas de flujo, captura 1 |
+| CU-02 | Paginar catálogo | Visitante | Recorrido del sitio, paso 2 |
+| CU-03 | Filtrar por categoría | Visitante | Recorrido del sitio, paso 3; capturas de flujo, captura 2 |
+| CU-04 | Ver detalle de producto | Visitante | Recorrido del sitio, paso 4; capturas de flujo, captura 3 |
+| CU-05 | Agregar producto al carrito | Visitante | Recorrido del sitio, paso 5; capturas de flujo, captura 4 |
+| CU-06 | Ver carrito | Visitante | Recorrido del sitio, paso 6; capturas de flujo, captura 5 |
+| CU-07 | Eliminar producto del carrito | Visitante | Recorrido del sitio, paso 6; pruebas funcionales y de errores |
+| CU-08 | Realizar compra | Visitante | Capturas de flujo, capturas 6 y 7; pruebas funcionales y de errores |
+| CU-09 | Diligenciar formulario de pedido | Visitante | Recorrido del sitio, paso 6; capturas de flujo, captura 6 |
+| CU-10 | Registrarse | Visitante | Recorrido del sitio, paso 9 |
+| CU-11 | Iniciar sesión | Visitante | Recorrido del sitio, paso 9 |
+| CU-12 | Cerrar sesión | Usuario registrado | Recorrido del sitio, paso 9 |
+| CU-13 | Enviar mensaje de contacto | Visitante | Recorrido del sitio, paso 7 |
+| CU-14 | Ver información de la tienda (About us) | Visitante | Recorrido del sitio, paso 8 |
+
+Fuente: elaboración propia a partir de `04_informe_final/diagramas/casos_de_uso_demoblaze.puml`, `04_informe_final/evidencias/recorrido_sitio.json` y `04_informe_final/evidencias/capturas_flujo.json`.
 
 ### 2.2. Especificación del caso de uso crítico "Realizar compra"
 
-Detalla actor, precondiciones, flujo principal, flujos alternos y de excepción, y postcondiciones del caso de uso evaluado.
+A continuación especificamos de forma detallada el caso de uso crítico CU-08 Realizar compra, documentando sus actores, condiciones de ejecución, secuencia transaccional completa y las reglas de negocio verificadas empíricamente en la lógica del cliente y la red.
+
+Tabla 4. Especificación del caso de uso crítico CU-08 Realizar compra
+
+| Elemento | Especificación |
+| :--- | :--- |
+| Código y nombre | CU-08 Realizar compra |
+| Actor principal | Visitante (o Usuario registrado por relación de generalización) |
+| Actores secundarios | Ninguno. DemoBlaze no integra pasarelas de pago de terceros, sistemas de validación bancaria ni servicios logísticos externos; la transacción se procesa en el navegador del cliente mediante scripts y llamadas asíncronas a su propia API. |
+| Descripción | Permite al usuario revisar los productos agregados al carrito, desplegar el formulario modal de facturación Place Order, registrar datos de pago, confirmar la orden y recibir un comprobante visual en pantalla, regresando a la página de inicio. |
+| Precondiciones | El usuario debe encontrarse navegando en la plataforma DemoBlaze y haber incorporado al menos un artículo al carrito de compras mediante CU-05 Agregar producto al carrito. No se requiere autenticación previa. |
+| Disparador | Clic en el enlace Cart de la barra superior de navegación. |
+| Flujo principal | 1. Acción del actor: Hace clic en el enlace Cart de la barra superior para revisar su selección.<br>2. Respuesta del sistema: Carga la página `cart.html`, realiza las peticiones `POST /viewcart` y `POST /view` a la API (`04_informe_final/evidencias/capturas_flujo.json`, paso 5) y despliega la tabla con los artículos, sus precios y el total acumulado.<br>3. Acción del actor: Hace clic en el botón Place Order para abrir el formulario de pago.<br>4. Respuesta del sistema: Despliega la ventana modal `#orderModal` con los campos Name, Country, City, Credit card, Month y Year.<br>5. Acción del actor: Diligencia los campos del formulario con sus datos de facturación y hace clic en el botón Purchase.<br>6. Respuesta del sistema: Ejecuta la función `purchaseOrder()` en el cliente, verifica que Name y Credit card no estén vacíos, invoca la función `deleteCart()` para enviar la petición `POST /deletecart` a la API (`04_informe_final/evidencias/capturas_flujo.json`, paso 7) y muestra una ventana emergente de SweetAlert con el comprobante de confirmación ("Thank you for your purchase!") con Id, Amount, Card Number, Name y Date.<br>7. Acción del actor: Hace clic en el botón OK del comprobante de confirmación.<br>8. Respuesta del sistema: Ejecuta la instrucción `location.href = 'index.html'` y redirige al usuario a la página de inicio (`04_informe_final/evidencias/capturas_flujo.json`, paso 7). |
+| Flujos alternos | FA-1. Compra con el carrito vacío (el sistema no hace cumplir la precondición): Si el usuario ingresa a `cart.html` sin productos (la tabla muestra cero filas y el total permanece vacío) y pulsa Place Order, el sistema despliega el formulario modal. Al ingresar Name y Credit card y pulsar Purchase, la función `purchaseOrder()` ejecuta la transacción sin validar artículos, envía la petición `POST /deletecart` y genera la confirmación exitosa de SweetAlert con "Amount: 0 USD" (`04_informe_final/evidencias/capturas_flujo.json`, clave `verificacionCarritoVacio`). |
+| Flujos de excepción | FE-1. Omisión de campos obligatorios Name o Credit card: Si el actor pulsa Purchase dejando vacío Name, Credit card o ambos, el sistema interrumpe el procesamiento y muestra un diálogo nativo del navegador (`window.alert`) con el mensaje textual "Please fill out Name and Creditcard.", impidiendo avanzar hasta que ambos campos contengan texto (`01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json`, prueba negativa 1).<br>FE-2. Ingreso de tarjeta alfabética y omisión de datos de ubicación y fecha: Si el actor ingresa texto alfabético en el campo de tarjeta (`TARJETA_FALSA_SIN_NUMEROS_ABC`) y deja vacíos Country, City, Month y Year, el sistema no bloquea el envío. Al hacer clic en Purchase, emite el comprobante exitoso de confirmación, ya que el script del cliente solo comprueba que Name y Credit card no sean cadenas vacías, omitiendo comprobaciones de formato numérico, algoritmo de Luhn o campos secundarios (`01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json`, prueba negativa 2; `04_informe_final/evidencias/capturas_flujo.json`, clave `codigoFuente.purchaseOrder`). |
+| Postcondiciones | El carrito queda vacío tras la petición `POST /deletecart` (al volver a `cart.html` la tabla muestra cero filas, según la clave `verificacionCarritoVacio`). El usuario recibe en pantalla un comprobante con identificador numérico y resumen de compra. El navegador es redirigido a `index.html`. Como el cliente no envía los datos del pedido a ningún servicio, desde lo observable la orden no queda registrada en ninguna parte. |
+| Reglas de negocio observadas | 1. Identificador de compra pseudoaleatorio: El Id del comprobante se genera de manera local en el cliente mediante la expresión `Math.floor((Math.random() * 10000000) + 1)`, asignando un número entero entre 1 y 10.000.000 sin consultar al servidor, por lo que nada garantiza que no se repita (`04_informe_final/evidencias/capturas_flujo.json`, clave `codigoFuente.purchaseOrder`).<br>2. Ausencia de persistencia de órdenes: El sistema no envía los datos del pedido a ningún servicio de la API; la orden se resuelve íntegramente en el cliente sin persistencia remota (`04_informe_final/evidencias/capturas_flujo.json`, clave `codigoFuente.purchaseOrder`).<br>3. Vaciado del carrito: La confirmación del pedido invoca la función `deleteCart()`, que realiza una petición asíncrona `POST /deletecart` con el identificador del usuario (`cookie`) para eliminar los registros del carrito en el backend (`04_informe_final/evidencias/capturas_flujo.json`, claves `codigoFuente.purchaseOrder` y `codigoFuente.deleteCart`).<br>4. Desfase en la construcción de la fecha: La fecha del comprobante se genera con `new Date()` mediante la concatenación `date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()`. Como `getMonth()` indexa los meses desde cero (enero corresponde a 0 y octubre a 9), la fecha muestra un mes de retraso (`04_informe_final/evidencias/capturas_flujo.json`, clave `codigoFuente.purchaseOrder`).<br>5. Redirección obligatoria: Al presionar el botón OK en el diálogo SweetAlert, la función callback ejecuta `location.href = 'index.html'`, forzando el retorno a la página de inicio (`04_informe_final/evidencias/capturas_flujo.json`, clave `codigoFuente.purchaseOrder`). |
+
+Fuente: elaboración propia a partir de `04_informe_final/evidencias/capturas_flujo.json`, `04_informe_final/evidencias/recorrido_sitio.json` y `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json`.
 
 ### 2.3. Uso de capturas reales en lugar de mockups
 
-Justifica por qué se presentan pantallas reales: la guía pide mockups solo cuando hay restricciones de confidencialidad, y DemoBlaze no las tiene.
+El numeral 2 de la guía docente establece que los bocetos o mockups de interfaz deben emplearse únicamente si las políticas de seguridad o confidencialidad de la empresa impiden capturar pantallas reales del software en producción. Al tratarse DemoBlaze de una plataforma pública de demostración sin fines comerciales ni restricciones de confidencialidad, optamos por incorporar capturas directas del sistema en su entorno productivo, las cuales reflejan con mayor fidelidad los componentes visuales, la distribución gráfica y el comportamiento de la interfaz ante las acciones del usuario. Las imágenes fueron recolectadas mediante una sesión automatizada de Playwright 1.64.1 en navegador Chromium sobre una ventana gráfica de 1280 por 800 píxeles, ejecutada el 25 de octubre de 2026 a la 1:08 a. m., hora de Colombia (`04_informe_final/evidencias/capturas_flujo.json`). En el diligenciamiento del proceso de facturación se utilizaron datos ficticios de prueba plenamente identificables (nombre Usuario de prueba USCO, ciudad Neiva y país Colombia), y el número de tarjeta ingresado (4111111111111111) corresponde a una numeración de prueba que no compromete información financiera real.
 
 ### 2.4. Secuencia visual del flujo de compra
 
-Recorre con capturas anotadas cada pantalla del flujo, desde la página de inicio hasta la confirmación de la compra.
+Presentamos a continuación la secuencia cronológica de pantallas que componen el flujo crítico de compra en DemoBlaze, documentada a través de siete capturas de pantalla reales anotadas con recuadros rojos que identifican los elementos clave de interacción en cada etapa.
+
+Figura 2. Página inicial del catálogo y panel lateral de categorías
+
+![Figura 2. Página inicial del catálogo y panel lateral de categorías](capturas/01_inicio.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+La vista principal de la tienda despliega la barra superior de navegación, el carrusel publicitario y la cuadrícula inicial de nueve productos del catálogo general. El recuadro rojo señala el enlace Laptops en el panel lateral de categorías, el cual permite filtrar el inventario hacia computadores portátiles.
+
+Figura 3. Catálogo filtrado por la categoría Laptops
+
+![Figura 3. Catálogo filtrado por la categoría Laptops](capturas/02_categoria_laptops.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+Tras completarse la respuesta del servicio `/bycat`, la interfaz actualiza la cuadrícula mostrando los seis modelos de computadores portátiles disponibles. El recuadro rojo resalta la tarjeta del producto Sony vaio i5, sobre cuyo título hace clic el usuario para acceder a su ficha detallada.
+
+Figura 4. Ficha de detalle de producto y botón de adición al carrito
+
+![Figura 4. Ficha de detalle de producto y botón de adición al carrito](capturas/03_detalle_producto.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+La página de detalle `prod.html?idp_=8` exhibe el nombre, la fotografía, el precio (790 dólares, con la nota "includes tax") y la descripción técnica del computador portátil seleccionado. El recuadro rojo señala el botón Add to cart, dispuesto para agregar el artículo al carrito de compras mediante una petición a la API.
+
+Figura 5. Estado de la barra de navegación tras agregar un producto
+
+![Figura 5. Estado de la barra de navegación tras agregar un producto](capturas/04_carrito_sin_contador.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+Inmediatamente después de pulsar el botón Add to cart y aceptar el diálogo nativo del navegador con el texto "Product added", la pantalla regresa a la vista de detalle. El recuadro rojo evidencia que el enlace Cart en la barra de navegación superior sigue sin indicar cantidad de artículos ni mostrar insignias visuales numéricas, manteniendo el texto plano sin elementos secundarios.
+
+Figura 6. Vista del carrito de compras y botón Place Order
+
+![Figura 6. Vista del carrito de compras y botón Place Order](capturas/05_carrito.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+Al acceder a `cart.html`, el sistema consulta los servicios `/viewcart` y `/view` para construir la tabla de compras, la cual despliega una fila con el producto agregado, la opción para su eliminación y un total de 790. El recuadro rojo resalta el botón Place Order, requerido para avanzar hacia el formulario de facturación.
+
+Figura 7. Formulario modal de pedido Place Order con datos de facturación
+
+![Figura 7. Formulario modal de pedido Place Order con datos de facturación](capturas/06_formulario_pedido.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+El formulario modal `#orderModal` presenta seis campos de entrada para registrar la información del comprador y del medio de pago, los cuales fueron completados con datos de prueba evidentes. El recuadro rojo señala el botón Purchase, con el que el usuario confirma la compra.
+
+Figura 8. Comprobante de confirmación de compra emitido por SweetAlert
+
+![Figura 8. Comprobante de confirmación de compra emitido por SweetAlert](capturas/07_confirmacion_compra.png)
+
+Fuente: captura propia de https://www.demoblaze.com, 25 de octubre de 2026.
+
+Tras pulsar el botón Purchase, el sistema despliega una ventana emergente generada con la librería SweetAlert con el título "Thank you for your purchase!" y este texto literal de comprobante, que se reproduce con punto y coma en lugar de los saltos de línea originales: Id: 5317288; Amount: 790 USD; Card Number: 4111111111111111; Name: Usuario de prueba USCO; Date: 25/9/2026 (`04_informe_final/evidencias/capturas_flujo.json`, clave `comprobante`).
+
+El recuadro rojo destaca el comprobante generado en el navegador, en el cual se aprecia que la fecha registra el mes 9 en lugar del mes 10 (`25/9/2026`), manifestando el desfase provocado por la indexación en base cero de `date.getMonth()` analizado previamente en el Punto 1.5.
 
 ## 3. Selección de criterios ISO/IEC 25010 y definición de población y muestra
 

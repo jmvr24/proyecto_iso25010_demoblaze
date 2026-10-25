@@ -1,0 +1,57 @@
+@startuml
+!pragma layout smetana
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 14
+skinparam dpi 150
+left to right direction
+
+title Diagrama de casos de uso general de DemoBlaze
+
+actor :Visitante: as visitante
+actor :Usuario registrado: as usuario_registrado
+
+usuario_registrado --|> visitante
+
+rectangle "DemoBlaze (www.demoblaze.com)" {
+
+    usecase "CU-01 Explorar catálogo" as cu01
+    usecase "CU-04 Ver detalle de producto" as cu04
+    usecase "CU-05 Agregar producto al carrito" as cu05
+    usecase "CU-06 Ver carrito" as cu06
+    usecase "CU-08 Realizar compra\n<<crítico>>" as cu08
+    usecase "CU-10 Registrarse" as cu10
+    usecase "CU-11 Iniciar sesión" as cu11
+    usecase "CU-12 Cerrar sesión" as cu12
+    usecase "CU-13 Enviar mensaje de contacto" as cu13
+    usecase "CU-14 Ver información de la tienda (About us)" as cu14
+
+    usecase "CU-02 Paginar catálogo" as cu02
+    usecase "CU-03 Filtrar por categoría" as cu03
+    usecase "CU-07 Eliminar producto del carrito" as cu07
+    usecase "CU-09 Diligenciar formulario de pedido" as cu09
+
+    note "La API (api.demoblaze.com) y el servidor de video (hls.demoblaze.com)\nson componentes internos del sistema" as nota_backend
+    note right of cu08 : Funcionalidad crítica evaluada
+}
+
+visitante -- cu01
+visitante -- cu04
+visitante -- cu05
+visitante -- cu06
+visitante -- cu08
+visitante -- cu10
+visitante -- cu11
+visitante -- cu13
+visitante -- cu14
+
+usuario_registrado -- cu12
+
+cu02 .up.> cu01 : <<extend>>
+cu03 .up.> cu01 : <<extend>>
+cu07 .up.> cu06 : <<extend>>
+
+cu08 .left.> cu06 : <<include>>
+cu08 .down.> cu09 : <<include>>
+
+@enduml
