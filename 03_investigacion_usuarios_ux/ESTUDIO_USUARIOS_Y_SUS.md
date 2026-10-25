@@ -27,7 +27,7 @@ Este documento presenta el diseño metodológico, los registros de observación 
 
 ## 3. Matriz de Observación Directa (Pruebas de Tareas)
 
-Cada participante ejecutó sin asistencia del evaluador el **Flujo Crítico de Compra**, que consiste en localizar y comprar dos productos del catálogo: el **Sony Vaio i5** (categoría Laptops) y el **Apple monitor 24** (categoría Monitors). Las sesiones quedaron grabadas en video (`evidencia_sesiones/Usuario 1.mp4` a `Usuario 5.mp4`) y el cuestionario aplicado está en `evidencia_sesiones/Cuestionario.pdf`. El flujo se dividió en 4 tareas consecutivas:
+Cada participante ejecutó sin asistencia del evaluador el **Flujo Crítico de Compra**, que consiste en localizar y comprar dos productos del catálogo: el **Sony Vaio i5** (categoría Laptops) y el **Apple monitor 24** (categoría Monitors). Las sesiones quedaron grabadas en video (`evidencia_sesiones/Usuario 1.mp4` a `Usuario 5.mp4`) y el cuestionario aplicado está en `evidencia_sesiones/Cuestionario.pdf` (Los nombres que aparecen en el vídeo son ficticios). El flujo se dividió en 4 tareas consecutivas:
 
 1. **Tarea 1 (Exploración y búsqueda del Sony Vaio i5):** Localizar el producto partiendo desde `index.html` (sin barra de búsqueda) y agregarlo al carrito.
 2. **Tarea 2 (Exploración y búsqueda del Apple monitor 24):** Cerrar la confirmación (`alert` nativo) del producto anterior, volver al catálogo, localizar el segundo producto y agregarlo al carrito.
@@ -46,9 +46,7 @@ Los tiempos por tarea se obtuvieron de los videos con hitos objetivos y consecut
 | H3 | Se abre el modal `Place Order` | Tarea 3 |
 | H4 | Fin de la grabación (confirmación de compra y clic en `OK`) | Tarea 4 |
 
-Los hitos se detectaron analizando los cambios de brillo de la pantalla (cada `alert` y cada modal oscurece la página) y se verificaron visualmente en los fotogramas. La precisión es de aproximadamente $\pm 0.5$ s, por lo que los tiempos se reportan en segundos enteros. La duración de cada grabación coincide con el tiempo total del flujo. Los hitos de cada sesión están en `datos/hitos_video.csv`.
-
-> **Corrección del tiempo de U1:** el video de U1 dura 211.5 s (`03:32` al redondear), por lo que se actualizó el tiempo total registrado inicialmente (`03:30`, `210 s`). Los demás totales coinciden con los videos.
+Los hitos se detectaron analizando los cambios de brillo de la pantalla (cada `alert` y cada modal oscurece la página) y se verificaron visualmente en los fotogramas. La precisión es de aproximadamente $\pm 0.5$ s, por lo que los tiempos se reportan en segundos enteros. La duración de cada grabación coincide con el tiempo total del flujo. Los hitos de cada sesión están en `datos/hitos_video.csv`. Este proceso se automatizó con ayuda de inteligencia artificial.
 
 ### Tabla 2. Registro Consolidado de Observación Directa
 
@@ -59,7 +57,7 @@ Los hitos se detectaron analizando los cambios de brillo de la pantalla (cada `a
 | **U3** | 28 años | Sí (`100%`) | `02:07` | `127 s` | `0` | Intuyó cómo filtrar artículos por categorías y salir de la confirmación de carrito. | Escribió los datos de la tarjeta de crédito como pensó que era (sin restricción del sistema). |
 | **U4** | 45 años | Sí (`100%`) | `03:04` | `184 s` | `1` | Le pareció extraño que no se puedan buscar los productos por el nombre. | Preguntó cómo escribir la tarjeta de crédito y sus datos. |
 | **U5** | 23 años | Sí (`100%`) | `02:37` | `157 s` | `1` | Preguntó si había una barra de búsqueda de productos. | Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos. |
-| **GLOBAL** | **23 a 50 años ($n=5$)** | **100% Éxito** | **`03:05`** | **185.00 s** | **0.80** | **80% de los usuarios presentó al menos 1 fricción de operabilidad o pertinencia funcional.** | **100% de los usuarios experimentó incertidumbre por ausencia de validación en el formulario.** |
+| **GLOBAL** | **23 a 50 años ($n=5$)** | **100% Éxito** | **`03:05`** | **185.00 s** | **0.80** | **80% de los usuarios presentó al menos 1 fricción de operabilidad o pertinencia funcional.** | **80% de los usuarios (4 de 5) expresó dudas sobre el formato o la obligatoriedad de los campos; solo U3 completó el formulario sin dudas.** |
 
 ### Tabla 3. Tiempos por Tarea (segundos) y Permanencia del `alert` Nativo
 
@@ -101,7 +99,7 @@ Al finalizar la prueba práctica, los 5 participantes diligenciaron los 10 ítem
 ### Aplicación de la Fórmula Oficial SUS
 $$\text{SUS}_u = \left( \sum_{i \in \{1,3,5,7,9\}} (X_i - 1) + \sum_{j \in \{2,4,6,8,10\}} (5 - X_j) \right) \times 2.5$$
 
-### Tabla 3. Matriz de Respuestas Crudas (`1-5`), Valores Convertidos (`0-4`) y Puntaje SUS
+### Tabla 4. Matriz de Respuestas Crudas (`1-5`), Valores Convertidos (`0-4`) y Puntaje SUS
 
 *(Formato de celda por pregunta: **`Respuesta Cruda` $\rightarrow$ `[Valor Convertido]`**)*
 
@@ -118,9 +116,10 @@ $$\text{SUS}_u = \left( \sum_{i \in \{1,3,5,7,9\}} (X_i - 1) + \sum_{j \in \{2,4
 * **Promedio Global ($\overline{\text{SUS}}$):** **$47.50 / 100$** (Inferior al umbral mínimo de aceptación de $68.0$ puntos en $-20.50$ puntos).
 * **Mediana ($Me$):** $47.50$ puntos.
 * **Desviación Estándar ($s$):** $7.29$ puntos.
+* **Intervalo de Confianza al 95% ($\text{IC}_{95\%}$):** $[38.45,\ 56.55]$ puntos ($t_{0.025,\,4} = 2.776$, error estándar $SE = 3.26$; todo el intervalo se ubica por debajo del umbral de $68.0$).
 * **Valor Mínimo / Valor Máximo:** $37.50$ puntos (U1) / $57.50$ puntos (U3).
 
-### Tabla 4. Análisis Estadístico por Ítem del Cuestionario SUS
+### Tabla 5. Análisis Estadístico por Ítem del Cuestionario SUS
 
 | Ítem | Enunciado Estándar SUS | Media Cruda ($1-5$) | Mediana Cruda | Desv. Estándar ($s$) | Mín / Máx | Media Convertida ($0-4$) | Interpretación del Patrón / Hallazgo |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -141,8 +140,8 @@ $$\text{SUS}_u = \left( \sum_{i \in \{1,3,5,7,9\}} (X_i - 1) + \sum_{j \in \{2,4
 
 El cruce entre la **Observación Directa** y el **Cuestionario SUS** revela una paradoja de diseño fundamental en `demoblaze.com`:
 
-1. **Contraste entre Simplicidad Estructural (Q3 = 5.00) e Incomodidad Operativa (Q8 = 4.60):** Todos los usuarios completaron la compra ($100\%$ de éxito) con un promedio de $0.80$ extravíos (cumpliendo el umbral operativo $\le 2$). Sin embargo, calificaron el sitio como altamente engorroso porque carece de funciones esenciales de **Pertinencia Funcional** (ausencia de barra de búsqueda reportada por U4 y U5, y ausencia de indicador numérico en el botón `Cart` que desorientó a U1 y U2).
-2. **Impacto de la Protección contra Errores de Usuario en la Confianza (Q9 = 1.60):** El $100\%$ de los participantes manifestó dudas explícitas al diligenciar el formulario `Place Order`. La ausencia de etiquetas de campos obligatorios, máscaras de entrada para tarjeta de crédito (`XXXX-XXXX-XXXX-XXXX`), formato de fecha (`MM/AAAA`) y validación de tipos de datos desplomó la confianza percibida en el sistema (media convertida de $0.60/4.00$ en Q9), arrastrando el puntaje global SUS a **$47.50 / 100$** (**REPROBADO**, al ser $< 68.0$).
+1. **Contraste entre Simplicidad Estructural (Q3 = 5.00) e Incomodidad Operativa (Q8 = 4.60):** Todos los usuarios completaron la compra ($100\%$ de éxito) con un promedio de $0.80$ extravíos (cumpliendo el umbral operativo $\le 2$). Sin embargo, calificaron el sitio como altamente engorroso porque carece de funciones esenciales de **Pertinencia Funcional** (ausencia de barra de búsqueda reportada por U4 y U5, y ausencia de indicador numérico en el botón `Cart`, que desorientó a U2; además, el `alert` nativo retrasó a U1 y a U2, que tardaron 5.9 s y 9.9 s en cerrarlo).
+2. **Impacto de la Protección contra Errores de Usuario en la Confianza (Q9 = 1.60):** El $80\%$ de los participantes (4 de 5: U1, U2, U4 y U5) manifestó dudas explícitas al diligenciar el formulario `Place Order`; U3 lo completó sin dudas, escribiendo los datos como supuso que debían ir. La ausencia de etiquetas de campos obligatorios, máscaras de entrada para tarjeta de crédito (`XXXX-XXXX-XXXX-XXXX`), formato de fecha (`MM/AAAA`) y validación de tipos de datos desplomó la confianza percibida en el sistema (media convertida de $0.60/4.00$ en Q9), arrastrando el puntaje global SUS a **$47.50 / 100$** (**REPROBADO**, al ser $< 68.0$).
 
 ---
 
