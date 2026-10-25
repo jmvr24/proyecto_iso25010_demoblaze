@@ -1,0 +1,1975 @@
+{
+  "metadatos": {
+    "fechaEjecucionUtc": "2026-10-25T05:23:34.927Z",
+    "fechaEjecucionLocal": "domingo, 25 de octubre de 2026, 12:23:34 a. m. COT",
+    "herramienta": "Playwright 1.64.1, Chromium headless",
+    "viewport": "1280x800",
+    "locale": "es-CO",
+    "timezone": "America/Bogota",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "script": "_privado/recorrido_sitio.mjs"
+  },
+  "pasos": [
+    {
+      "paso": 1,
+      "descripcion": "Carga inicial de index.html, catálogo de primera página, categorías, buscador, recursos y cabeceras HTTP",
+      "url": "https://www.demoblaze.com/index.html",
+      "observaciones": {
+        "tituloPagina": "STORE",
+        "numeroTarjetasVisibles": 9,
+        "productosPrimeraPagina": [
+          {
+            "nombre": "Samsung galaxy s6",
+            "precio": "$360",
+            "href": "prod.html?idp_=1",
+            "descripcionCorta": "The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The ph"
+          },
+          {
+            "nombre": "Nokia lumia 1520",
+            "precio": "$820",
+            "href": "prod.html?idp_=2",
+            "descripcionCorta": "The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM."
+          },
+          {
+            "nombre": "Nexus 6",
+            "precio": "$650",
+            "href": "prod.html?idp_=3",
+            "descripcionCorta": "The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RA"
+          },
+          {
+            "nombre": "Samsung galaxy s7",
+            "precio": "$800",
+            "href": "prod.html?idp_=4",
+            "descripcionCorta": "The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage"
+          },
+          {
+            "nombre": "Iphone 6 32gb",
+            "precio": "$790",
+            "href": "prod.html?idp_=5",
+            "descripcionCorta": "It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concer"
+          },
+          {
+            "nombre": "Sony xperia z5",
+            "precio": "$320",
+            "href": "prod.html?idp_=6",
+            "descripcionCorta": "Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display wit"
+          },
+          {
+            "nombre": "HTC One M9",
+            "precio": "$700",
+            "href": "prod.html?idp_=7",
+            "descripcionCorta": "The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone"
+          },
+          {
+            "nombre": "Sony vaio i5",
+            "precio": "$790",
+            "href": "prod.html?idp_=8",
+            "descripcionCorta": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook "
+          },
+          {
+            "nombre": "Sony vaio i7",
+            "precio": "$790",
+            "href": "prod.html?idp_=9",
+            "descripcionCorta": "REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the "
+          }
+        ],
+        "categorias": [
+          {
+            "texto": "Phones",
+            "id": "itemc",
+            "onclick": "byCat('phone')",
+            "href": "#"
+          },
+          {
+            "texto": "Laptops",
+            "id": "itemc",
+            "onclick": "byCat('notebook')",
+            "href": "#"
+          },
+          {
+            "texto": "Monitors",
+            "id": "itemc",
+            "onclick": "byCat('monitor')",
+            "href": "#"
+          }
+        ],
+        "campoBusqueda": {
+          "existeCampoBusqueda": false,
+          "conteoInputTypeSearch": 0,
+          "conteoInputAtributoSearch": 0,
+          "conteoRoleSearch": 0,
+          "conteoInputsVisiblesEnPagina": 0,
+          "conteoInputsTotalesEnDomIncluyendoModalesOcultos": 6
+        },
+        "scripts": [
+          "node_modules/jquery/dist/jquery.min.js",
+          "node_modules/video.js/dist/video.min.js",
+          "node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+          "node_modules/tether/dist/js/tether.min.js",
+          "node_modules/bootstrap/dist/js/bootstrap.min.js",
+          "js/index.js"
+        ],
+        "scriptsResueltos": [
+          "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+          "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
+          "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+          "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+          "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
+          "https://www.demoblaze.com/js/index.js"
+        ],
+        "hojasDeEstilo": [
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "node_modules/video.js/dist/video-js.min.css",
+          "css/latofonts.css",
+          "css/latostyle.css"
+        ],
+        "hojasDeEstiloResueltas": [
+          "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
+          "https://www.demoblaze.com/css/latofonts.css",
+          "https://www.demoblaze.com/css/latostyle.css"
+        ],
+        "cabecerasRespuestaIndexHtml": {
+          "destacadas": {
+            "server": "Google Frontend",
+            "content-type": "text/html",
+            "cache-control": "public, max-age=10",
+            "via": null,
+            "x-cache": null,
+            "x-amz-cf-pop": null,
+            "cf-ray": null,
+            "x-cloud-trace-context": "73faffa8917ebae408c612727f34d526",
+            "date": "Sun, 25 Oct 2026 05:23:37 GMT",
+            "etag": "\"cET1bQ\"",
+            "age": "0",
+            "content-encoding": "gzip"
+          },
+          "todas": {
+            "age": "0",
+            "cache-control": "public, max-age=10",
+            "content-encoding": "gzip",
+            "content-length": "4423",
+            "content-type": "text/html",
+            "date": "Sun, 25 Oct 2026 05:23:37 GMT",
+            "etag": "\"cET1bQ\"",
+            "expires": "Sun, 25 Oct 2026 05:23:47 GMT",
+            "server": "Google Frontend",
+            "x-cloud-trace-context": "73faffa8917ebae408c612727f34d526"
+          }
+        },
+        "cabecerasRespuestaEntries": {
+          "destacadas": {
+            "server": "Google Frontend",
+            "content-type": "application/json",
+            "cache-control": null,
+            "via": null,
+            "x-cache": null,
+            "x-amz-cf-pop": null,
+            "cf-ray": null,
+            "x-cloud-trace-context": "49a71db422b250454962917bf2facaf6",
+            "date": "Sun, 25 Oct 2026 05:23:40 GMT",
+            "access-control-allow-origin": "https://www.demoblaze.com",
+            "content-encoding": "gzip"
+          },
+          "todas": {
+            "content-encoding": "gzip",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "https://www.demoblaze.com",
+            "content-length": "1055",
+            "date": "Sun, 25 Oct 2026 05:23:40 GMT",
+            "x-cloud-trace-context": "49a71db422b250454962917bf2facaf6",
+            "content-type": "application/json",
+            "vary": "Accept-Encoding, Origin",
+            "server": "Google Frontend"
+          }
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 497.76
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 108.5
+        },
+        {
+          "metodo": "GET",
+          "url": "https://api.demoblaze.com/entries",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 898.81
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 513.27
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 2,
+      "descripcion": "Paginación del catálogo con los botones Next (#next2) y Previous (#prev2)",
+      "url": "https://www.demoblaze.com/index.html",
+      "observaciones": {
+        "siguientePagina": {
+          "selectorClic": "#next2",
+          "numeroProductos": 6,
+          "productos": [
+            {
+              "nombre": "Apple monitor 24",
+              "precio": "$400",
+              "href": "prod.html?idp_=10",
+              "descripcionCorta": "LED Cinema Display features a 27-inch glossy LED-backlit TFT \nactive-matrix LCD display with IPS technology and an optim"
+            },
+            {
+              "nombre": "MacBook air",
+              "precio": "$700",
+              "href": "prod.html?idp_=11",
+              "descripcionCorta": "1.6GHz dual-core Intel Core i5 (Turbo Boost up to 2.7GHz) with 3MB \nshared L3 cache\nConfigurable to 2.2GHz dual-core Int"
+            },
+            {
+              "nombre": "Dell i7 8gb",
+              "precio": "$700",
+              "href": "prod.html?idp_=12",
+              "descripcionCorta": "6th Generation Intel Core i7-6500U Dual-Core Processor 2.5 GHz (max \nboost speed up to 3.1GHz) 4MB L3 Cache, 8GB DDR4 16"
+            },
+            {
+              "nombre": "2017 Dell 15.6 Inch",
+              "precio": "$700",
+              "href": "prod.html?idp_=13",
+              "descripcionCorta": "7th Gen Intel Core i7-7500U mobile processor 2.70 GHz with Turbo Boost \nTechnology up to 3.50 GHz, Intel HD Graphics 620"
+            },
+            {
+              "nombre": "ASUS Full HD",
+              "precio": "$230",
+              "href": "prod.html?idp_=14",
+              "descripcionCorta": "ASUS VS247H-P 23.6- Inch Full HD"
+            },
+            {
+              "nombre": "MacBook Pro",
+              "precio": "$1100",
+              "href": "prod.html?idp_=15",
+              "descripcionCorta": "Apple has introduced three new versions of its MacBook Pro line, \nincluding a 13-inch and 15-inch model with the Touch B"
+            }
+          ],
+          "peticionProvocada": {
+            "metodo": "POST",
+            "url": "https://api.demoblaze.com/pagination",
+            "cuerpoEnviado": "{\"id\":\"9\"}",
+            "status": 200
+          }
+        },
+        "paginaAnterior": {
+          "selectorClic": "#prev2",
+          "numeroProductos": 9,
+          "productos": [
+            {
+              "nombre": "Nokia lumia 1520",
+              "precio": "$820",
+              "href": "prod.html?idp_=2",
+              "descripcionCorta": "The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM."
+            },
+            {
+              "nombre": "Nexus 6",
+              "precio": "$650",
+              "href": "prod.html?idp_=3",
+              "descripcionCorta": "The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RA"
+            },
+            {
+              "nombre": "Samsung galaxy s7",
+              "precio": "$800",
+              "href": "prod.html?idp_=4",
+              "descripcionCorta": "The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage"
+            },
+            {
+              "nombre": "Iphone 6 32gb",
+              "precio": "$790",
+              "href": "prod.html?idp_=5",
+              "descripcionCorta": "It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concer"
+            },
+            {
+              "nombre": "Sony xperia z5",
+              "precio": "$320",
+              "href": "prod.html?idp_=6",
+              "descripcionCorta": "Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display wit"
+            },
+            {
+              "nombre": "HTC One M9",
+              "precio": "$700",
+              "href": "prod.html?idp_=7",
+              "descripcionCorta": "The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone"
+            },
+            {
+              "nombre": "Sony vaio i5",
+              "precio": "$790",
+              "href": "prod.html?idp_=8",
+              "descripcionCorta": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook "
+            },
+            {
+              "nombre": "Sony vaio i7",
+              "precio": "$790",
+              "href": "prod.html?idp_=9",
+              "descripcionCorta": "REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the "
+            },
+            {
+              "nombre": "Apple monitor 24",
+              "precio": "$400",
+              "href": "prod.html?idp_=10",
+              "descripcionCorta": "LED Cinema Display features a 27-inch glossy LED-backlit TFT \nactive-matrix LCD display with IPS technology and an optim"
+            }
+          ],
+          "peticionProvocada": {
+            "metodo": "POST",
+            "url": "https://api.demoblaze.com/pagination",
+            "cuerpoEnviado": "{\"id\":\"1\"}",
+            "status": 200
+          }
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/pagination",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 2362.79,
+          "postData": "{\"id\":\"9\"}"
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/pagination",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 262.9,
+          "postData": "{\"id\":\"1\"}"
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 3,
+      "descripcion": "Filtrado de productos por cada categoría (Phones, Laptops y Monitors)",
+      "url": "https://www.demoblaze.com/index.html#",
+      "observaciones": {
+        "categoriasEvaluadas": [
+          {
+            "categoria": "Phones",
+            "numeroProductosListados": 7,
+            "nombresProductos": [
+              "Samsung galaxy s6",
+              "Nokia lumia 1520",
+              "Nexus 6",
+              "Samsung galaxy s7",
+              "Iphone 6 32gb",
+              "Sony xperia z5",
+              "HTC One M9"
+            ],
+            "productosDetallados": [
+              {
+                "nombre": "Samsung galaxy s6",
+                "precio": "$360",
+                "href": "prod.html?idp_=1",
+                "descripcionCorta": "The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The ph"
+              },
+              {
+                "nombre": "Nokia lumia 1520",
+                "precio": "$820",
+                "href": "prod.html?idp_=2",
+                "descripcionCorta": "The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM."
+              },
+              {
+                "nombre": "Nexus 6",
+                "precio": "$650",
+                "href": "prod.html?idp_=3",
+                "descripcionCorta": "The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RA"
+              },
+              {
+                "nombre": "Samsung galaxy s7",
+                "precio": "$800",
+                "href": "prod.html?idp_=4",
+                "descripcionCorta": "The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage"
+              },
+              {
+                "nombre": "Iphone 6 32gb",
+                "precio": "$790",
+                "href": "prod.html?idp_=5",
+                "descripcionCorta": "It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concer"
+              },
+              {
+                "nombre": "Sony xperia z5",
+                "precio": "$320",
+                "href": "prod.html?idp_=6",
+                "descripcionCorta": "Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display wit"
+              },
+              {
+                "nombre": "HTC One M9",
+                "precio": "$700",
+                "href": "prod.html?idp_=7",
+                "descripcionCorta": "The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone"
+              }
+            ],
+            "peticionProvocada": {
+              "metodo": "POST",
+              "url": "https://api.demoblaze.com/bycat",
+              "cuerpoEnviado": "{\"cat\":\"phone\"}",
+              "status": 200
+            }
+          },
+          {
+            "categoria": "Laptops",
+            "numeroProductosListados": 6,
+            "nombresProductos": [
+              "Sony vaio i5",
+              "Sony vaio i7",
+              "MacBook air",
+              "Dell i7 8gb",
+              "2017 Dell 15.6 Inch",
+              "MacBook Pro"
+            ],
+            "productosDetallados": [
+              {
+                "nombre": "Sony vaio i5",
+                "precio": "$790",
+                "href": "prod.html?idp_=8",
+                "descripcionCorta": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook "
+              },
+              {
+                "nombre": "Sony vaio i7",
+                "precio": "$790",
+                "href": "prod.html?idp_=9",
+                "descripcionCorta": "REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the "
+              },
+              {
+                "nombre": "MacBook air",
+                "precio": "$700",
+                "href": "prod.html?idp_=11",
+                "descripcionCorta": "1.6GHz dual-core Intel Core i5 (Turbo Boost up to 2.7GHz) with 3MB \nshared L3 cache\nConfigurable to 2.2GHz dual-core Int"
+              },
+              {
+                "nombre": "Dell i7 8gb",
+                "precio": "$700",
+                "href": "prod.html?idp_=12",
+                "descripcionCorta": "6th Generation Intel Core i7-6500U Dual-Core Processor 2.5 GHz (max \nboost speed up to 3.1GHz) 4MB L3 Cache, 8GB DDR4 16"
+              },
+              {
+                "nombre": "2017 Dell 15.6 Inch",
+                "precio": "$700",
+                "href": "prod.html?idp_=13",
+                "descripcionCorta": "7th Gen Intel Core i7-7500U mobile processor 2.70 GHz with Turbo Boost \nTechnology up to 3.50 GHz, Intel HD Graphics 620"
+              },
+              {
+                "nombre": "MacBook Pro",
+                "precio": "$1100",
+                "href": "prod.html?idp_=15",
+                "descripcionCorta": "Apple has introduced three new versions of its MacBook Pro line, \nincluding a 13-inch and 15-inch model with the Touch B"
+              }
+            ],
+            "peticionProvocada": {
+              "metodo": "POST",
+              "url": "https://api.demoblaze.com/bycat",
+              "cuerpoEnviado": "{\"cat\":\"notebook\"}",
+              "status": 200
+            }
+          },
+          {
+            "categoria": "Monitors",
+            "numeroProductosListados": 2,
+            "nombresProductos": [
+              "Apple monitor 24",
+              "ASUS Full HD"
+            ],
+            "productosDetallados": [
+              {
+                "nombre": "Apple monitor 24",
+                "precio": "$400",
+                "href": "prod.html?idp_=10",
+                "descripcionCorta": "LED Cinema Display features a 27-inch glossy LED-backlit TFT \nactive-matrix LCD display with IPS technology and an optim"
+              },
+              {
+                "nombre": "ASUS Full HD",
+                "precio": "$230",
+                "href": "prod.html?idp_=14",
+                "descripcionCorta": "ASUS VS247H-P 23.6- Inch Full HD"
+              }
+            ],
+            "peticionProvocada": {
+              "metodo": "POST",
+              "url": "https://api.demoblaze.com/bycat",
+              "cuerpoEnviado": "{\"cat\":\"monitor\"}",
+              "status": 200
+            }
+          }
+        ]
+      },
+      "peticionesApi": [
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/bycat",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 2608.01,
+          "postData": "{\"cat\":\"phone\"}"
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/bycat",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 228.89,
+          "postData": "{\"cat\":\"notebook\"}"
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/bycat",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 238.22,
+          "postData": "{\"cat\":\"monitor\"}"
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 4,
+      "descripcion": "Apertura de la vista de detalle del producto Sony vaio i5 desde la categoría Laptops",
+      "url": "https://www.demoblaze.com/prod.html?idp_=8",
+      "observaciones": {
+        "url": "https://www.demoblaze.com/prod.html?idp_=8",
+        "nombre": "Sony vaio i5",
+        "precioMostrado": "$790 *includes tax",
+        "descripcionPrimeros200Caracteres": "Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, t",
+        "longitudDescripcionCompleta": 227,
+        "botonAddToCart": {
+          "existe": true,
+          "texto": "Add to cart",
+          "onclick": "addToCart(8)"
+        },
+        "peticionDetalleApi": {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/view",
+          "cuerpoEnviado": "{\"id\":\"8\"}",
+          "status": 200
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/bycat",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 229.61,
+          "postData": "{\"cat\":\"notebook\"}"
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 2.26
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 0.62
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 3.83
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 105.93
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/view",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 434.42,
+          "postData": "{\"id\":\"8\"}"
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 5,
+      "descripcion": "Adición del producto Sony vaio i5 al carrito mediante el botón Add to cart",
+      "url": "https://www.demoblaze.com/prod.html?idp_=8#",
+      "observaciones": {
+        "dialogoCapturado": {
+          "tipo": "alert",
+          "textoExacto": "Product added"
+        },
+        "peticionAddToCart": {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/addtocart",
+          "cuerpoEnviado": "{\"id\":\"012ec0d4-ab84-3bdb-b33c-7eaf47bbc92f\",\"cookie\":\"user=5b69977e-ba42-1fde-cccd-0816752423d9\",\"prod_id\":8,\"flag\":false}",
+          "status": 200
+        },
+        "enlaceCarturAntes": {
+          "texto": "Cart",
+          "innerHTML": "Cart",
+          "numeroHijos": 0
+        },
+        "enlaceCarturDespues": {
+          "texto": "Cart",
+          "innerHTML": "Cart",
+          "numeroHijos": 0
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/addtocart",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 1097.76,
+          "postData": "{\"id\":\"012ec0d4-ab84-3bdb-b33c-7eaf47bbc92f\",\"cookie\":\"user=5b69977e-ba42-1fde-cccd-0816752423d9\",\"prod_id\":8,\"flag\":false}"
+        }
+      ],
+      "dialogos": [
+        {
+          "paso": 5,
+          "tipo": "alert",
+          "mensaje": "Product added",
+          "timestamp": "2026-10-25T05:23:54.190Z"
+        }
+      ]
+    },
+    {
+      "paso": 6,
+      "descripcion": "Inspección del carrito (cart.html), apertura y cierre del modal Place Order y extracción de purchaseOrder()",
+      "url": "https://www.demoblaze.com/cart.html",
+      "observaciones": {
+        "numeroFilas": 1,
+        "columnasTabla": [
+          "Pic",
+          "Title",
+          "Price",
+          "x"
+        ],
+        "filas": [
+          {
+            "imagenSrc": "imgs/sony_vaio_5.jpg",
+            "titulo": "Sony vaio i5",
+            "precio": "790",
+            "accionTexto": "Delete",
+            "accionOnclick": "deleteItem('012ec0d4-ab84-3bdb-b33c-7eaf47bbc92f')"
+          }
+        ],
+        "totalMostrado": "790",
+        "existeControlCambiarCantidad": false,
+        "conteoControlesCantidadEnTbody": 0,
+        "peticionCargaCarrito": {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/viewcart",
+          "cuerpoEnviado": "{\"cookie\":\"user=5b69977e-ba42-1fde-cccd-0816752423d9\",\"flag\":false}",
+          "status": 200
+        },
+        "modalPlaceOrder": {
+          "encontrado": true,
+          "selector": "#orderModal",
+          "tituloModal": "Place order",
+          "campos": [
+            {
+              "tag": "input",
+              "id": "name",
+              "type": "text",
+              "etiquetaVisible": "Name:",
+              "labelForEnGrupo": "name",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "country",
+              "type": "text",
+              "etiquetaVisible": "Country:",
+              "labelForEnGrupo": "country",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "city",
+              "type": "text",
+              "etiquetaVisible": "City:",
+              "labelForEnGrupo": "city",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "card",
+              "type": "text",
+              "etiquetaVisible": "Credit card:",
+              "labelForEnGrupo": "card",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "month",
+              "type": "text",
+              "etiquetaVisible": "Month:",
+              "labelForEnGrupo": "month",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "year",
+              "type": "text",
+              "etiquetaVisible": "Year:",
+              "labelForEnGrupo": "year",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            }
+          ],
+          "botones": [
+            {
+              "texto": "×",
+              "type": "button",
+              "className": "close",
+              "onclick": null,
+              "dataDismiss": "modal",
+              "ariaLabel": "Close"
+            },
+            {
+              "texto": "Close",
+              "type": "button",
+              "className": "btn btn-secondary",
+              "onclick": null,
+              "dataDismiss": "modal",
+              "ariaLabel": null
+            },
+            {
+              "texto": "Purchase",
+              "type": "button",
+              "className": "btn btn-primary",
+              "onclick": "purchaseOrder()",
+              "dataDismiss": null,
+              "ariaLabel": null
+            }
+          ]
+        },
+        "extraccionCodigoCompra": {
+          "origenFuncion": "window.purchaseOrder",
+          "codigoFuentePurchaseOrder": "function purchaseOrder() {\n  var idr = Math.floor((Math.random() * 10000000) + 1);\n  var name = document.getElementById(\"name\").value;\n  var creditcard = document.getElementById(\"card\").value;\n  var date = new Date();\n  if (name == \"\" || creditcard == \"\") {\n    alert(\"Please fill out Name and Creditcard.\");\n  } else {\n    var token = getCookie(\"tokenp_\");\n    if (token.length > 0) {\n      deleteCart(usern);\n    } else {\n      deleteCart(document.cookie);\n    }\n    swal({\n      title: \"Thank you for your purchase!\",\n      text: \"Id: \" + idr + \"\\n\" + \"Amount: \" + total + \" USD\" + \"\\n\" + \"Card Number: \" + creditcard + \"\\n\" + \"Name: \" + name + \"\\n\" + \"Date: \" + date.getDate() + \"/\" + date.getMonth() + \"/\" + date.getFullYear(),\n      type: \"success\",\n      confirmButtonColor: \"#DD6B55\",\n      confirmButtonText: \"OK\",\n      closeOnConfirm: false\n    }, function (isConfirm) {\n        if (isConfirm) {\n          location.href = 'index.html';\n        }\n      });\n  }\n}",
+          "fragmentoFechaRecibo": "var date = new Date();\ntext: \"Id: \" + idr + \"\\n\" + \"Amount: \" + total + \" USD\" + \"\\n\" + \"Card Number: \" + creditcard + \"\\n\" + \"Name: \" + name + \"\\n\" + \"Date: \" + date.getDate() + \"/\" + date.getMonth() + \"/\" + date.getFullYear(),"
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.96
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 0.77
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 3.78
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 0.95
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/viewcart",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 438.34,
+          "postData": "{\"cookie\":\"user=5b69977e-ba42-1fde-cccd-0816752423d9\",\"flag\":false}"
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/view",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 227.67,
+          "postData": "{\"id\":8}"
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 7,
+      "descripcion": "Apertura e inspección del modal Contact (#exampleModal) sin enviar formulario",
+      "url": "https://www.demoblaze.com/cart.html",
+      "observaciones": {
+        "modalContact": {
+          "encontrado": true,
+          "selector": "#exampleModal",
+          "tituloModal": "New message",
+          "campos": [
+            {
+              "tag": "input",
+              "id": "recipient-email",
+              "type": "text",
+              "etiquetaVisible": "Contact Email:",
+              "labelForEnGrupo": "recipient-name",
+              "coincideForConId": false,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "id": "recipient-name",
+              "type": "text",
+              "etiquetaVisible": "Contact Name:",
+              "labelForEnGrupo": "recipient-name",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            },
+            {
+              "tag": "textarea",
+              "id": "message-text",
+              "type": "textarea",
+              "etiquetaVisible": "Message:",
+              "labelForEnGrupo": "message-text",
+              "coincideForConId": true,
+              "placeholder": null,
+              "required": false
+            }
+          ],
+          "botones": [
+            {
+              "texto": "×",
+              "type": "button",
+              "className": "close",
+              "onclick": null,
+              "dataDismiss": "modal",
+              "ariaLabel": "Close"
+            },
+            {
+              "texto": "Close",
+              "type": "button",
+              "className": "btn btn-secondary",
+              "onclick": null,
+              "dataDismiss": "modal",
+              "ariaLabel": null
+            },
+            {
+              "texto": "Send message",
+              "type": "button",
+              "className": "btn btn-primary",
+              "onclick": "send()",
+              "dataDismiss": null,
+              "ariaLabel": null
+            }
+          ]
+        }
+      },
+      "peticionesApi": [],
+      "dialogos": []
+    },
+    {
+      "paso": 8,
+      "descripcion": "Apertura e inspección del modal About us (#videoModal) y su reproductor de video",
+      "url": "https://www.demoblaze.com/cart.html",
+      "observaciones": {
+        "reproductorVideo": {
+          "encontrado": true,
+          "tituloModal": "About us",
+          "contieneReproductorVideo": true,
+          "idReproductor": "example-video",
+          "poster": "imgs/front.jpg",
+          "videoSrcAtributo": "https://hls.demoblaze.com/index.m3u8",
+          "videoCurrentSrc": "https://hls.demoblaze.com/index.m3u8",
+          "sourceSrcAtributo": null,
+          "sourceTypeAtributo": null
+        },
+        "botonesModal": [
+          {
+            "texto": "×",
+            "type": "button",
+            "className": "close",
+            "onclick": null,
+            "dataDismiss": "modal",
+            "ariaLabel": "Close"
+          },
+          {
+            "texto": "Play Video",
+            "type": "button",
+            "className": "vjs-big-play-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Pause",
+            "type": "button",
+            "className": "vjs-play-control vjs-control vjs-button vjs-playing",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Mute",
+            "type": "button",
+            "className": "vjs-mute-control vjs-control vjs-button vjs-vol-3",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Seek to live, currently playing liveLIVE",
+            "type": "button",
+            "className": "vjs-seek-to-live-control vjs-control vjs-at-live-edge",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Playback Rate",
+            "type": "button",
+            "className": "vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Chapters",
+            "type": "button",
+            "className": "vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Descriptions",
+            "type": "button",
+            "className": "vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Captions",
+            "type": "button",
+            "className": "vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Audio Track",
+            "type": "button",
+            "className": "vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Picture-in-Picture",
+            "type": "button",
+            "className": "vjs-picture-in-picture-control vjs-control vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Fullscreen",
+            "type": "button",
+            "className": "vjs-fullscreen-control vjs-control vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Reset restore all settings to the default values",
+            "type": "button",
+            "className": "vjs-default-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Done",
+            "type": "button",
+            "className": "vjs-done-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Close Modal Dialog",
+            "type": "button",
+            "className": "vjs-close-button vjs-control vjs-button",
+            "onclick": null,
+            "dataDismiss": null,
+            "ariaLabel": null
+          },
+          {
+            "texto": "Close",
+            "type": "button",
+            "className": "btn btn-secondary",
+            "onclick": null,
+            "dataDismiss": "modal",
+            "ariaLabel": null
+          }
+        ],
+        "peticionesGeneradasAlAbrirYReproducirEnPaso8": [
+          {
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_2M00000.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 762.09
+          },
+          {
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_2M00001.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 257.65
+          },
+          {
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_2M00002.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 260.16
+          }
+        ],
+        "peticionesHlsPrecargadasAlCargarLasPaginas": [
+          {
+            "paso": 1,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/index.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 497.76
+          },
+          {
+            "paso": 1,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 108.5
+          },
+          {
+            "paso": 1,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 513.27
+          },
+          {
+            "paso": 4,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/index.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 2.26
+          },
+          {
+            "paso": 4,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 0.62
+          },
+          {
+            "paso": 4,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 3.83
+          },
+          {
+            "paso": 4,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 105.93
+          },
+          {
+            "paso": 6,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/index.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 1.96
+          },
+          {
+            "paso": 6,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 0.77
+          },
+          {
+            "paso": 6,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 3.78
+          },
+          {
+            "paso": 6,
+            "metodo": "GET",
+            "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+            "status": 206,
+            "tipoRecurso": "media",
+            "duracionMs": 0.95
+          }
+        ]
+      },
+      "peticionesApi": [
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 762.09
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M00001.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 257.65
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M00002.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 260.16
+        }
+      ],
+      "dialogos": []
+    },
+    {
+      "paso": 9,
+      "descripcion": "Registro de cuenta de prueba (Sign up), inicio de sesión (Log in) y cierre de sesión (Log out)",
+      "url": "https://www.demoblaze.com/index.html",
+      "observaciones": {
+        "estadoBarraAntesDeSesion": {
+          "login2": {
+            "existe": true,
+            "texto": "Log in",
+            "visible": true,
+            "displayComputado": "block",
+            "displayInline": "block"
+          },
+          "signin2": {
+            "existe": true,
+            "texto": "Sign up",
+            "visible": true,
+            "displayComputado": "block",
+            "displayInline": "block"
+          },
+          "logout2": {
+            "existe": true,
+            "texto": "Log out",
+            "visible": false,
+            "displayComputado": "none",
+            "displayInline": "none"
+          },
+          "nameofuser": {
+            "existe": true,
+            "texto": "",
+            "visible": false,
+            "displayComputado": "none",
+            "displayInline": "none"
+          }
+        },
+        "signUp": {
+          "modalSignUp": {
+            "encontrado": true,
+            "selector": "#signInModal",
+            "tituloModal": "Sign up",
+            "campos": [
+              {
+                "tag": "input",
+                "id": "sign-username",
+                "type": "text",
+                "etiquetaVisible": "Username:",
+                "labelForEnGrupo": "sign-username",
+                "coincideForConId": true,
+                "placeholder": null,
+                "required": false
+              },
+              {
+                "tag": "input",
+                "id": "sign-password",
+                "type": "password",
+                "etiquetaVisible": "Password:",
+                "labelForEnGrupo": "sign-password",
+                "coincideForConId": true,
+                "placeholder": null,
+                "required": false
+              }
+            ],
+            "botones": [
+              {
+                "texto": "×",
+                "type": "button",
+                "className": "close",
+                "onclick": null,
+                "dataDismiss": "modal",
+                "ariaLabel": "Close"
+              },
+              {
+                "texto": "Close",
+                "type": "button",
+                "className": "btn btn-secondary",
+                "onclick": null,
+                "dataDismiss": "modal",
+                "ariaLabel": null
+              },
+              {
+                "texto": "Sign up",
+                "type": "button",
+                "className": "btn btn-primary",
+                "onclick": "register()",
+                "dataDismiss": null,
+                "ariaLabel": null
+              }
+            ]
+          },
+          "usuarioCreado": "prueba_usco_1792905845750",
+          "dialogoRespuesta": {
+            "tipo": "alert",
+            "textoExacto": "Sign up successful."
+          },
+          "peticionApi": {
+            "metodo": "POST",
+            "url": "https://api.demoblaze.com/signup",
+            "status": 200
+          }
+        },
+        "logIn": {
+          "modalLogIn": {
+            "encontrado": true,
+            "selector": "#logInModal",
+            "tituloModal": "Log in",
+            "campos": [
+              {
+                "tag": "input",
+                "id": "loginusername",
+                "type": "text",
+                "etiquetaVisible": "Username:",
+                "labelForEnGrupo": "log-name",
+                "coincideForConId": false,
+                "placeholder": null,
+                "required": false
+              },
+              {
+                "tag": "input",
+                "id": "loginpassword",
+                "type": "password",
+                "etiquetaVisible": "Password:",
+                "labelForEnGrupo": "log-pass",
+                "coincideForConId": false,
+                "placeholder": null,
+                "required": false
+              }
+            ],
+            "botones": [
+              {
+                "texto": "×",
+                "type": "button",
+                "className": "close",
+                "onclick": null,
+                "dataDismiss": "modal",
+                "ariaLabel": "Close"
+              },
+              {
+                "texto": "Close",
+                "type": "button",
+                "className": "btn btn-secondary",
+                "onclick": null,
+                "dataDismiss": "modal",
+                "ariaLabel": null
+              },
+              {
+                "texto": "Log in",
+                "type": "button",
+                "className": "btn btn-primary",
+                "onclick": "logIn()",
+                "dataDismiss": null,
+                "ariaLabel": null
+              }
+            ]
+          },
+          "usuarioAutenticado": "prueba_usco_1792905845750",
+          "textoNameOfUser": "Welcome prueba_usco_1792905845750",
+          "estadoBarraTrasLogin": {
+            "login2": {
+              "existe": true,
+              "texto": "Log in",
+              "visible": false,
+              "displayComputado": "none",
+              "displayInline": "none"
+            },
+            "signin2": {
+              "existe": true,
+              "texto": "Sign up",
+              "visible": false,
+              "displayComputado": "none",
+              "displayInline": "none"
+            },
+            "logout2": {
+              "existe": true,
+              "texto": "Log out",
+              "visible": true,
+              "displayComputado": "block",
+              "displayInline": "block"
+            },
+            "nameofuser": {
+              "existe": true,
+              "texto": "Welcome prueba_usco_1792905845750",
+              "visible": true,
+              "displayComputado": "block",
+              "displayInline": "block"
+            }
+          },
+          "peticionApi": {
+            "metodo": "POST",
+            "url": "https://api.demoblaze.com/login",
+            "status": 200
+          }
+        },
+        "logOut": {
+          "estadoBarraTrasLogout": {
+            "login2": {
+              "existe": true,
+              "texto": "Log in",
+              "visible": true,
+              "displayComputado": "block",
+              "displayInline": "block"
+            },
+            "signin2": {
+              "existe": true,
+              "texto": "Sign up",
+              "visible": true,
+              "displayComputado": "block",
+              "displayInline": "block"
+            },
+            "logout2": {
+              "existe": true,
+              "texto": "Log out",
+              "visible": false,
+              "displayComputado": "none",
+              "displayInline": "none"
+            },
+            "nameofuser": {
+              "existe": true,
+              "texto": "",
+              "visible": false,
+              "displayComputado": "none",
+              "displayInline": "none"
+            }
+          }
+        }
+      },
+      "peticionesApi": [
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.53
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.29
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 4.84
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.48
+        },
+        {
+          "metodo": "GET",
+          "url": "https://api.demoblaze.com/entries",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 224.87
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/signup",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 470.74
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/login",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 560.96
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.38
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.21
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 4.45
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.56
+        },
+        {
+          "metodo": "GET",
+          "url": "https://api.demoblaze.com/entries",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 493.69
+        },
+        {
+          "metodo": "POST",
+          "url": "https://api.demoblaze.com/check",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 706.66,
+          "postData": "{\"token\":\"cHJ1ZWJhX3VzY29fMTc5MjkwNTg0NTc1MDE3OTM1MDU=\"}"
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/index.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.32
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 3.85
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 3.74
+        },
+        {
+          "metodo": "GET",
+          "url": "https://hls.demoblaze.com/about_demo_hls_2M.m3u8",
+          "status": 206,
+          "tipoRecurso": "media",
+          "duracionMs": 1.88
+        },
+        {
+          "metodo": "GET",
+          "url": "https://api.demoblaze.com/entries",
+          "status": 200,
+          "tipoRecurso": "xhr",
+          "duracionMs": 265.41
+        }
+      ],
+      "dialogos": [
+        {
+          "paso": 9,
+          "tipo": "alert",
+          "mensaje": "Sign up successful.",
+          "timestamp": "2026-10-25T05:24:06.300Z"
+        }
+      ]
+    }
+  ],
+  "resumenArquitectura": {
+    "hostsContactados": [
+      {
+        "host": "www.demoblaze.com",
+        "numeroPeticiones": 138
+      },
+      {
+        "host": "hls.demoblaze.com",
+        "numeroPeticiones": 26
+      },
+      {
+        "host": "api.demoblaze.com",
+        "numeroPeticiones": 17
+      }
+    ],
+    "endpointsApi": [
+      {
+        "metodo": "GET",
+        "ruta": "/entries",
+        "urlCompleta": "https://api.demoblaze.com/entries",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          1,
+          9
+        ],
+        "totalLlamadas": 4
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/pagination",
+        "urlCompleta": "https://api.demoblaze.com/pagination",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          2
+        ],
+        "totalLlamadas": 2
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/bycat",
+        "urlCompleta": "https://api.demoblaze.com/bycat",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          3,
+          4
+        ],
+        "totalLlamadas": 4
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/view",
+        "urlCompleta": "https://api.demoblaze.com/view",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          4,
+          6
+        ],
+        "totalLlamadas": 2
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/addtocart",
+        "urlCompleta": "https://api.demoblaze.com/addtocart",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          5
+        ],
+        "totalLlamadas": 1
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/viewcart",
+        "urlCompleta": "https://api.demoblaze.com/viewcart",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          6
+        ],
+        "totalLlamadas": 1
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/signup",
+        "urlCompleta": "https://api.demoblaze.com/signup",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          9
+        ],
+        "totalLlamadas": 1
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/login",
+        "urlCompleta": "https://api.demoblaze.com/login",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          9
+        ],
+        "totalLlamadas": 1
+      },
+      {
+        "metodo": "POST",
+        "ruta": "/check",
+        "urlCompleta": "https://api.demoblaze.com/check",
+        "codigosEstado": [
+          200
+        ],
+        "pasosDondeAparecio": [
+          9
+        ],
+        "totalLlamadas": 1
+      }
+    ],
+    "librerias": [
+      {
+        "tipo": "script",
+        "atributo": "node_modules/jquery/dist/jquery.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "node_modules/video.js/dist/video.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "node_modules/tether/dist/js/tether.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "js/index.js",
+        "urlResuelta": "https://www.demoblaze.com/js/index.js",
+        "paginasDondeAparece": [
+          "index.html"
+        ]
+      },
+      {
+        "tipo": "stylesheet",
+        "atributo": "node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "stylesheet",
+        "atributo": "node_modules/video.js/dist/video-js.min.css",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "stylesheet",
+        "atributo": "css/latofonts.css",
+        "urlResuelta": "https://www.demoblaze.com/css/latofonts.css",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "stylesheet",
+        "atributo": "css/latostyle.css",
+        "urlResuelta": "https://www.demoblaze.com/css/latostyle.css",
+        "paginasDondeAparece": [
+          "index.html",
+          "prod.html",
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "js/prod.js",
+        "urlResuelta": "https://www.demoblaze.com/js/prod.js",
+        "paginasDondeAparece": [
+          "prod.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "node_modules/bootstrap-sweetalert/dist/sweetalert.min.js",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/bootstrap-sweetalert/dist/sweetalert.min.js",
+        "paginasDondeAparece": [
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "script",
+        "atributo": "js/cart.js",
+        "urlResuelta": "https://www.demoblaze.com/js/cart.js",
+        "paginasDondeAparece": [
+          "cart.html"
+        ]
+      },
+      {
+        "tipo": "stylesheet",
+        "atributo": "node_modules/bootstrap-sweetalert/dist/sweetalert.css",
+        "urlResuelta": "https://www.demoblaze.com/node_modules/bootstrap-sweetalert/dist/sweetalert.css",
+        "paginasDondeAparece": [
+          "cart.html"
+        ]
+      }
+    ],
+    "cabecerasDocumento": {
+      "destacadas": {
+        "server": "Google Frontend",
+        "content-type": "text/html",
+        "cache-control": "public, max-age=10",
+        "via": null,
+        "x-cache": null,
+        "x-amz-cf-pop": null,
+        "cf-ray": null,
+        "x-cloud-trace-context": "73faffa8917ebae408c612727f34d526",
+        "date": "Sun, 25 Oct 2026 05:23:37 GMT",
+        "etag": "\"cET1bQ\"",
+        "age": "0",
+        "content-encoding": "gzip"
+      },
+      "todas": {
+        "age": "0",
+        "cache-control": "public, max-age=10",
+        "content-encoding": "gzip",
+        "content-length": "4423",
+        "content-type": "text/html",
+        "date": "Sun, 25 Oct 2026 05:23:37 GMT",
+        "etag": "\"cET1bQ\"",
+        "expires": "Sun, 25 Oct 2026 05:23:47 GMT",
+        "server": "Google Frontend",
+        "x-cloud-trace-context": "73faffa8917ebae408c612727f34d526"
+      }
+    },
+    "cabecerasApi": {
+      "destacadas": {
+        "server": "Google Frontend",
+        "content-type": "application/json",
+        "cache-control": null,
+        "via": null,
+        "x-cache": null,
+        "x-amz-cf-pop": null,
+        "cf-ray": null,
+        "x-cloud-trace-context": "49a71db422b250454962917bf2facaf6",
+        "date": "Sun, 25 Oct 2026 05:23:40 GMT",
+        "access-control-allow-origin": "https://www.demoblaze.com",
+        "content-encoding": "gzip"
+      },
+      "todas": {
+        "content-encoding": "gzip",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-origin": "https://www.demoblaze.com",
+        "content-length": "1055",
+        "date": "Sun, 25 Oct 2026 05:23:40 GMT",
+        "x-cloud-trace-context": "49a71db422b250454962917bf2facaf6",
+        "content-type": "application/json",
+        "vary": "Accept-Encoding, Origin",
+        "server": "Google Frontend"
+      }
+    }
+  },
+  "resumenFuncional": {
+    "categoriasDisponibles": [
+      "Phones",
+      "Laptops",
+      "Monitors"
+    ],
+    "conteoCategorias": 3,
+    "productosPorPaginaInicial": 9,
+    "productosEnSegundaPagina": 6,
+    "productosPorCategoria": {
+      "Phones": 7,
+      "Laptops": 6,
+      "Monitors": 2
+    },
+    "paginacionSiguienteCambiaProductos": true,
+    "paginacionAnteriorRestauraPrimeraPagina": false,
+    "existeBuscador": false,
+    "existeContadorEnCarrito": false,
+    "permiteCambiarCantidadEnCarrito": false,
+    "camposPlaceOrder": [
+      {
+        "id": "name",
+        "type": "text",
+        "etiquetaVisible": "Name:",
+        "required": false
+      },
+      {
+        "id": "country",
+        "type": "text",
+        "etiquetaVisible": "Country:",
+        "required": false
+      },
+      {
+        "id": "city",
+        "type": "text",
+        "etiquetaVisible": "City:",
+        "required": false
+      },
+      {
+        "id": "card",
+        "type": "text",
+        "etiquetaVisible": "Credit card:",
+        "required": false
+      },
+      {
+        "id": "month",
+        "type": "text",
+        "etiquetaVisible": "Month:",
+        "required": false
+      },
+      {
+        "id": "year",
+        "type": "text",
+        "etiquetaVisible": "Year:",
+        "required": false
+      }
+    ],
+    "camposSignUp": [
+      {
+        "id": "sign-username",
+        "type": "text",
+        "etiquetaVisible": "Username:"
+      },
+      {
+        "id": "sign-password",
+        "type": "password",
+        "etiquetaVisible": "Password:"
+      }
+    ],
+    "camposLogIn": [
+      {
+        "id": "loginusername",
+        "type": "text",
+        "etiquetaVisible": "Username:"
+      },
+      {
+        "id": "loginpassword",
+        "type": "password",
+        "etiquetaVisible": "Password:"
+      }
+    ],
+    "sesionMuestraUsuarioEnBarra": true,
+    "textoMostradoEnBarraAlIniciarSesion": "Welcome prueba_usco_1792905845750",
+    "camposContact": [
+      {
+        "id": "recipient-email",
+        "type": "text",
+        "etiquetaVisible": "Contact Email:"
+      },
+      {
+        "id": "recipient-name",
+        "type": "text",
+        "etiquetaVisible": "Contact Name:"
+      },
+      {
+        "id": "message-text",
+        "type": "textarea",
+        "etiquetaVisible": "Message:"
+      }
+    ],
+    "aboutUsContieneVideo": true,
+    "aboutUsManifiestoVideo": "https://hls.demoblaze.com/index.m3u8",
+    "fragmentoCodigoFechaRecibo": "var date = new Date();\ntext: \"Id: \" + idr + \"\\n\" + \"Amount: \" + total + \" USD\" + \"\\n\" + \"Card Number: \" + creditcard + \"\\n\" + \"Name: \" + name + \"\\n\" + \"Date: \" + date.getDate() + \"/\" + date.getMonth() + \"/\" + date.getFullYear(),"
+  },
+  "erroresConsola": []
+}
