@@ -1,0 +1,1420 @@
+{
+  "norma": "ISO/IEC 25010",
+  "caracteristica": "Eficiencia de desempeño",
+  "subcaracteristica": "Comportamiento temporal",
+  "paso": "Paso 2: Medición de Tiempos de Respuesta HTTP de Endpoints de Detalle (/view) y Categoría (/bycat)",
+  "fecha_medicion": "2026-10-26T02:05:47.714Z",
+  "script_fuente": "01_pruebas_automatizadas_cli/scripts/medir_endpoints_view_bycat.mjs",
+  "umbral_decision_iso25010": {
+    "criterio": "Tiempo de respuesta promedio y p95 < 2000 ms (2,0 s); tasa de éxito HTTP 200 = 100 %",
+    "umbral_ms": 2000
+  },
+  "resumen_global_endpoints": {
+    "total_peticiones": 60,
+    "peticiones_exitosas_http_200": 59,
+    "peticiones_fallidas": 1,
+    "codigos_http_observados": [
+      200,
+      "ERROR"
+    ],
+    "tasa_exito_porcentaje": 98.33,
+    "tasa_error_porcentaje": 1.67,
+    "suma_tiempos_ms": 20714.36,
+    "min_ms": 135.44,
+    "promedio_ms": 351.09,
+    "mediana_p50_ms": 236.33,
+    "p95_ms": 1016.03,
+    "p95_nearest_rank_ms": 1034.43,
+    "max_ms": 1589.25,
+    "umbral_iso25010_ms": 2000,
+    "cumple_umbral_iso25010_2000ms": true
+  },
+  "endpoints": {
+    "bycat": {
+      "endpoint": "https://api.demoblaze.com/bycat",
+      "metodo": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "payload_principal": {
+        "cat": "notebook"
+      },
+      "estadisticas_secuencial_20": {
+        "total_peticiones": 20,
+        "peticiones_exitosas_http_200": 20,
+        "peticiones_fallidas": 0,
+        "codigos_http_observados": [
+          200
+        ],
+        "tasa_exito_porcentaje": 100,
+        "tasa_error_porcentaje": 0,
+        "suma_tiempos_ms": 4064.32,
+        "min_ms": 135.44,
+        "promedio_ms": 203.22,
+        "mediana_p50_ms": 145.67,
+        "p95_ms": 472.97,
+        "p95_nearest_rank_ms": 468.34,
+        "max_ms": 560.84,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true
+      },
+      "estadisticas_concurrente_10": {
+        "total_peticiones": 10,
+        "peticiones_exitosas_http_200": 9,
+        "peticiones_fallidas": 1,
+        "codigos_http_observados": [
+          200,
+          "ERROR"
+        ],
+        "tasa_exito_porcentaje": 90,
+        "tasa_error_porcentaje": 10,
+        "suma_tiempos_ms": 3984.3,
+        "min_ms": 159.91,
+        "promedio_ms": 442.7,
+        "mediana_p50_ms": 326.77,
+        "p95_ms": 856.95,
+        "p95_nearest_rank_ms": 1013.99,
+        "max_ms": 1013.99,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true,
+        "tiempo_total_bloque_concurrente_ms": 10214.6
+      },
+      "estadisticas_combinadas_30": {
+        "total_peticiones": 30,
+        "peticiones_exitosas_http_200": 29,
+        "peticiones_fallidas": 1,
+        "codigos_http_observados": [
+          200,
+          "ERROR"
+        ],
+        "tasa_exito_porcentaje": 96.67,
+        "tasa_error_porcentaje": 3.33,
+        "suma_tiempos_ms": 8048.62,
+        "min_ms": 135.44,
+        "promedio_ms": 277.54,
+        "mediana_p50_ms": 156.81,
+        "p95_ms": 615.36,
+        "p95_nearest_rank_ms": 621.4,
+        "max_ms": 1013.99,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true
+      },
+      "validaciones_payloads_adicionales": {
+        "categoria_phone": {
+          "payload": {
+            "cat": "phone"
+          },
+          "estadisticas": {
+            "total_peticiones": 5,
+            "peticiones_exitosas_http_200": 5,
+            "peticiones_fallidas": 0,
+            "codigos_http_observados": [
+              200
+            ],
+            "tasa_exito_porcentaje": 100,
+            "tasa_error_porcentaje": 0,
+            "suma_tiempos_ms": 1690.56,
+            "min_ms": 151.89,
+            "promedio_ms": 338.11,
+            "mediana_p50_ms": 171.1,
+            "p95_ms": 664.3,
+            "p95_nearest_rank_ms": 707.87,
+            "max_ms": 707.87,
+            "umbral_iso25010_ms": 2000,
+            "cumple_umbral_iso25010_2000ms": true
+          },
+          "muestras": [
+            {
+              "iteracion": 1,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "phone"
+              },
+              "latencia_ms": 707.87,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 1938,
+              "resumen_respuesta": {
+                "items_count": 7,
+                "primer_item": "Samsung galaxy s6"
+              }
+            },
+            {
+              "iteracion": 2,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "phone"
+              },
+              "latencia_ms": 171.1,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 1938,
+              "resumen_respuesta": {
+                "items_count": 7,
+                "primer_item": "Samsung galaxy s6"
+              }
+            },
+            {
+              "iteracion": 3,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "phone"
+              },
+              "latencia_ms": 151.89,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 1938,
+              "resumen_respuesta": {
+                "items_count": 7,
+                "primer_item": "Samsung galaxy s6"
+              }
+            },
+            {
+              "iteracion": 4,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "phone"
+              },
+              "latencia_ms": 490.03,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 1938,
+              "resumen_respuesta": {
+                "items_count": 7,
+                "primer_item": "Samsung galaxy s6"
+              }
+            },
+            {
+              "iteracion": 5,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "phone"
+              },
+              "latencia_ms": 169.67,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 1938,
+              "resumen_respuesta": {
+                "items_count": 7,
+                "primer_item": "Samsung galaxy s6"
+              }
+            }
+          ]
+        },
+        "categoria_monitor": {
+          "payload": {
+            "cat": "monitor"
+          },
+          "estadisticas": {
+            "total_peticiones": 5,
+            "peticiones_exitosas_http_200": 5,
+            "peticiones_fallidas": 0,
+            "codigos_http_observados": [
+              200
+            ],
+            "tasa_exito_porcentaje": 100,
+            "tasa_error_porcentaje": 0,
+            "suma_tiempos_ms": 867.4,
+            "min_ms": 144.14,
+            "promedio_ms": 173.48,
+            "mediana_p50_ms": 158.51,
+            "p95_ms": 230.13,
+            "p95_nearest_rank_ms": 247.21,
+            "max_ms": 247.21,
+            "umbral_iso25010_ms": 2000,
+            "cumple_umbral_iso25010_2000ms": true
+          },
+          "muestras": [
+            {
+              "iteracion": 1,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "monitor"
+              },
+              "latencia_ms": 155.71,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 552,
+              "resumen_respuesta": {
+                "items_count": 2,
+                "primer_item": "Apple monitor 24"
+              }
+            },
+            {
+              "iteracion": 2,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "monitor"
+              },
+              "latencia_ms": 158.51,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 552,
+              "resumen_respuesta": {
+                "items_count": 2,
+                "primer_item": "Apple monitor 24"
+              }
+            },
+            {
+              "iteracion": 3,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "monitor"
+              },
+              "latencia_ms": 247.21,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 552,
+              "resumen_respuesta": {
+                "items_count": 2,
+                "primer_item": "Apple monitor 24"
+              }
+            },
+            {
+              "iteracion": 4,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "monitor"
+              },
+              "latencia_ms": 144.14,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 552,
+              "resumen_respuesta": {
+                "items_count": 2,
+                "primer_item": "Apple monitor 24"
+              }
+            },
+            {
+              "iteracion": 5,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "cat": "monitor"
+              },
+              "latencia_ms": 161.83,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 552,
+              "resumen_respuesta": {
+                "items_count": 2,
+                "primer_item": "Apple monitor 24"
+              }
+            }
+          ]
+        }
+      },
+      "muestras_secuenciales_20": [
+        {
+          "iteracion": 1,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 144.9,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 2,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 146.43,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 3,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 160.15,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 4,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 144.04,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 5,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 139.63,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 6,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 153.27,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 7,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 468.34,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 8,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 141.65,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 9,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 144.02,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 10,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 139.78,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 11,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 155.32,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 12,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 156.81,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 13,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 137.21,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 14,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 147.28,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 15,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 452.16,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 16,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 258.37,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 17,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 140.52,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 18,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 138.16,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 19,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 560.84,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 20,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 135.44,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        }
+      ],
+      "muestras_concurrentes_10": [
+        {
+          "iteracion": 1,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 159.91,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 2,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 1013.99,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 3,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 289.51,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 4,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 332.66,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 5,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 606.3,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 6,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 10213.19,
+          "status": "ERROR",
+          "ok": false,
+          "bytes_recibidos": 0,
+          "resumen_respuesta": null,
+          "error": "fetch failed"
+        },
+        {
+          "iteracion": 7,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 312.1,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 8,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 321.66,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 9,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 326.77,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        },
+        {
+          "iteracion": 10,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "cat": "notebook"
+          },
+          "latencia_ms": 621.4,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 2209,
+          "resumen_respuesta": {
+            "items_count": 6,
+            "primer_item": "Sony vaio i5"
+          }
+        }
+      ]
+    },
+    "view": {
+      "endpoint": "https://api.demoblaze.com/view",
+      "metodo": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "payload_principal": {
+        "id": "8"
+      },
+      "estadisticas_secuencial_20": {
+        "total_peticiones": 20,
+        "peticiones_exitosas_http_200": 20,
+        "peticiones_fallidas": 0,
+        "codigos_http_observados": [
+          200
+        ],
+        "tasa_exito_porcentaje": 100,
+        "tasa_error_porcentaje": 0,
+        "suma_tiempos_ms": 6225.58,
+        "min_ms": 146.07,
+        "promedio_ms": 311.28,
+        "mediana_p50_ms": 214.89,
+        "p95_ms": 656.78,
+        "p95_nearest_rank_ms": 636.9,
+        "max_ms": 1034.43,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true
+      },
+      "estadisticas_concurrente_10": {
+        "total_peticiones": 10,
+        "peticiones_exitosas_http_200": 10,
+        "peticiones_fallidas": 0,
+        "codigos_http_observados": [
+          200
+        ],
+        "tasa_exito_porcentaje": 100,
+        "tasa_error_porcentaje": 0,
+        "suma_tiempos_ms": 6440.16,
+        "min_ms": 236.33,
+        "promedio_ms": 644.02,
+        "mediana_p50_ms": 471.29,
+        "p95_ms": 1480.25,
+        "p95_nearest_rank_ms": 1589.25,
+        "max_ms": 1589.25,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true,
+        "tiempo_total_bloque_concurrente_ms": 1590.04
+      },
+      "estadisticas_combinadas_30": {
+        "total_peticiones": 30,
+        "peticiones_exitosas_http_200": 30,
+        "peticiones_fallidas": 0,
+        "codigos_http_observados": [
+          200
+        ],
+        "tasa_exito_porcentaje": 100,
+        "tasa_error_porcentaje": 0,
+        "suma_tiempos_ms": 12665.74,
+        "min_ms": 146.07,
+        "promedio_ms": 422.19,
+        "mediana_p50_ms": 331.19,
+        "p95_ms": 1206.36,
+        "p95_nearest_rank_ms": 1347.03,
+        "max_ms": 1589.25,
+        "umbral_iso25010_ms": 2000,
+        "cumple_umbral_iso25010_2000ms": true
+      },
+      "validaciones_payloads_adicionales": {
+        "producto_id_1_galaxy_s6": {
+          "payload": {
+            "id": "1"
+          },
+          "estadisticas": {
+            "total_peticiones": 5,
+            "peticiones_exitosas_http_200": 5,
+            "peticiones_fallidas": 0,
+            "codigos_http_observados": [
+              200
+            ],
+            "tasa_exito_porcentaje": 100,
+            "tasa_error_porcentaje": 0,
+            "suma_tiempos_ms": 2089.35,
+            "min_ms": 150.31,
+            "promedio_ms": 417.87,
+            "mediana_p50_ms": 479.9,
+            "p95_ms": 531.59,
+            "p95_nearest_rank_ms": 533.74,
+            "max_ms": 533.74,
+            "umbral_iso25010_ms": 2000,
+            "cumple_umbral_iso25010_2000ms": true
+          },
+          "muestras": [
+            {
+              "iteracion": 1,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "id": "1"
+              },
+              "latencia_ms": 150.31,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 280,
+              "resumen_respuesta": {
+                "id": 1,
+                "title": "Samsung galaxy s6",
+                "price": 360
+              }
+            },
+            {
+              "iteracion": 2,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "id": "1"
+              },
+              "latencia_ms": 523.01,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 280,
+              "resumen_respuesta": {
+                "id": 1,
+                "title": "Samsung galaxy s6",
+                "price": 360
+              }
+            },
+            {
+              "iteracion": 3,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "id": "1"
+              },
+              "latencia_ms": 402.39,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 280,
+              "resumen_respuesta": {
+                "id": 1,
+                "title": "Samsung galaxy s6",
+                "price": 360
+              }
+            },
+            {
+              "iteracion": 4,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "id": "1"
+              },
+              "latencia_ms": 533.74,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 280,
+              "resumen_respuesta": {
+                "id": 1,
+                "title": "Samsung galaxy s6",
+                "price": 360
+              }
+            },
+            {
+              "iteracion": 5,
+              "modo": "secuencial_complementaria",
+              "payload_enviado": {
+                "id": "1"
+              },
+              "latencia_ms": 479.9,
+              "status": 200,
+              "ok": true,
+              "bytes_recibidos": 280,
+              "resumen_respuesta": {
+                "id": 1,
+                "title": "Samsung galaxy s6",
+                "price": 360
+              }
+            }
+          ]
+        }
+      },
+      "muestras_secuenciales_20": [
+        {
+          "iteracion": 1,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 153.43,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 2,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 154.19,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 3,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 155.56,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 4,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 1034.43,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 5,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 458.66,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 6,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 146.07,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 7,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 499.56,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 8,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 151.66,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 9,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 167.25,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 10,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 398,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 11,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 199.65,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 12,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 156.42,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 13,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 230.13,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 14,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 408.86,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 15,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 237.12,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 16,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 636.9,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 17,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 491.87,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 18,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 156.23,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 19,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 156.2,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 20,
+          "modo": "secuencial",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 233.39,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        }
+      ],
+      "muestras_concurrentes_10": [
+        {
+          "iteracion": 1,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 236.33,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 2,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 331.54,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 3,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 1589.25,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 4,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 719.35,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 5,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 393.31,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 6,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 549.95,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 7,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 548.33,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 8,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 394.24,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 9,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 330.83,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        },
+        {
+          "iteracion": 10,
+          "modo": "concurrente",
+          "payload_enviado": {
+            "id": "8"
+          },
+          "latencia_ms": 1347.03,
+          "status": 200,
+          "ok": true,
+          "bytes_recibidos": 332,
+          "resumen_respuesta": {
+            "id": 8,
+            "title": "Sony vaio i5",
+            "price": 790
+          }
+        }
+      ]
+    }
+  }
+}
