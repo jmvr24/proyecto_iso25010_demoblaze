@@ -742,35 +742,163 @@ En el desglose por ítem, la media convertida más alta correspondió a Q3 con 4
 
 ### Paso 4. Análisis cruzado frente a los parámetros definidos
 
-Contrasta los resultados con los umbrales y determina si las distintas fuentes coinciden en el diagnóstico.
+Según el numeral 5 de la guía de la docente, en este paso contrastamos los resultados de los Pasos 2 y 3 con los umbrales de la Tabla 8 y comprobamos si las fuentes coinciden.
 
 #### Regla de decisión
 
-Establece cuándo aprueba una subcaracterística y cuándo una característica.
+Para que cada veredicto se pueda reproducir a partir de los datos, aplicamos una regla de decisión en tres niveles:
+
+1. Una métrica cumple cuando todas sus mediciones quedan dentro del umbral de la Tabla 8. Si hay dos mediciones de la misma métrica (dos corridas de Lighthouse, dos verificaciones de enlaces, dos auditorías de estilos) y no coinciden, se decide con la más desfavorable, y la diferencia se analiza en la triangulación.
+2. Una subcaracterística cumple cuando todas sus métricas con umbral cumplen. Los datos complementarios sin umbral (subescala de aprendizaje, tiempos por tarea, comentarios) no deciden; sirven para explicar.
+3. Una característica cumple cuando todas sus subcaracterísticas evaluadas cumplen.
+
+Además del veredicto, reportamos como dato descriptivo, sin umbral, cuántas métricas quedaron dentro de su límite. Optamos por esta regla estricta porque la guía de la docente pide límites de aceptación claros; una regla de mayoría permitiría que una métrica que no cumple quedara oculta detrás de otras que sí cumplen.
 
 #### Triangulación por subcaracterística
 
-Cruza el dato automatizado, el de las herramientas web y el de los usuarios contra su umbral, y emite el veredicto.
+En la Tabla 22 contrastamos cada una de las 22 métricas con umbral, y también la subescala de aprendizaje como dato complementario, con los resultados de las pruebas automatizadas del integrante 1, las herramientas web del integrante 2 y las sesiones con usuarios del integrante 3. En la Tabla 23 agrupamos esos veredictos por subcaracterística y característica e indicamos el tipo de cruce con los usuarios.
+
+Tabla 22. Veredicto por métrica frente a su umbral
+
+| Subcaracterística | Métrica y umbral | Pruebas automatizadas (integrante 1) | Herramientas web (integrante 2) | Usuarios (Paso 3) | Veredicto |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Pertinencia funcional | RP = 100 % | RP = 50,00 %: Add to cart usa un diálogo nativo y el enlace Cart no muestra contador; Purchase muestra un comprobante en la página | No aplica | Permanencia media del diálogo: 4,9 s (Sony vaio i5) y 3,5 s (Apple monitor 24). U1 tuvo problemas para salir de la confirmación y U2 para encontrar el carrito | No cumple |
+| Pertinencia funcional | C ≤ 3 clics | C = 2 clics | No aplica | U4 comentó que no se pueden buscar productos por nombre y U5 preguntó por una barra de búsqueda. Tarea 1: media de 34,2 s | Cumple |
+| Comportamiento temporal | T < 2,0 s con 50 usuarios | T = 188,00 ms (k6) | No aplica | Sin comentarios sobre demoras | Cumple |
+| Comportamiento temporal | LCP ≤ 2,5 s | 3,74 s (primera corrida de Lighthouse) | 7,08 s (segunda corrida) | Sin comentarios sobre demoras | No cumple |
+| Comportamiento temporal | FCP ≤ 1,8 s | 1,79 s | 2,13 s | Sin comentarios sobre demoras | No cumple |
+| Comportamiento temporal | CLS ≤ 0,1 | 0,235 | 0,284 | Sin comentarios | No cumple |
+| Comportamiento temporal | Puntaje de rendimiento ≥ 90 | 70 | 54 | Sin comentarios | No cumple |
+| Comportamiento temporal | Tiempo HTTP de /view y /bycat < 2,0 s | Promedio global de 351,09 ms (59 de 60 peticiones con HTTP 200) | No aplica | Sin comentarios sobre demoras | Cumple |
+| Capacidad | E ≤ 1 % | E = 0,00 % (0 fallidas de 1.632) | No aplica | Los cinco participantes llegaron a la confirmación de compra | Cumple |
+| Utilización de recursos | P < 1.600 KiB | 1.392,84 KiB (primera corrida, con imágenes que no terminaron de descargarse) | 2.221,27 KiB (segunda corrida) y 2.230,24 KiB (medición con Playwright) | No aplica | No cumple |
+| Aprendibilidad | Ningún participante con más de 2 extravíos en una tarea | No aplica | No aplica | Cota superior de 2 extravíos por participante y tarea; 4 de 5 participantes con 1 extravío en la sesión | Cumple |
+| Aprendibilidad | Subescala de aprendizaje (sin umbral) | No aplica | No aplica | 75,00 | Dato complementario |
+| Operabilidad | SUS global ≥ 68 | No aplica | No aplica | 47,50 (IC 95 % de 38,45 a 56,55) | No cumple |
+| Operabilidad | S(t) ≥ 80 % en cada tarea | No aplica | No aplica | Tarea 1 o Tarea 2: 80 % y la otra 100 %; Tarea 3: 100 %; Tarea 4: 60 % | No cumple |
+| Operabilidad | 0 enlaces rotos | 0 de 33 enlaces y 0 de 14 imágenes | 0 de 33 enlaces | Sin comentarios sobre enlaces que fallaran | Cumple |
+| Protección contra errores de usuario | R = 100 % | R = 50,00 %: bloquea el formulario vacío y acepta una tarjeta alfabética | No aplica | Las observaciones de los cinco participantes en la Tarea 4 se refieren a la tarjeta: 4 de 5 (80 %) tuvieron dudas de formato y U3 la escribió sin restricción del sistema; U4 y U5 pidieron ayuda | No cumple |
+| Protección contra errores de usuario | D = 100 % | D = 0,00 % | No aplica | Los cinco eliminaron el monitor porque la instrucción lo pedía (Tarea 3: 100 %); no hubo borrados accidentales que observar | No cumple |
+| Involucramiento del usuario | UT ≥ 90 % | 80,00 % (10 registros) | 84,62 % (13 componentes) | Sin comentarios sobre la apariencia; Q6: media de 3,40 | No cumple |
+| Involucramiento del usuario | CCC = 100 % | 100,00 % | 100,00 % | Sin comentarios sobre la apariencia | Cumple |
+| Inclusividad | 0 violaciones críticas | Reglas image-alt (5 nodos) y label (3 nodos con los modales abiertos) | No aplica | Sin comentarios sobre la legibilidad | No cumple |
+| Inclusividad | CC = 100 % | 40,00 % (4 de 10) | No aplica | Sin comentarios sobre la legibilidad | No cumple |
+| Inclusividad | EC = 100 % | 76,92 % (10 de 13) | No aplica | Sin comentarios | No cumple |
+| Inclusividad | 0 errores de marcado | No aplica | 7 errores y 4 advertencias (W3C Nu Html Checker) | Sin comentarios | No cumple |
+
+Fuente: elaboración propia a partir de la Tabla 8 y de las Tablas 14 a 21.
+
+Tabla 23. Veredicto por subcaracterística y característica
+
+| Característica | Subcaracterística | Métricas que cumplen | Cruce con usuarios | Resultado del cruce | Veredicto de la subcaracterística | Veredicto de la característica |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Adecuación funcional | Pertinencia funcional | 1 de 2 | Directo | Coincide en RP; contradicción parcial en C | No cumple | No cumple (0 de 1 subcaracterísticas) |
+| Eficiencia de desempeño | Comportamiento temporal | 2 de 6 | Indirecto | Contradicción explicada por las condiciones de medición | No cumple | No cumple (1 de 3) |
+| Eficiencia de desempeño | Capacidad | 1 de 1 | Indirecto | Coincide | Cumple | No cumple (1 de 3) |
+| Eficiencia de desempeño | Utilización de recursos | 0 de 1 | Indirecto | Sin percepción registrada | No cumple | No cumple (1 de 3) |
+| Capacidad de interacción | Aprendibilidad | 1 de 1 | Directo | Contradicción parcial con Q7 del SUS | Cumple | No cumple (1 de 5) |
+| Capacidad de interacción | Operabilidad | 1 de 3 | Directo | Coincide | No cumple | No cumple (1 de 5) |
+| Capacidad de interacción | Protección contra errores de usuario | 0 de 2 | Directo en R; sin cruce en D | Coincide en R | No cumple | No cumple (1 de 5) |
+| Capacidad de interacción | Involucramiento del usuario | 1 de 2 | Débil | Sin comentarios registrados | No cumple | No cumple (1 de 5) |
+| Capacidad de interacción | Inclusividad | 0 de 4 | Débil | Sin comentarios registrados; axe-core y el validador W3C coinciden entre sí | No cumple | No cumple (1 de 5) |
+
+Fuente: elaboración propia a partir de la Tabla 22 y de la regla de decisión.
+
+En conjunto, cumplen 7 de las 22 métricas con umbral (31,82 %): 1 de 2 en Adecuación funcional (50,00 %), 3 de 8 en Eficiencia de desempeño (37,50 %) y 3 de 12 en Capacidad de interacción (25,00 %). Al aplicar la regla de decisión cumplen 2 de las 9 subcaracterísticas (22,22 %), Capacidad y Aprendibilidad, una en cada característica. Las otras siete tienen al menos una métrica fuera de su límite, de modo que ninguna de las tres características cumple. Estos conteos salen de las Tablas 22 y 23 (cálculo propio).
+
+Pertinencia funcional. RP coincide con lo observado: U1 tuvo problemas para salir de la confirmación, y U1 y U2 tardaron 5,9 s y 9,9 s en cerrar el diálogo del Sony vaio i5, frente a valores de 2,6 s a 3,4 s en U3, U4 y U5 (Tabla 17). U2 tuvo problemas para encontrar el carrito, que no muestra contador (Tabla 14). Sobre C: cumple, pero U4 y U5 echaron de menos un buscador. No es una contradicción de la métrica sino un límite de lo que mide: C cuenta los clics de la ruta mínima cuando el usuario ya sabe en qué categoría buscar, y el Sony vaio i5 aparece en la primera página del catálogo (Tabla 9). La falta de buscador (Tabla 14, nota 2) afecta a quien no sabe dónde está el producto y queda como hallazgo adicional.
+
+Comportamiento temporal. Del lado del servidor, k6 dio 188,00 ms con 50 usuarios y /view y /bycat promediaron 351,09 ms. Del lado del cliente fallan LCP, CLS y el puntaje en las dos corridas. En CLS, el pie de página (div#footc) aporta 0,2350 en las dos corridas, es decir, el 100,00 % del CLS de la primera y el 82,61 % del de la segunda (cálculo propio con los valores sin redondear de `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/lighthouse_report.report.json` y `02_auditoria_extensiones_ui/datos/pagespeed_lighthouse.report.json`). FCP: la primera corrida queda dentro por 9,06 ms y la segunda fuera, así que no cumple por la regla 1. Los participantes no comentaron demoras. La contradicción se explica por las condiciones: Lighthouse emula un teléfono con throttling (RTT de 150 ms, unos 1,6 Mbps y CPU x4), mientras que los participantes usaron portátiles con Firefox y Wi-Fi (apartado 3.5). La medición con Playwright sin throttling registró el fin del evento load a los 819 ms (Tabla 15). Por eso el incumplimiento describe la experiencia en un teléfono con red lenta, no la de las sesiones. Entre una corrida y otra, el puntaje bajó 16 puntos y el LCP subió 3.342,38 ms (cálculo propio con los mismos reportes). Las corridas se hicieron en equipos con índice de rendimiento distinto (2.473,50 y 1.377, Tabla 15, nota 8), en redes distintas (Tabla 11) y con tiempos de respuesta del servidor de 1.148,00 ms y 131 ms (Tabla 15, notas 1 y 8). La documentación de Lighthouse (GoogleChrome, s. f.) enumera estos factores como causas de variabilidad y recomienda la mediana de varias corridas; con dos corridas aplicamos la más desfavorable. LCP, CLS y puntaje no cumplen en ninguna, así que el veredicto no depende de la corrida.
+
+Capacidad. E = 0,00 % sobre 1.632 peticiones. Pero k6 solo pidió index.html y /entries, no los servicios del flujo de compra (Tabla 13). En la medición aparte de /view y /bycat falló 1 de 60 peticiones (1,67 %; cálculo propio con `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/tiempos_http_view_bycat.json`), dentro del bloque de 10 peticiones concurrentes a /bycat. No entra en E porque es otro instrumento y otra carga, pero indica que los servicios del flujo no se probaron con 50 usuarios. El cruce con usuarios es indirecto: los cinco llegaron a la confirmación de compra (Tabla 19, nota 2), en sesiones individuales y no concurrentes. El veredicto vale para index.html y /entries.
+
+Utilización de recursos. Tres mediciones: 1.392,84 KiB, 2.221,27 KiB y 2.230,24 KiB. La primera corrida tiene 7 imágenes (galaxy_s6.jpg, Lumia_1520.jpg, Nexus_6.jpg, iphone_6.jpg, xperia_z5.jpg, HTC_M9.jpg, sony_vaio_5.jpg) del catálogo sin terminar de descargarse (campo finished en false; 2 con código -1 y el resto con una transferencia parcial, según `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/lighthouse_report.report.json`). Sus imágenes suman 353.176 B (344,90 KiB), frente a 1.196.497 B (1.168,45 KiB) en la segunda (`02_auditoria_extensiones_ui/datos/pagespeed_lighthouse.report.json`). La diferencia en imágenes, de 843.321 B (823,56 KiB), explica el 99,41 % de la diferencia de peso total entre las dos corridas, que es de 848.308 B (828,43 KiB) (cálculo propio con los dos reportes de Lighthouse). La segunda corrida y la medición con Playwright coinciden y superan el límite. En la segunda corrida, las imágenes son el 52,60 % del peso y el video del modal About us el 34,49 % (Tabla 15, nota 9). No hay instrumento humano para el peso; el cruce es indirecto.
+
+Aprendibilidad. Con la cota superior de 2 extravíos por participante y tarea (Paso 3), ninguna tarea supera el límite. Ese resultado no depende de en qué tarea preguntó U5 por el buscador. Dato complementario: subescala de aprendizaje de 75,00. Contradicción parcial: Q7 ("la mayoría de las personas aprenderían a utilizar este sitio web muy rápidamente") tuvo una media de 1,80. Los participantes completaron el flujo con pocos extravíos, pero no creen que otros lo aprendan rápido. El registro no precisa qué evento se contó como extravío, pero las observaciones de navegación de los cuatro participantes con un extravío describen fricciones que coinciden con hallazgos automatizados: el diálogo nativo (U1), el carrito sin contador (U2) y la falta de buscador (U4 y U5).
+
+Operabilidad. SUS 47,50; el límite superior del IC (56,55) queda 11,45 puntos por debajo de 68 (`03_investigacion_usuarios_ux/Encuesta.csv`, cálculo propio), así que el veredicto se sostiene aun considerando la incertidumbre que introduce una muestra de cinco participantes. La Tarea 4 tiene el 60 % y concentra el 40,76 % del tiempo (Tabla 17, nota 2). Los 0 enlaces rotos de las dos corridas coinciden con la ausencia de comentarios sobre enlaces. La falla está en el formulario Place Order: los 6 campos son type="text" sin required ni pattern (Tabla 16), y cuatro participantes tuvieron dudas sobre cómo escribir la tarjeta. Inconsistencia: Q3 ("fácil de usar") tuvo 5 en los cinco participantes y Q8 ("muy engorroso") una media de 4,60. Sauro y Lewis (2011) encontraron que en 21 de 158 cuestionarios (13 %) los participantes se equivocaron en los ítems de tono negativo; es una explicación posible, no comprobada en esta muestra. Recalculamos los puntajes desde las respuestas crudas (Paso 3), como recomiendan esos autores para la codificación, y se retoma en las amenazas.
+
+Protección contra errores de usuario. R = 50,00 %: el formulario bloquea el envío vacío pero acepta una tarjeta alfabética, y con el carrito vacío emite un comprobante por 0 USD (Tabla 16). La coincidencia con los usuarios es fuerte. Las observaciones de los cinco participantes en la Tarea 4 se refieren a la tarjeta, y la fila de resumen de `03_investigacion_usuarios_ux/datos/matriz_observacion_5_usuarios.csv` registra que 4 de 5 (80 %) tuvieron dudas de formato y de obligatoriedad. U4 y U5 pidieron ayuda, y U3, el único sin dudas, escribió los datos "como pensó que era (sin restricción del sistema)" (Tabla 18). Que el formulario aceptara lo que U3 escribió es la misma falla que mide R. D = 0,00 %: no hay confirmación ni opción para deshacer. Aquí no hay cruce: la instrucción pedía eliminar el monitor, así que la observación no podía registrar un borrado accidental. El veredicto de D descansa en la prueba automatizada.
+
+Involucramiento del usuario. UT no cumple en ninguna auditoría (80,00 % y 84,62 %). Las dos coinciden en los mismos dos botones con sans-serif (Tabla 16, nota 9). CCC = 100,00 % en ambas. No hay comentarios sobre la apariencia. Q6 ("demasiada inconsistencia") tuvo una media de 3,40, pero el ítem es general y no permite atribuirlo a la tipografía ni a los colores. El cruce es débil y el veredicto descansa en la evidencia técnica. La falla se limita a dos botones.
+
+Inclusividad. La herramienta axe-core registró 2 reglas críticas distintas con 8 nodos en total: image-alt con los modales cerrados y label con los modales abiertos (cálculo propio con `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/accesibilidad_axe.json` y `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/auditoria_labels_modales_abiertos.json`). CC = 40,00 %, EC = 76,92 % y 7 errores de marcado. Dos instrumentos independientes coinciden: el validador W3C y axe-core señalan el mismo logotipo sin alt y los mismos dos campos de Log in (Tabla 16, nota 10). Discrepancia del atributo alt (Tabla 16, nota 5): `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/integridad_enlaces.json` cuenta once imágenes sin alt, pero el HTML que guardó axe-core muestra que las nueve imágenes de producto tienen alt="" dentro de un enlace. Adoptamos la lectura de axe-core porque se basa en el HTML de la página: son enlaces sin nombre accesible (link-name), no imágenes sin atributo. El veredicto no cambia con ninguna de las dos lecturas. No hay comentarios sobre la legibilidad y la muestra no incluyó personas con discapacidad, así que el cruce es débil.
 
 #### Amenazas a la validez
 
-Expone las limitaciones que condicionan el alcance de las conclusiones.
+A continuación exponemos las limitaciones de diseño, muestreo e instrumentación que condicionan el alcance de las conclusiones obtenidas. En la Tabla 24 detallamos cada amenaza identificada, las conclusiones que afecta y el tratamiento metodológico aplicado para mitigar su efecto en el informe.
+
+Tabla 24. Amenazas a la validez y su tratamiento
+
+| Amenaza | Conclusiones que afecta | Tratamiento |
+| :--- | :--- | :--- |
+| Muestra de 5 participantes, no probabilística | SUS, éxito por tarea y extravíos | Se reporta el IC 95 % del SUS; su límite superior queda por debajo de 68, así que ese veredicto se sostiene. En S(t), cada participante equivale a 20 puntos porcentuales, por lo que una sola solicitud de ayuda cambia el resultado de una tarea. |
+| Criterios de compra en línea previa y de desconocimiento de DemoBlaze sin registro por participante en el estudio del integrante 3 (apartado 3.4) | Aprendibilidad | Se declara. Si algún participante conocía el sitio, el conteo de extravíos podría subestimar la dificultad que enfrenta un comprador nuevo, y el veredicto favorable de Aprendibilidad sería menos sólido. |
+| Dos corridas de Lighthouse en equipos, redes y momentos distintos (Tablas 11 y 15) | Comportamiento temporal y Utilización de recursos | Regla 1: se decide con la más desfavorable. LCP, CLS y puntaje no cumplen en ninguna. La documentación de Lighthouse recomienda la mediana de varias corridas (GoogleChrome, s. f.), que este trabajo no tiene. |
+| Imágenes sin terminar de descargarse en la primera corrida | Utilización de recursos | El peso de la segunda corrida se corrobora con la medición de Playwright (2.221,27 KiB y 2.230,24 KiB). |
+| k6 no incluyó los servicios del flujo de compra | Capacidad y tiempo de respuesta con 50 usuarios | El veredicto se limita a index.html y /entries. /view y /bycat se midieron aparte con 10 peticiones concurrentes. |
+| Herramientas sustituidas: PageSpeed Insights, GTmetrix y tres extensiones (Paso 2) | Enlaces, estilos y peso | Las dos corridas de enlaces y de estilos usan el mismo tipo de instrumento. Donde sí hay instrumentos distintos (axe-core y el validador W3C), coinciden. |
+| Respuestas inconsistentes entre Q3 y Q8 | SUS | Puntajes recalculados desde las respuestas crudas. Sauro y Lewis (2011) documentan errores de los participantes en los ítems de tono negativo. |
+| Extravíos registrados por sesión y no por tarea; la pregunta de U5 no tiene tarea asignada | Aprendibilidad y éxito por tarea | Se usa la cota superior y se reportan las dos ubicaciones posibles. Ninguno de los dos veredictos cambia. |
+| Firefox en portátiles con Wi-Fi (usuarios) frente a Chromium headless con emulación móvil (herramientas) | Cruce de Eficiencia de desempeño | Los tiempos de tarea no se comparan con los técnicos; el cruce se declara indirecto. |
+| Sin comentarios sobre apariencia ni legibilidad, y sin participantes con discapacidad | Involucramiento del usuario e Inclusividad | El cruce se declara débil y el veredicto descansa en la evidencia técnica. |
+| Sitio de demostración público, medido en una sola ventana de tiempo (Tabla 11) | Todas | DemoBlaze no procesa transacciones reales y su comportamiento puede cambiar sin aviso. Los resultados describen el sitio en las fechas de medición. |
+
+Fuente: elaboración propia.
 
 ### Paso 5. Conclusiones y recomendaciones de mejora
 
-Emite el dictamen técnico sobre el flujo de compra evaluado.
+A partir del análisis integrado de las mediciones técnicas y las pruebas con usuarios, emitimos el dictamen técnico sobre el flujo de compra de punta a punta de DemoBlaze. De las 22 métricas con umbral evaluadas cumplen 7 (31,82 %); cumplen 2 de las 9 subcaracterísticas (Capacidad y Aprendibilidad, el 22,22 %) y ninguna de las tres características. El flujo permite completar la compra, pues los cinco participantes llegaron a la confirmación, pero las fallas se concentran en cuatro frentes: el formulario Place Order, la retroalimentación de Add to cart y del borrado, la carga del lado del cliente y la accesibilidad. La percepción de los usuarios (SUS 47,50) queda por debajo del límite.
 
 #### Fortalezas
 
-Resume lo que el sistema sí cumple según los datos.
+- Respuesta del servidor en lo medido: T = 188,00 ms y E = 0,00 % con 50 usuarios (Tabla 15), y /view y /bycat con 351,09 ms en promedio.
+- 0 enlaces rotos en las dos corridas (Tabla 16).
+- CCC = 100,00 % en las dos auditorías (Tabla 16).
+- C = 2 clics para llegar al Sony vaio i5 (Tabla 14).
+- Aprendibilidad: ningún participante superó 2 extravíos en una tarea (Tabla 18); los cinco completaron la compra (Tabla 19, nota 2) y la Tarea 3 (carrito y borrado) tuvo 100 % (Tabla 19).
+- Purchase muestra un comprobante visible en la página (Tabla 14).
+- 100 / 100 en Mejores prácticas de Lighthouse en las dos corridas (Tabla 15, notas 1 y 8).
 
 #### Debilidades
 
-Resume los incumplimientos encontrados y su impacto en el usuario.
+1. Formulario Place Order sin validación: R = 50,00 %, tarjeta alfabética aceptada, comprobante de 0 USD con el carrito vacío (Tabla 16); Tarea 4 con 60 % (Tabla 19) y el 40,76 % del tiempo (Tabla 17, nota 2).
+2. Usabilidad percibida baja: SUS 47,50 (IC 95 % de 38,45 a 56,55, Tabla 20); Q9 ("me sentí muy seguro y confiado") con media de 1,60 (Tabla 21).
+3. Add to cart con un diálogo nativo y sin contador: RP = 50,00 % (Tabla 14); dificultades de U1 y U2 (Tabla 18).
+4. Borrado sin confirmación: D = 0,00 % (Tabla 16).
+5. Carga del lado del cliente: LCP, CLS y puntaje fuera de límite en las dos corridas (Tabla 15); 2.221,27 KiB (Tabla 15), con el video del modal About us descargado sin abrir el modal (34,49 %, Tabla 15, nota 9) y las imágenes con 52,60 % del peso (`02_auditoria_extensiones_ui/datos/pagespeed_lighthouse.report.json`).
+6. Accesibilidad: 2 reglas críticas (image-alt, label) con 8 nodos (`01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/accesibilidad_axe.json` y `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/auditoria_labels_modales_abiertos.json`), CC = 40,00 %, EC = 76,92 % y 7 errores de marcado (Tabla 16).
+7. Uniformidad tipográfica: dos botones en sans-serif (UT = 80,00 % y 84,62 %, Tabla 16).
+
+Quedan además hallazgos sin una métrica propia en la Tabla 8, por lo que no reciben veredicto. Dentro de Pertinencia funcional, como se anunció en el apartado 3.2, están la falta de un buscador por texto y la imposibilidad de cambiar la cantidad en el carrito (Tabla 14, nota 2). Fuera del alcance evaluado, porque Corrección funcional quedó excluida en ese mismo apartado, está la fecha del comprobante, que se construye con getMonth() sin sumar 1, anomalía ya descrita en los apartados 1.5 y 2.2.
 
 #### Planes de acción correctivos
 
-Propone mejoras concretas para DemoBlaze, cada una ligada a su hallazgo y a la métrica que comprobaría la mejora.
+Cada acción de la Tabla 25 lleva una prioridad según este criterio:
+
+- alta: la acción atiende una falla ligada a una métrica de usuarios que no cumple (SUS o éxito por tarea) o a una violación crítica de accesibilidad;
+- media: corrige una métrica técnica que no cumple y no se asocia a una métrica de usuarios que falle;
+- baja: atiende hallazgos sin una métrica que incumpla.
+
+Tabla 25. Plan de acción correctivo para DemoBlaze
+
+| N.º | Acción | Hallazgo que atiende | Métrica de verificación y meta | Prioridad |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Validar el formulario Place Order: required en los campos obligatorios, inputmode numérico y longitud en la tarjeta, mes y año como listas de selección, verificación del dígito de control definido en ISO/IEC 7812-1:2017 (algoritmo de Luhn), mensajes de error junto a cada campo (Scott, 2024) e impedir la compra con el carrito vacío | R = 50,00 %; comprobante de 0 USD; S(Tarea 4) = 60 % | R = 100 % al repetir las pruebas negativas de Playwright | Alta |
+| 2 | Mostrar en cada campo del formulario el formato esperado y cuáles son obligatorios | Dudas de formato en 4 de 5 participantes en la Tarea 4; S(Tarea 4) = 60 % | S(t) ≥ 80 % en la Tarea 4 y SUS ≥ 68 en una nueva aplicación | Alta |
+| 3 | Corregir la accesibilidad: alt en el logotipo, nombre accesible en los enlaces de producto, atributos for que apunten a los campos de Log in y de Contact, e identificadores únicos en los enlaces de categoría | Reglas críticas image-alt y label; EC = 76,92 %; 7 errores W3C | 0 violaciones críticas en axe-core, EC = 100 % y 0 errores en el validador W3C | Alta |
+| 4 | Reemplazar el diálogo nativo de Add to cart por un aviso dentro de la página y mostrar un contador en el enlace Cart (Laubheimer, 2018) | RP = 50,00 % | RP = 100 % | Media |
+| 5 | Pedir confirmación u ofrecer deshacer al pulsar Delete | D = 0,00 % | D = 100 % | Media |
+| 6 | Cargar el reproductor y los archivos del video solo cuando se abra el modal About us | Video con el 34,49 % del peso | P < 1.600 KiB. Sin el video, el peso de la segunda corrida sería de 1.490.101 B, es decir, 1.455,18 KiB (cálculo propio con `02_auditoria_extensiones_ui/datos/pagespeed_lighthouse.report.json`) | Media |
+| 7 | Comprimir y redimensionar las imágenes del catálogo | Imágenes con 52,60 % del peso; LCP de 7,08 s | LCP ≤ 2,5 s, P < 1.600 KiB y puntaje ≥ 90 | Media |
+| 8 | Reservar el espacio del pie de página (div#footc) y de las tarjetas de producto antes de que cargue el contenido | CLS de 0,235 y 0,284 | CLS ≤ 0,1 | Media |
+| 9 | Ajustar los colores de texto y del botón verde hasta alcanzar 4,5:1 (Kirkpatrick et al., 2025) | CC = 40,00 % | CC = 100 % | Media |
+| 10 | Aplicar la familia LatoWeb al botón .btn-primary y al botón Place Order | UT = 80,00 % y 84,62 % | UT ≥ 90 % | Media |
+| 11 | Agregar un buscador por nombre de producto | Comentarios de U4 y U5 (hallazgo adicional) | C ≤ 3 y ninguna pregunta por el buscador en una nueva sesión | Baja |
+
+Fuente: elaboración propia a partir de las Tablas 22 y 23.
+
+Para comprobar las mejoras habría que repetir las mismas pruebas e incluir lo que faltó en esta evaluación: k6 con los servicios del flujo de compra (/bycat, /view, /addtocart, /viewcart y /deletecart), al menos cinco corridas de Lighthouse para usar la mediana (GoogleChrome, s. f.) y una nueva aplicación del SUS con el registro de extravíos por tarea.
 
 ## Referencias
 
@@ -782,7 +910,11 @@ Chrome for Developers. (2019a, 2 de mayo). *Avoid enormous network payloads*. Go
 
 Chrome for Developers. (2019b, 19 de septiembre). *Lighthouse performance scoring*. Google. https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
 
+GoogleChrome. (s. f.). *Score variability*. GitHub. https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md
+
 International Organization for Standardization y International Electrotechnical Commission. (2011). *ISO/IEC 25010:2011 Systems and software engineering: Systems and software Quality Requirements and Evaluation (SQuaRE): System and software quality models*. ISO. https://www.iso.org/standard/35733.html
+
+International Organization for Standardization y International Electrotechnical Commission. (2017). *ISO/IEC 7812-1:2017 Identification cards: Identification of issuers: Part 1: Numbering system* (5.ª ed.). ISO. https://www.iso.org/standard/70484.html
 
 International Organization for Standardization y International Electrotechnical Commission. (2023). *ISO/IEC 25010:2023 Systems and software engineering: Systems and software Quality Requirements and Evaluation (SQuaRE): Product quality model* (2.ª ed.). ISO. https://www.iso.org/standard/78176.html
 
@@ -805,6 +937,8 @@ Sauro, J. (2011a, 3 de febrero). *Measuring Usability with the System Usability 
 Sauro, J. (2011b, 21 de marzo). *What Is A Good Task-Completion Rate?* MeasuringU. https://measuringu.com/task-completion/
 
 Sauro, J. (2017, 8 de noviembre). *Recent Advances with the System Usability Scale*. MeasuringU. https://measuringu.com/sus-advances/
+
+Sauro, J., y Lewis, J. R. (2011). When designing usability questionnaires, does it hurt to be positive? En *Proceedings of the SIGCHI Conference on Human Factors in Computing Systems* (pp. 2215-2224). ACM. https://doi.org/10.1145/1978942.1979266
 
 Scott, E. (2024, 9 de enero). *Usability Testing of Inline Form Validation: 31% Don’t Have It, 4% Get It Wrong*. Baymard Institute. https://baymard.com/research-articles/inline-form-validation
 
