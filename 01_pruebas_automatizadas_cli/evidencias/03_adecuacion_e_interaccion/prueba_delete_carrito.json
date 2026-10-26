@@ -1,0 +1,65 @@
+{
+  "norma": "ISO/IEC 25010",
+  "caracteristica": "Capacidad de interacción",
+  "subcaracteristica": "Protección contra errores de usuario",
+  "metrica": "Confirmación en borrado del carrito (Delete)",
+  "fecha_ejecucion": "2026-10-26T02:11:16.280Z",
+  "script_fuente": "01_pruebas_automatizadas_cli/scripts/prueba_delete_carrito.mjs",
+  "url_evaluada": "https://www.demoblaze.com/cart.html",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "producto_prueba": {
+    "nombre": "Sony vaio i5",
+    "idp": 8,
+    "precio_usd": 790,
+    "dialogo_add_to_cart": {
+      "type": "alert",
+      "message": "Product added",
+      "defaultValue": "",
+      "timestamp": "2026-10-26T02:11:11.815Z"
+    }
+  },
+  "estado_antes_borrado": {
+    "itemsAntes": 1,
+    "totalAntes": "790",
+    "detalle_fila": {
+      "className": "success",
+      "titulo": "Sony vaio i5",
+      "precio": "790",
+      "deleteText": "Delete",
+      "deleteHref": "#",
+      "deleteOnclick": "deleteItem('5886f608-ae2a-a675-4407-4d59faed8685')"
+    }
+  },
+  "accion_delete": {
+    "selector_accionado": "#tbodyid tr a[onclick*=\"deleteItem\"]",
+    "atributo_onclick": "deleteItem('5886f608-ae2a-a675-4407-4d59faed8685')",
+    "confirmationDialogTriggered": false,
+    "dialogos_nativos_capturados_en_delete": [],
+    "confirmationModalTriggered": false,
+    "modales_confirmacion_dom_detectados": [],
+    "undoMechanismAvailable": false,
+    "peticion_red_interceptada": {
+      "url": "https://api.demoblaze.com/deleteitem",
+      "metodo": "POST",
+      "status_http": 200,
+      "payload_enviado": {
+        "id": "5886f608-ae2a-a675-4407-4d59faed8685"
+      },
+      "respuesta_cuerpo": "[Contexto descargado inmediatamente por location.reload() tras HTTP 200]",
+      "duracion_ms": 361.55
+    },
+    "implementacion_cliente_deleteItem": "function deleteItem(id) {\n  $.ajax({\n    type: 'POST',\n    url: API_URL + '/deleteitem',\n    data: JSON.stringify({ \"id\": id }),\n    contentType: \"application/json\",\n    success: function (data) {\n      location.reload();\n    }\n  });\n}"
+  },
+  "estado_despues_borrado": {
+    "itemsDespues": 0,
+    "totalDespues": ""
+  },
+  "captura_evidencia": "01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/06_borrado_sin_confirmacion_carrito.png",
+  "dictamen_tecnico": {
+    "cumple_proteccion_contra_errores": false,
+    "hallazgo": "Al hacer clic en el enlace Delete (onclick=\"deleteItem(...)\"), la aplicación dispara de forma inmediata y directa la petición POST https://api.demoblaze.com/deleteitem sin invocar window.confirm (confirmationDialogTriggered: false), sin abrir un modal de confirmación en el DOM (confirmationModalTriggered: false) y sin ofrecer opción de deshacer (undo), eliminando el ítem de #tbodyid (itemsAntes = 1 -> itemsDespues = 0) y recargando la vista de forma destructiva."
+  }
+}
