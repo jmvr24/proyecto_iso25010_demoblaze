@@ -594,8 +594,8 @@ Tabla 16. Resultados de las mediciones técnicas para Capacidad de interacción
 
 | Subcaracterística | Métrica | Herramienta | Resultado medido | Evidencia |
 | :--- | :--- | :--- | :--- | :--- |
-| Aprendibilidad | Extravíos en tareas y subescala de aprendizaje | Observación directa y Cuestionario SUS | Los resultados dependen de la aplicación del protocolo con participantes y se reportan en el Paso 3 | `03_investigacion_usuarios_ux/README.md` |
-| Operabilidad | Puntaje global SUS y éxito por tarea | Cuestionario SUS y observación directa | Los resultados dependen de la aplicación del protocolo con participantes y se reportan en el Paso 3 | `03_investigacion_usuarios_ux/README.md` |
+| Aprendibilidad | Extravíos en tareas y subescala de aprendizaje | Observación directa y Cuestionario SUS | Resultados de las sesiones con usuarios, reportados en el Paso 3 (Tablas 17 a 21) | `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md` y `03_investigacion_usuarios_ux/datos/` |
+| Operabilidad | Puntaje global SUS y éxito por tarea | Cuestionario SUS y observación directa | Resultados de las sesiones con usuarios, reportados en el Paso 3 (Tablas 17 a 21) | `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md` y `03_investigacion_usuarios_ux/datos/` |
 | Operabilidad | Enlaces rotos | Playwright y verificación de enlaces | 0 errores de red con código HTTP 404 o 5xx sobre 33 enlaces evaluados (23 con HTTP 200 y 10 anclas sin destino); 0 errores en 14 imágenes evaluadas (14 con HTTP 200). Check My Links: `[PENDIENTE: integrante 2, Check My Links]` | `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/integridad_enlaces.json` |
 | Protección contra errores de usuario | Tasa de rechazo (R) en el formulario Place Order | Playwright (pruebas negativas) | R = 50,00 % (cálculo propio: 1 de 2 pruebas negativas bloqueó el envío). Inspección HTML5: los 6 campos del formulario (#name, #country, #city, #card, #month, #year) tienen type="text" con required=false, pattern=null, minLength=null, maxLength=null e inputMode=null. Prueba negativa 1 (formulario vacío): bloquea el envío con window.alert nativo ("Please fill out Name and Creditcard."). Prueba negativa 2 (tarjeta alfabética "TARJETA_FALSA_SIN_NUMEROS_ABC" y campos vacíos): no rechaza el envío; procesa la compra y emite comprobante SweetAlert con Id: 3747911, Amount: 790 USD, Card Number: TARJETA_FALSA_SIN_NUMEROS_ABC, Date: 24/9/2026. Hallazgo complementario: con el carrito vacío procesa la orden y emite comprobante con Amount: 0 USD (Id: 7686879) | `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json` y `04_informe_final/evidencias/capturas_flujo.json` |
 | Protección contra errores de usuario | Confirmación en borrado del carrito (Delete) | Playwright (prueba funcional con intercepción de red) | D = 0,00 % (cálculo propio: 0 de 1). Con el producto Sony vaio i5 en el carrito (1 fila y total de 790), la pulsación del enlace Delete ejecutó la función deleteItem. Dicha función envió una petición POST a https://api.demoblaze.com/deleteitem (código HTTP 200 y duración de 361,55 ms) y recargó la página mediante location.reload(). La tabla del carrito quedó con 0 filas y el total vacío. Durante el proceso no se activó ningún diálogo nativo ni ventana modal de confirmación, ni se presentó opción para deshacer la acción | `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/prueba_delete_carrito.json`, `01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/06_borrado_sin_confirmacion_carrito.png` y `01_pruebas_automatizadas_cli/scripts/prueba_delete_carrito.mjs` |
@@ -620,15 +620,105 @@ Notas relativas a la Tabla 16:
 
 ### Paso 3. Aplicación de instrumentos con usuarios
 
-Presenta los resultados de la observación directa y del cuestionario SUS aplicados a la muestra.
+Según el numeral 5 de la guía de la docente, este paso consiste en aplicar los instrumentos cualitativos y cuantitativos a la muestra seleccionada y consolidar las respuestas en una matriz de datos. El integrante 3 administró la observación directa del flujo de compra y el cuestionario SUS a los cinco participantes descritos en el apartado 3.5. Las respuestas al cuestionario se diligenciaron el 25 de octubre de 2026, entre las 11:57:11 (UTC-5) y las 12:50:57 (UTC-5), según consta en las marcas temporales registradas en `03_investigacion_usuarios_ux/Encuesta.csv`. Las cinco sesiones de evaluación se encuentran grabadas de forma íntegra en la carpeta `03_investigacion_usuarios_ux/evidencia_sesiones/`, bajo los archivos Usuario 1.mp4 a Usuario 5.mp4. En este apartado exponemos los resultados cuantitativos y cualitativos obtenidos con fines estrictamente descriptivos, reservando el análisis cruzado frente a los umbrales de aceptación para el Paso 4.
 
 #### Observación directa
 
-Consolida la matriz de tareas, éxitos, tiempos y extravíos de cada participante.
+Las sesiones prácticas siguieron la misión de tres pasos que figura en el encabezado del cuestionario (las rutas mínimas están en la Tabla 9 del apartado 4.2 y el texto íntegro en el Anexo C), la cual requería localizar el portátil Sony vaio i5, agregar el monitor Apple monitor 24 y gestionar el carrito eliminando el monitor para comprar únicamente el portátil mediante el formulario del modal Place Order. Los tiempos por tarea se obtuvieron a partir de la diferencia entre hitos temporales objetivos verificados en las grabaciones en video (`03_investigacion_usuarios_ux/datos/hitos_video.csv`), con una precisión de aproximadamente 0,5 s, de acuerdo con la sección 3 de `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md`. Por su parte, el registro cualitativo se limita a las preguntas y los comentarios espontáneos que el evaluador anotó durante las sesiones, dado que no se aplicó un protocolo estructurado de pensamiento en voz alta ni se efectuaron transcripciones verbales continuas.
+
+Tabla 17. Tiempos por tarea y permanencia del diálogo nativo (segundos)
+
+| Participante | Tarea 1 | Tarea 2 | Tarea 3 | Tarea 4 | Total | Diálogo del Sony vaio i5 | Diálogo del Apple monitor 24 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| U1 | 26 s | 38 s | 38 s | 110 s | 212 s | 5,9 s | 3,5 s |
+| U2 | 44 s | 70 s | 43 s | 88 s | 245 s | 9,9 s | 5,1 s |
+| U3 | 23 s | 32 s | 30 s | 42 s | 127 s | 2,6 s | 5,4 s |
+| U4 | 39 s | 48 s | 28 s | 69 s | 184 s | 3,4 s | 1,7 s |
+| U5 | 39 s | 27 s | 23 s | 68 s | 157 s | 2,7 s | 1,9 s |
+| Media | 34,2 s | 43,0 s | 32,4 s | 75,4 s | 185,0 s | 4,9 s | 3,5 s |
+| Mediana | 39 s | 38 s | 30 s | 69 s | 184 s | 3,4 s | 3,5 s |
+| Desviación estándar | 9,15 s | 17,00 s | 8,02 s | 25,33 s | 46,04 s | 3,10 s | 1,73 s |
+| Mínimo | 23 s | 27 s | 23 s | 42 s | 127 s | 2,6 s | 1,7 s |
+| Máximo | 44 s | 70 s | 43 s | 110 s | 245 s | 9,9 s | 5,4 s |
+
+Fuente: `03_investigacion_usuarios_ux/datos/hitos_video.csv` (cálculo propio).
+
+Notas relativas a la Tabla 17:
+1. Procedimiento de cálculo: los tiempos por tarea se calcularon redondeando cada hito del video al segundo y restando hitos consecutivos; la permanencia del diálogo nativo corresponde a la diferencia entre el cierre y la aparición del diálogo, calculada con un decimal.
+2. Proporción del tiempo en la Tarea 4: la Tarea 4 concentra el 40,76 % del tiempo total (cálculo propio: media de la Tarea 4 dividida entre la media del tiempo total multiplicada por 100, es decir, 75,4 s / 185,0 s x 100 = 40,76 %).
+3. Discrepancias en la permanencia del diálogo nativo: existen diferencias de 0,1 s con respecto a la Tabla 3 del estudio del integrante 3 en tres registros. Para el diálogo del Sony vaio i5 en U3, el cálculo a partir de hitos arroja 2,6 s mientras que el estudio reportó 2,7 s; para el diálogo del Apple monitor 24 en U3, los hitos arrojan 5,4 s frente a 5,3 s del estudio; y para el diálogo del Sony vaio i5 en U5, los hitos arrojan 2,7 s frente a 2,6 s del estudio. En este informe empleamos los valores derivados de los hitos objetivos del video (`03_investigacion_usuarios_ux/datos/hitos_video.csv`). Las medias de permanencia grupal (4,9 s para el diálogo del Sony vaio i5 y 3,5 s para el del Apple monitor 24) coinciden entre ambas fuentes.
+
+Tabla 18. Registro cualitativo y extravíos por participante
+
+| Participante | Edad | Extravíos registrados | Observación en navegación y carrito (Tareas 1 a 3) | Observación en el formulario Place Order (Tarea 4) | Solicitudes de ayuda según el apartado 4.2 (con la tarea) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| U1 | 50 años | 1 extravío | "Tenía problemas para salir de la ventana de confirmación al añadir un producto al carrito." | "No sabía cómo escribir el número de tarjeta de crédito." | Ninguna solicitud de ayuda registrada |
+| U2 | 50 años | 1 extravío | "Tuvo problemas para encontrar cómo acceder al carrito." | "No sabía en qué formato escribir el mes, el año y el número de tarjeta de crédito." | Ninguna solicitud de ayuda registrada |
+| U3 | 28 años | 0 extravíos | "Intuyó cómo filtrar artículos por categorías y salir de la confirmación de carrito." | "Escribió los datos de la tarjeta de crédito como pensó que era (sin restricción del sistema)." | Ninguna solicitud de ayuda registrada |
+| U4 | 45 años | 1 extravío | "Le pareció extraño que no se puedan buscar los productos por el nombre." | "Preguntó cómo escribir la tarjeta de crédito y sus datos." | 1 solicitud en Tarea 4 ("Preguntó cómo escribir la tarjeta de crédito y sus datos.") |
+| U5 | 23 años | 1 extravío | "Preguntó si había una barra de búsqueda de productos." | "Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos." | 2 solicitudes: 1 en Tarea 1 o Tarea 2 ("Preguntó si había una barra de búsqueda de productos.") y 1 en Tarea 4 ("Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos.") |
+
+Fuente: `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md` (Tabla 2) y `03_investigacion_usuarios_ux/datos/matriz_observacion_5_usuarios.csv`.
+
+En el registro consolidado de la observación, los extravíos presentaron una media de 0,80 extravíos (cálculo propio: suma de 1 + 1 + 0 + 1 + 1 dividida entre 5), una mediana de 1 extravío, una desviación estándar muestral de 0,45 (cálculo propio: raíz cuadrada de 0,8 / 4), un mínimo de 0 extravíos (U3) y un máximo de 1 extravío (U1, U2, U4 y U5). El registro elaborado por el integrante 3 reporta los extravíos a nivel global de la sesión completa y no desglosados por tarea individual, sin detallar qué evento particular de la navegación fue contabilizado como extravío. Al contrastar las conductas observadas con la definición operativa del apartado 4.2, identificamos 3 solicitudes de ayuda en total que suman un extravío cada una: la solicitud de U4 en la Tarea 4 ("Preguntó cómo escribir la tarjeta de crédito y sus datos."), la solicitud de U5 en la Tarea 4 ("Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos.") y la solicitud de U5 en la Tarea 1 o Tarea 2 ("Preguntó si había una barra de búsqueda de productos.", sin que el registro precise en cuál de las dos búsquedas se formuló). Asimismo, las expresiones de no saber cómo continuar correspondientes a U1 en Tarea 4 y U2 en Tarea 4 podrían sumar un extravío cada una en caso de haberse formulado de manera verbal al observador, circunstancia no precisada en la fuente original. Aun considerando la suma acumulada de estas incidencias, dado que cada participante tiene registrado como máximo un extravío y que en una misma tarea solo podría coincidir a lo sumo un evento adicional, el cálculo propio de la cota superior sitúa en 2 el máximo de extravíos de un participante en una misma tarea (1 + 1 = 2). De este modo, 5 de 5 participantes (100 %) registran 2 o menos extravíos en cada una de las tareas del recorrido.
+
+Tabla 19. Éxito por tarea según la definición operativa del apartado 4.2
+
+| Tarea | Participantes que completan la tarea sin solicitar ayuda | S(t) | Solicitudes de ayuda registradas |
+| :--- | :--- | :--- | :--- |
+| Tarea 1 (Sony vaio i5) | 5 de 5 o 4 de 5 | 100 % u 80 % | 0 o 1 solicitud (pregunta de U5 sobre el buscador) |
+| Tarea 2 (Apple monitor 24) | 5 de 5 o 4 de 5 | 100 % u 80 % | 0 o 1 solicitud (pregunta de U5 sobre el buscador) |
+| Tarea 3 (Carrito) | 5 de 5 | 100 % | Ninguna solicitud de ayuda registrada |
+| Tarea 4 (Formulario y compra) | 3 de 5 | 60 % | 2 solicitudes (U4 preguntó cómo escribir la tarjeta y sus datos; U5 preguntó sobre los datos de la tarjeta y si debía llenar todos los campos) |
+
+Fuente: elaboración propia a partir de la Tabla 18 y del apartado 4.2.
+
+Notas relativas a la Tabla 19:
+1. Incertidumbre en la ubicación de la consulta de U5: la observación cualitativa de U5 consigna la pregunta sobre la existencia de una barra de búsqueda de productos en el catálogo. Debido a que el registro no especifica si dicha interacción ocurrió durante la localización del portátil (Tarea 1) o del monitor (Tarea 2), una de estas dos tareas se ubica en 4 de 5 participantes (80 %) y la otra en 5 de 5 participantes (100 %).
+2. Relación con el éxito reportado en el estudio de usuarios: las grabaciones en video comprueban que los 5 participantes alcanzaron la confirmación de compra y finalizaron el flujo (sección 6, limitación 4, de `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md`). La diferencia frente al 100 % de éxito consignado en dicho estudio radica en la aplicación estricta del apartado 4.2, donde cualquier solicitud de ayuda al evaluador impide calificar la tarea individual como exitosa.
 
 #### Cuestionario SUS
 
-Presenta el puntaje SUS de cada participante, el puntaje global y la subescala de aprendizaje.
+Al concluir la prueba práctica, cada participante diligenció de manera individual los 10 ítems del cuestionario SUS en Google Formularios. La escala de respuesta abarcó desde 1 (Totalmente en desacuerdo) hasta 5 (Totalmente de acuerdo), con carácter obligatorio en todos los enunciados (Anexo B). El cálculo del puntaje individual se efectuó aplicando la regla de conversión descrita por Sauro (2011a): en los ítems con tono positivo (impares) se resta 1 a la respuesta cruda (X - 1); en los ítems con tono negativo (pares) se resta la respuesta cruda de 5 (5 - X); finalmente, se suman los diez valores resultantes y la suma acumulada (entre 0 y 40) se multiplica por 2,5 para obtener la escala de 0 a 100. Recalculamos los puntajes de forma directa a partir de las respuestas crudas de `03_investigacion_usuarios_ux/Encuesta.csv`, y coinciden, en los cinco participantes, con los de `03_investigacion_usuarios_ux/datos/calculo_cuestionario_sus.csv`.
+
+Tabla 20. Respuestas al cuestionario SUS y puntajes por participante
+
+| Participante | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Suma convertida (0 a 40) | SUS (0 a 100) | Subescala de aprendizaje (0 a 100) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| U1 | 2 | 3 | 5 | 3 | 3 | 5 | 2 | 5 | 2 | 3 | 15 | 37,50 | 50,00 |
+| U2 | 3 | 3 | 5 | 3 | 4 | 3 | 2 | 4 | 1 | 2 | 20 | 50,00 | 62,50 |
+| U3 | 2 | 2 | 5 | 2 | 4 | 3 | 2 | 4 | 3 | 2 | 23 | 57,50 | 75,00 |
+| U4 | 1 | 2 | 5 | 2 | 3 | 3 | 2 | 5 | 1 | 1 | 19 | 47,50 | 87,50 |
+| U5 | 1 | 2 | 5 | 1 | 2 | 3 | 1 | 5 | 1 | 1 | 18 | 45,00 | 100,00 |
+
+Fuente: `03_investigacion_usuarios_ux/Encuesta.csv` (cálculo propio).
+
+Notas relativas a la Tabla 20:
+1. Fórmulas de cálculo propio: la suma convertida suma los diez valores transformados por participante. El puntaje individual SUS multiplica dicha suma por 2,5. La subescala de aprendizaje se calculó con la expresión ((5 - X4) + (5 - X10)) x 12,5 a partir de las respuestas crudas a los ítems 4 y 10 (Sauro, 2011a).
+
+En el conjunto de la muestra, el puntaje global SUS registró una media de 47,50 puntos (cálculo propio: media aritmética de los cinco valores individuales: (37,50 + 50,00 + 57,50 + 47,50 + 45,00) / 5 = 47,50), una mediana de 47,50 puntos (cálculo propio: valor central de los puntajes ordenados [37,50; 45,00; 47,50; 50,00; 57,50]), una desviación estándar muestral de 7,29 puntos (cálculo propio: raíz cuadrada de la suma de diferencias cuadráticas dividida entre 4 grados de libertad, es decir, raíz cuadrada de 212,5 / 4 = 7,2887) y un error estándar de 3,26 puntos (cálculo propio: desviación estándar dividida entre la raíz cuadrada de 5, es decir, 7,2887 / 2,2361 = 3,2596). A partir del valor crítico de la distribución t de Student de 2,776 para 4 grados de libertad con un nivel de confianza bilateral del 95 %, el intervalo de confianza se sitúa en [38,45; 56,55] puntos (cálculo propio: media más y menos el margen de error, 47,50 ± (2,776 x 3,2596) = 47,50 ± 9,05). El puntaje mínimo correspondió al participante U1 con 37,50 puntos y el máximo al participante U3 con 57,50 puntos. Como dato complementario sin umbral propio (apartado 4.1), sustentado en Lewis y Sauro (2009), la subescala de aprendizaje presentó una media de 75,00 puntos (cálculo propio: (50,00 + 62,50 + 75,00 + 87,50 + 100,00) / 5 = 75,00), con un mínimo de 50,00 puntos en U1 y un máximo de 100,00 puntos en U5. Conforme señalamos en el apartado 3.5, al tratarse de una muestra de n = 5 participantes, este puntaje tiene un carácter descriptivo y no pretende generalizarse a la población.
+
+Tabla 21. Resultados por ítem del cuestionario SUS
+
+| Ítem | Enunciado | Media de respuesta (1 a 5) | Desviación estándar | Media convertida (0 a 4) |
+| :--- | :--- | :--- | :--- | :--- |
+| Q1 | Creo que me gustaría utilizar este sitio web con frecuencia | 1,80 | 0,84 | 0,80 |
+| Q2 | Encontré este sitio web innecesariamente complejo | 2,40 | 0,55 | 2,60 |
+| Q3 | Pensé que el sitio web era fácil de usar | 5,00 | 0,00 | 4,00 |
+| Q4 | Creo que necesitaría el apoyo de una persona con conocimientos técnicos para poder utilizar este sitio web. | 2,20 | 0,84 | 2,80 |
+| Q5 | Encontré que las diversas funciones de este sitio web estaban bien integradas | 3,20 | 0,84 | 2,20 |
+| Q6 | Pensé que había demasiada inconsistencia en este sitio web | 3,40 | 0,89 | 1,60 |
+| Q7 | Me imagino que la mayoría de las personas aprenderían a utilizar este sitio web muy rápidamente | 1,80 | 0,45 | 0,80 |
+| Q8 | Encontré el sitio web muy engorroso o incómodo de utilizar | 4,60 | 0,55 | 0,40 |
+| Q9 | Me sentí muy seguro y confiado utilizando este sitio web | 1,60 | 0,89 | 0,60 |
+| Q10 | Necesité aprender muchas cosas antes de poder manejarme en este sitio web | 1,80 | 0,84 | 3,20 |
+
+Fuente: `03_investigacion_usuarios_ux/Encuesta.csv` (cálculo propio).
+
+Notas relativas a la Tabla 21:
+1. Cálculos de la tabla: las medias de respuesta cruda, desviaciones estándar muestrales y medias convertidas corresponden a cálculos propios realizados sobre las respuestas de los cinco participantes.
+
+En el desglose por ítem, la media convertida más alta correspondió a Q3 con 4,00 puntos sobre 4, donde los cinco participantes marcaron la puntuación máxima de 5 en la respuesta cruda. En contraste, las medias convertidas más bajas se registraron en Q8 con 0,40 puntos (media cruda de 4,60), en Q9 con 0,60 puntos (media cruda de 1,60) y en Q1 y Q7 con 0,80 puntos cada uno (medias crudas de 1,80).
 
 ### Paso 4. Análisis cruzado frente a los parámetros definidos
 
@@ -714,8 +804,44 @@ Relaciona cada archivo de evidencia del repositorio con la sección del informe 
 
 ### Anexo B. Cuestionario SUS aplicado
 
-Reproduce los diez ítems del cuestionario en la versión entregada a los participantes.
+El cuestionario de usabilidad fue administrado mediante Google Formularios bajo el título "Cuestionario SUS - DemoBlaze", al terminar cada sesión práctica de observación (sección 4 de `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md`). El encabezado del formulario contiene la instrucción de la prueba práctica, que se reproduce en el Anexo C. El instrumento constó de diez ítems obligatorios formulados en español, evaluados mediante una escala Likert de 1 (Totalmente en desacuerdo) a 5 (Totalmente de acuerdo), alternando afirmaciones de tono positivo y negativo según la estructura estandarizada de la escala. En la Tabla B1 presentamos los enunciados literales utilizados en la evaluación.
+
+Tabla B1. Ítems del cuestionario SUS aplicado
+
+| N.º | Enunciado | Tono del ítem |
+| :--- | :--- | :--- |
+| 1 | Creo que me gustaría utilizar este sitio web con frecuencia | Positivo |
+| 2 | Encontré este sitio web innecesariamente complejo | Negativo |
+| 3 | Pensé que el sitio web era fácil de usar | Positivo |
+| 4 | Creo que necesitaría el apoyo de una persona con conocimientos técnicos para poder utilizar este sitio web. | Negativo |
+| 5 | Encontré que las diversas funciones de este sitio web estaban bien integradas | Positivo |
+| 6 | Pensé que había demasiada inconsistencia en este sitio web | Negativo |
+| 7 | Me imagino que la mayoría de las personas aprenderían a utilizar este sitio web muy rápidamente | Positivo |
+| 8 | Encontré el sitio web muy engorroso o incómodo de utilizar | Negativo |
+| 9 | Me sentí muy seguro y confiado utilizando este sitio web | Positivo |
+| 10 | Necesité aprender muchas cosas antes de poder manejarme en este sitio web | Negativo |
+
+Fuente: `03_investigacion_usuarios_ux/evidencia_sesiones/Cuestionario.pdf`.
 
 ### Anexo C. Protocolo de observación directa
 
-Reproduce las tareas, las rutas mínimas y las instrucciones de registro usadas en las sesiones.
+La instrucción de la prueba, tal como figura en el encabezado del formulario del cuestionario (página 1 de `03_investigacion_usuarios_ux/evidencia_sesiones/Cuestionario.pdf`), es la siguiente:
+
+> Imagina que vas a comprar en esta tienda en línea. Tu misión tiene 3 pasos:
+> 1. Encuentra el portátil Sony vaio i5 y agrégalo al carrito de compras.
+> 2. Regresa al catálogo, encuentra el monitor Apple monitor 24 y agrégalo también al carrito.
+> 3. Ve a tu carrito de compras, elimina el monitor para quedarte solo con el portátil y finaliza la compra completando el formulario del botón Place Order.
+
+Tabla C1. Hitos del video que delimitan las tareas
+
+| Hito | Evento visible en el video | Tarea que cierra |
+| :--- | :--- | :--- |
+| H0 | Inicio de la grabación | Ninguna (inicio del flujo) |
+| H1 | Aparece el diálogo de confirmación ("Product added") del Sony vaio i5 | Tarea 1 |
+| H2 | Aparece el diálogo de confirmación ("Product added") del Apple monitor 24 | Tarea 2 |
+| H3 | Se abre la ventana modal Place Order | Tarea 3 |
+| H4 | Fin de la grabación (confirmación de compra y clic en OK) | Tarea 4 |
+
+Fuente: `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md`.
+
+Las rutas mínimas de navegación y el número mínimo de clics de referencia para cada una de estas cuatro tareas se encuentran detallados en la Tabla 9 del apartado 4.2, donde también se establecen las definiciones operativas de extravío y de éxito de tarea. Durante cada sesión, el evaluador registró el número global de extravíos observados y las anotaciones cualitativas correspondientes a la navegación por el catálogo, la gestión del carrito y el diligenciamiento del formulario de compra; los tiempos de cada tarea se derivaron después, a partir de los hitos de las grabaciones. Conforme a las limitaciones metodológicas declaradas en la sección 6 de `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md`, el registro no incluyó un conteo de clics innecesarios y no se aplicó un protocolo estructurado de pensamiento en voz alta con transcripciones continuas de verbalizaciones.
