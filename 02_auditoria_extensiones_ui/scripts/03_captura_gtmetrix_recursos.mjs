@@ -240,7 +240,7 @@ async function ejecutarTelemetriaRecursosPlaywright(context) {
   for (const k of Object.keys(desglosePorTipo)) {
     desglosePorTipo[k].kb = Number((desglosePorTipo[k].bytes / 1024).toFixed(2));
     desglosePorTipo[k].porcentajePeso = Number(
-      ((desglosePorTipo[k].bytes / (totalBytesTransferidos || 1)) * 100).toFixed(1)
+      ((desglosePorTipo[k].bytes / (totalBytesTransferidos || 1)) * 100).toFixed(2)
     );
   }
 
@@ -250,7 +250,7 @@ async function ejecutarTelemetriaRecursosPlaywright(context) {
     .map((r, i) => ({
       posicion: i + 1,
       ...r,
-      porcentajeDelTotal: Number(((r.tamanoBytes / (totalBytesTransferidos || 1)) * 100).toFixed(1)),
+      porcentajeDelTotal: Number(((r.tamanoBytes / (totalBytesTransferidos || 1)) * 100).toFixed(2)),
     }));
 
   const top5MasLentos = [...unifiedResources]
@@ -262,8 +262,10 @@ async function ejecutarTelemetriaRecursosPlaywright(context) {
     }));
 
   const datosReporte = {
-    herramienta: 'Auditoría de Recursos y Waterfall estilo GTmetrix (Playwright PerformanceResourceTiming + CDP Network)',
-    motivoFallbackGtmetrix: 'GTmetrix.com restringe la ejecución de pruebas a cuentas autenticadas (login obligatorio).',
+    herramienta: 'Auditoría de Recursos Performance API (Métricas equivalentes a GTmetrix vía Playwright)',
+    instrumentacionTecnica:
+      'Recolección automatizada con Playwright Chromium sobre PerformanceResourceTiming y sesión CDP Network con caché deshabilitada (Network.setCacheDisabled: true).',
+    motivoEmulacionGtmetrix: 'GTmetrix.com restringe la ejecución de pruebas a cuentas autenticadas (login obligatorio).',
     urlAuditada: TARGET_URL,
     timestamp: new Date().toISOString(),
     viewport: `${VIEWPORT.width}x${VIEWPORT.height}`,
@@ -351,13 +353,14 @@ async function ejecutarTelemetriaRecursosPlaywright(context) {
     overlay.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:12px;margin-bottom:16px;">
         <div>
-          <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#38bdf8;font-weight:700;">GTmetrix-Style Resource & Waterfall Audit — ISO/IEC 25010 (Eficiencia de Desempeño)</div>
-          <div style="font-size:18px;font-weight:700;color:#ffffff;margin-top:2px;">Informe de Utilización de Recursos: ${data.urlAuditada}</div>
+          <div style="font-size:11.5px;letter-spacing:0.6px;text-transform:uppercase;color:#38bdf8;font-weight:700;">Instrumentación Automatizada PerformanceResourceTiming + CDP Network (Carga en Frío sin Caché)</div>
+          <div style="font-size:17.5px;font-weight:700;color:#ffffff;margin-top:3px;">Auditoría de Recursos Performance API (Métricas equivalentes a GTmetrix vía Playwright)</div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:2px;">SUT evaluado: ${data.urlAuditada}</div>
         </div>
         <div style="display:flex;gap:12px;align-items:center;">
           <div style="background:#7f1d1d;border:1px solid #ef4444;padding:6px 14px;border-radius:8px;text-align:center;">
-            <div style="font-size:10px;color:#fca5a5;text-transform:uppercase;">Estado Recursos</div>
-            <div style="font-size:16px;font-weight:800;color:#fecaca;">CUELLO DE BOTELLA EN IMÁGENES / MEDIA</div>
+            <div style="font-size:10px;color:#fca5a5;text-transform:uppercase;">Diagnóstico de Recursos</div>
+            <div style="font-size:15px;font-weight:800;color:#fecaca;">CUELLO DE BOTELLA EN IMÁGENES / MEDIA</div>
           </div>
         </div>
       </div>

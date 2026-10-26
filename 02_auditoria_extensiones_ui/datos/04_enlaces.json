@@ -1,5 +1,6 @@
 {
-  "herramienta": "Check My Links (Inspección DOM y Verificación HTTP Real con Playwright)",
+  "herramienta": "Auditoría Programática de Enlaces DOM (Equivalente funcional a Check My Links vía Playwright)",
+  "instrumentacionTecnica": "Inspección automatizada en Playwright sobre la totalidad de nodos <a> del DOM hidratado y verificación HTTP real mediante fetch() (cache: \"no-store\"), replicando la clasificación cromática y funcional de Check My Links.",
   "urlAuditada": "https://www.demoblaze.com/index.html",
   "timestamp": "2026-10-26T03:47:18.886Z",
   "viewport": "1440x900",
@@ -12,12 +13,16 @@
     "enlacesRotosRojos_HTTP404_500": 0,
     "porcentajeRotos": 0
   },
-  "evaluacionIso25010": {
-    "caracteristica": "Capacidad de Interacción — Operabilidad (Integridad de Enlaces)",
-    "umbralEnlacesRotos404": "0 enlaces rotos HTTP 404 permitidos",
+  "criterioAceptacionEstudio": {
+    "taxonomiaIso25010": "Capacidad de Interacción (Usabilidad) — Operabilidad",
+    "notaMetodologica": "La norma ISO/IEC 25010 define el modelo de calidad; el límite cuantitativo de 0 enlaces rotos HTTP 404/500 y ausencia de anclas vacías href=\"#\" corresponde al criterio de aceptación definido por el equipo evaluador.",
+    "limiteDecisionEnlacesRotos404": "0 enlaces rotos HTTP 404 / 500 permitidos",
+    "limiteDecisionNavegacionSemantica": "0 anclas vacías href=\"#\" que provoquen saltos de scroll o rompan navegación en pestaña nueva",
     "cumpleCeroRotos404": true,
+    "cumpleNavegacionSemantica": false,
     "observacionAnclasSinDestino": "Existen 10 enlaces (30.3%) con href=\"#\" empleados para disparar modales Bootstrap (Contact, About us, Log in, Sign up) o filtros JS (Phones, Laptops, Monitors) en vez de botones <button> o rutas semánticas, afectando navegación por teclado, historial y abrir en nueva pestaña.",
-    "dictamen": "CUMPLE CON OBSERVACIONES (0 rotos HTTP 404; 10 advertencias href=\"#\")"
+    "dictamenEnlacesRotos": "CUMPLE (0 enlaces HTTP 404/500)",
+    "dictamenNavegacionSemantica": "NO CUMPLE (10 enlaces [30.3%] emplean href=\"#\")"
   },
   "capturaAsociada": "./capturas/04_check_my_links.png",
   "enlacesDetallados": [
