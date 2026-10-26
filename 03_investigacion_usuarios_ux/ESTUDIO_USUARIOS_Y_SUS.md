@@ -56,7 +56,7 @@ Los hitos se detectaron analizando los cambios de brillo de la pantalla (cada `a
 | **U2** | 50 años | Sí (`100%`) | `04:05` | `245 s` | `1` | Tuvo problemas para encontrar cómo acceder al carrito. | No sabía en qué formato escribir el mes, el año y el número de tarjeta de crédito. |
 | **U3** | 28 años | Sí (`100%`) | `02:07` | `127 s` | `0` | Intuyó cómo filtrar artículos por categorías y salir de la confirmación de carrito. | Escribió los datos de la tarjeta de crédito como pensó que era (sin restricción del sistema). |
 | **U4** | 45 años | Sí (`100%`) | `03:04` | `184 s` | `1` | Le pareció extraño que no se puedan buscar los productos por el nombre. | Preguntó cómo escribir la tarjeta de crédito y sus datos. |
-| **U5** | 23 años | Sí (`100%`) | `02:37` | `157 s` | `1` | Preguntó si había una barra de búsqueda de productos. | Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos. |
+| **U5** | 23 años | Sí (`100%`) | `02:37` | `157 s` | `1` | Durante la tarea 2 preguntó si había una barra de búsqueda de productos. | Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos. |
 | **GLOBAL** | **23 a 50 años ($n=5$)** | **100% Éxito** | **`03:05`** | **185.00 s** | **0.80** | **80% de los usuarios presentó al menos 1 fricción de operabilidad o pertinencia funcional.** | **80% de los usuarios (4 de 5) expresó dudas sobre el formato o la obligatoriedad de los campos; solo U3 completó el formulario sin dudas.** |
 
 ### Tabla 3. Tiempos por Tarea (segundos) y Permanencia del `alert` Nativo
