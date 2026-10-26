@@ -43,20 +43,26 @@ Al finalizar la sesión práctica, cada uno de los 5 usuarios debe responder los
 ```text
 03_investigacion_usuarios_ux/
 ├── README.md                                # Esta guía de trabajo
-├── ESTUDIO_USUARIOS_Y_SUS.md                # Documento completo (Población/Muestra, Observación Directa y SUS)
+├── ESTUDIO_USUARIOS_Y_SUS.md                # Documento completo (Población/Muestra, Observación Directa, SUS y Limitaciones)
+├── Encuesta.csv                             # Respuestas crudas del formulario SUS (1-5)
 ├── datos/
-│   ├── matriz_observacion_5_usuarios.csv    # Tiempos, errores y tasas de éxito por tarea
+│   ├── matriz_observacion_5_usuarios.csv    # Tiempos por tarea, errores y tasas de éxito (usuarios anónimos U1-U5)
+│   ├── hitos_video.csv                      # Instantes del video usados para calcular los tiempos por tarea
 │   └── calculo_cuestionario_sus.csv         # Respuestas crudas (1-5) y puntajes SUS calculados
-└── evidencias_sesiones/                     # Fotos/capturas anonimizadas o formularios aplicados
+└── evidencia_sesiones/                      # Videos de las 5 sesiones (Usuario 1-5.mp4) y Cuestionario.pdf
 ```
+
+> **Nota sobre los videos:** En las grabaciones de `evidencia_sesiones/` los participantes ingresaron nombres y números de tarjeta ficticios de prueba en el formulario `Place Order`. En las tablas y archivos CSV del estudio se identifican de forma anónima como `U1` a `U5`.
+
+> **Limitaciones:** No se registró el conteo de clics innecesarios ni se aplicó un protocolo *Think-Aloud* estructurado. Solo se cuenta con los comentarios y preguntas anotados en la matriz de observación. Ver la sección 6 de `ESTUDIO_USUARIOS_Y_SUS.md`.
 
 ---
 
 ## 4. Flujo de Entrega en Git
 
 ```bash
-git pull origin main
+git checkout -b integrante3/investigacion-usuarios
 git add 03_investigacion_usuarios_ux/
 git commit -m "docs: estudio de observación directa y cálculo SUS con 5 usuarios"
-git push origin main
+git push -u origin integrante3/investigacion-usuarios
 ```

@@ -1,0 +1,7 @@
+ID_Participante,Marca_Temporal,Q1_Crudo,Q2_Crudo,Q3_Crudo,Q4_Crudo,Q5_Crudo,Q6_Crudo,Q7_Crudo,Q8_Crudo,Q9_Crudo,Q10_Crudo,Q1_Conv,Q2_Conv,Q3_Conv,Q4_Conv,Q5_Conv,Q6_Conv,Q7_Conv,Q8_Conv,Q9_Conv,Q10_Conv,Suma_Convertida,Puntaje_SUS,Estado_Umbral_68
+U1,2026/10/25 11:57:11 a. m. GMT-5,2,3,5,3,3,5,2,5,2,3,1,2,4,2,2,0,1,0,1,2,15,37.50,Reprobado
+U2,2026/10/25 12:24:49 p. m. GMT-5,3,3,5,3,4,3,2,4,1,2,2,2,4,2,3,2,1,1,0,3,20,50.00,Reprobado
+U3,2026/10/25 12:26:43 p. m. GMT-5,2,2,5,2,4,3,2,4,3,2,1,3,4,3,3,2,1,1,2,3,23,57.50,Reprobado
+U4,2026/10/25 12:49:00 p. m. GMT-5,1,2,5,2,3,3,2,5,1,1,0,3,4,3,2,2,1,0,0,4,19,47.50,Reprobado
+U5,2026/10/25 12:50:57 p. m. GMT-5,1,2,5,1,2,3,1,5,1,1,0,3,4,4,1,2,0,0,0,4,18,45.00,Reprobado
+PROMEDIO,Global (n=5),1.80,2.40,5.00,2.20,3.20,3.40,1.80,4.60,1.60,1.80,0.80,2.60,4.00,2.80,2.20,1.60,0.80,0.40,0.60,3.20,19.00,47.50,Reprobado
