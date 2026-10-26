@@ -4,16 +4,16 @@ Universidad Surcolombiana, Facultad de Ingeniería
 
 Asignatura: Ingeniería de Software Avanzada
 
-Docente: [NOMBRE]
+Docente: Eilen Lorena Perez Montero
 
 Integrantes:
 
-- [NOMBRE]
-- [NOMBRE]
-- [NOMBRE]
-- [NOMBRE]
+- Juan David Fierro Calderón
+- Miguel Ángel Medina Diaz
+- Santiago Marquez Murcia
+- Juan Manuel Villalba Rincón
 
-Neiva, [FECHA]
+Neiva, 27 de octubre de 2026
 
 ## Índice
 
