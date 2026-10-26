@@ -1,0 +1,146 @@
+{
+  "herramienta": "W3C Nu Html Checker v26.10.18 (Markup Validation Service)",
+  "urlValidada": "https://www.demoblaze.com/index.html",
+  "urlReporteHtml": "https://validator.w3.org/nu/?doc=https%3A%2F%2Fwww.demoblaze.com%2Findex.html",
+  "timestamp": "2026-10-26T03:49:42.072Z",
+  "viewport": "1440x900",
+  "resumenConteo": {
+    "totalHallazgos": 11,
+    "errores": 7,
+    "advertencias_warnings": 4,
+    "informativos": 0
+  },
+  "evaluacionIso25010": {
+    "caracteristica": "Capacidad de Interacción — Accesibilidad e Interoperabilidad (Estándares W3C)",
+    "umbralExigido": "0 errores críticos de estructura HTML que comprometan interoperabilidad o tecnologías de asistencia",
+    "cumpleUmbral": false,
+    "dictamen": "NO CUMPLE"
+  },
+  "capturaAsociada": "./capturas/05_w3c_validator.png",
+  "erroresDetectados": [
+    {
+      "indice": 1,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 435,
+      "columnaInicio": 57,
+      "columnaFin": 143,
+      "mensaje": "An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.",
+      "fragmentoHtml": "dex.html\"><img width=50 height=50 style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\">"
+    },
+    {
+      "indice": 2,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 504,
+      "columnaInicio": 11,
+      "columnaFin": 85,
+      "mensaje": "Duplicate ID “itemc”.",
+      "fragmentoHtml": "<a href=\"#\" id=\"itemc\" onClick=\"byCat('notebook')\" class=\"list-group-item\">Laptop"
+    },
+    {
+      "indice": 4,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 505,
+      "columnaInicio": 11,
+      "columnaFin": 84,
+      "mensaje": "Duplicate ID “itemc”.",
+      "fragmentoHtml": "<a href=\"#\" id=\"itemc\" onClick=\"byCat('monitor')\" class=\"list-group-item\">Monito"
+    },
+    {
+      "indice": 7,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 555,
+      "columnaInicio": 17,
+      "columnaFin": 103,
+      "mensaje": "An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.",
+      "fragmentoHtml": "<h4><img width=50 height=50 style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\"> PRODU"
+    },
+    {
+      "indice": 8,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 384,
+      "columnaInicio": 15,
+      "columnaFin": 63,
+      "mensaje": "The value of the “for” attribute of the “label” element must be the ID of a non-hidden form control.",
+      "fragmentoHtml": "<label for=\"log-name\" class=\"form-control-label\">Userna"
+    },
+    {
+      "indice": 9,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 388,
+      "columnaInicio": 15,
+      "columnaFin": 63,
+      "mensaje": "The value of the “for” attribute of the “label” element must be the ID of a non-hidden form control.",
+      "fragmentoHtml": "<label for=\"log-pass\" class=\"form-control-label\">Passwo"
+    },
+    {
+      "indice": 10,
+      "tipoRaw": "error",
+      "subTipoRaw": null,
+      "clasificacion": "Error",
+      "linea": 392,
+      "columnaInicio": 15,
+      "columnaFin": 75,
+      "mensaje": "The value of the “for” attribute of the “label” element must be the ID of a non-hidden form control.",
+      "fragmentoHtml": "<label for=\"log-pass\" id=\"errorl\" class=\"form-control-label\"></labe"
+    }
+  ],
+  "advertenciasDetectadas": [
+    {
+      "indice": 3,
+      "tipoRaw": "info",
+      "subTipoRaw": "warning",
+      "clasificacion": "Warning",
+      "linea": 503,
+      "columnaInicio": 11,
+      "columnaFin": 82,
+      "mensaje": "The first occurrence of ID “itemc” was here.",
+      "fragmentoHtml": "<a href=\"#\" id=\"itemc\" onClick=\"byCat('phone')\" class=\"list-group-item\">Phones"
+    },
+    {
+      "indice": 5,
+      "tipoRaw": "info",
+      "subTipoRaw": "warning",
+      "clasificacion": "Warning",
+      "linea": 503,
+      "columnaInicio": 11,
+      "columnaFin": 82,
+      "mensaje": "The first occurrence of ID “itemc” was here.",
+      "fragmentoHtml": "<a href=\"#\" id=\"itemc\" onClick=\"byCat('phone')\" class=\"list-group-item\">Phones"
+    },
+    {
+      "indice": 6,
+      "tipoRaw": "info",
+      "subTipoRaw": "warning",
+      "clasificacion": "Warning",
+      "linea": 529,
+      "columnaInicio": 3,
+      "columnaFin": 51,
+      "mensaje": "The “type” attribute is unnecessary for JavaScript resources.",
+      "fragmentoHtml": "script>\n  <script type=\"text/javascript\" src=\"js/index.js\"></scri"
+    },
+    {
+      "indice": 11,
+      "tipoRaw": "info",
+      "subTipoRaw": "warning",
+      "clasificacion": "Warning",
+      "linea": 303,
+      "columnaInicio": 11,
+      "columnaFin": 57,
+      "mensaje": "This document has heading elements but none of them has a computed heading level of 1.",
+      "fragmentoHtml": "<h5 class=\"modal-title\" id=\"exampleModalLabel\">New me"
+    }
+  ],
+  "informativosDetectados": []
+}
