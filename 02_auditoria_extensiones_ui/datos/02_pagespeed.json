@@ -1,0 +1,130 @@
+{
+  "fuente": "Google Lighthouse CLI v13.5.0 (Motor oficial de PageSpeed Insights)",
+  "fetchTime": "2026-10-26T03:44:15.191Z",
+  "urlAuditada": "https://www.demoblaze.com/index.html",
+  "puntuacionesCategorias": {
+    "rendimiento": 54,
+    "accesibilidad": 82,
+    "practicasRecomendadas": 100,
+    "seo": 82
+  },
+  "coreWebVitalsYMetricas": {
+    "fcp_first_contentful_paint": {
+      "titulo": "First Contentful Paint",
+      "score": 0.8,
+      "valorNumerico": 2127.6684999999998,
+      "unidad": "millisecond",
+      "valorMostrado": "2,1 s"
+    },
+    "lcp_largest_contentful_paint": {
+      "titulo": "Renderizado del mayor elemento con contenido",
+      "score": 0.05,
+      "valorNumerico": 7083.3165,
+      "unidad": "millisecond",
+      "valorMostrado": "7,1 s"
+    },
+    "tbt_total_blocking_time": {
+      "titulo": "Total Blocking Time",
+      "score": 0.84,
+      "valorNumerico": 248,
+      "unidad": "millisecond",
+      "valorMostrado": "250 ms"
+    },
+    "cls_cumulative_layout_shift": {
+      "titulo": "Cambios de diseño acumulados",
+      "score": 0.42,
+      "valorNumerico": 0.284446062700209,
+      "unidad": "unitless",
+      "valorMostrado": "0,284"
+    },
+    "speed_index": {
+      "titulo": "Speed Index",
+      "score": 0.92,
+      "valorNumerico": 3138.227529687874,
+      "unidad": "millisecond",
+      "valorMostrado": "3,1 s"
+    },
+    "tti_interactive": {
+      "titulo": "Tiempo necesario para interactuar",
+      "score": 0.41,
+      "valorNumerico": 8125.7600999999995,
+      "unidad": "millisecond",
+      "valorMostrado": "8,1 s"
+    },
+    "ttfb_server_response_time": {
+      "titulo": "El tiempo de respuesta inicial del servidor fue breve",
+      "score": 1,
+      "valorNumerico": 131,
+      "unidad": "millisecond",
+      "valorMostrado": "El documento raíz ha tardado 130 ms"
+    },
+    "peso_total_bytes": {
+      "titulo": "Evita cargas útiles de red de gran tamaño",
+      "score": 1,
+      "valorNumerico": 2274576,
+      "unidad": "byte",
+      "valorMostrado": "Tamaño total: 2221 KiB"
+    },
+    "resumen_recursos": [
+      {
+        "resourceType": "total",
+        "label": "Total",
+        "requestCount": 31,
+        "transferSize": 2274576
+      },
+      {
+        "resourceType": "image",
+        "label": "Imagen",
+        "requestCount": 12,
+        "transferSize": 1196497
+      },
+      {
+        "resourceType": "media",
+        "label": "Contenido multimedia",
+        "requestCount": 4,
+        "transferSize": 553882
+      },
+      {
+        "resourceType": "script",
+        "label": "Script",
+        "requestCount": 6,
+        "transferSize": 291987
+      },
+      {
+        "resourceType": "font",
+        "label": "Fuente",
+        "requestCount": 1,
+        "transferSize": 183079
+      },
+      {
+        "resourceType": "stylesheet",
+        "label": "Hoja de estilo",
+        "requestCount": 4,
+        "transferSize": 41308
+      },
+      {
+        "resourceType": "document",
+        "label": "Documento",
+        "requestCount": 1,
+        "transferSize": 4613
+      },
+      {
+        "resourceType": "other",
+        "label": "Otros",
+        "requestCount": 3,
+        "transferSize": 3210
+      },
+      {
+        "resourceType": "third-party",
+        "label": "Recursos externos",
+        "requestCount": 0,
+        "transferSize": 0
+      }
+    ]
+  },
+  "archivosReporte": {
+    "html": "./datos/pagespeed_lighthouse.report.html",
+    "json": "./datos/pagespeed_lighthouse.report.json",
+    "captura": "./capturas/02_pagespeed.png"
+  }
+}
