@@ -1,14 +1,35 @@
 {
-  "name": "proyecto_iso25010_demoblaze",
+  "name": "auditoria-calidad-iso25010-demoblaze",
   "version": "1.0.0",
-  "description": "",
+  "description": "Suite de auditoría automatizada y evidencias técnicas para la evaluación de calidad en producción de DemoBlaze bajo la norma ISO/IEC 25010.",
+  "homepage": "https://www.demoblaze.com/index.html",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "audit:red": "node ./01_pruebas_automatizadas_cli/scripts/medir_red.mjs",
+    "audit:ui": "node ./01_pruebas_automatizadas_cli/scripts/auditoria_funcional_ui.mjs",
+    "audit:endpoints": "node ./01_pruebas_automatizadas_cli/scripts/medir_endpoints_view_bycat.mjs",
+    "audit:delete": "node ./01_pruebas_automatizadas_cli/scripts/prueba_delete_carrito.mjs",
+    "audit:modals": "node ./01_pruebas_automatizadas_cli/scripts/auditoria_labels_modales_abiertos.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "iso-25010",
+    "qa",
+    "playwright",
+    "k6",
+    "lighthouse",
+    "axe-core",
+    "fast-cli",
+    "demoblaze",
+    "usability"
+  ],
+  "contributors": [
+    "Juan David Fierro Calderon",
+    "Santiago Márquez Murcia",
+    "Miguel Angel Medina Díaz",
+    "Juan Manuel Villalba Rincón"
+  ],
+  "license": "MIT",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -16,7 +37,6 @@
       "onFail": "download"
     }
   },
-  "type": "module",
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.64.1",
