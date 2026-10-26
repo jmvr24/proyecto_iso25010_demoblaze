@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { chromium } from 'playwright';
 
 const VIEWPORT = { width: 1440, height: 900 };
@@ -13,6 +15,72 @@ function normalizarMbps(valorStr, unidadStr = 'Mbps') {
   if (u.includes('gbps')) return Number((valor * 1000).toFixed(2));
   if (u.includes('kbps')) return Number((valor / 1000).toFixed(2));
   return Number(valor.toFixed(2));
+}
+
+function obtenerHardwareEnvironment() {
+  const cpus = os.cpus();
+  const totalBytes = os.totalmem();
+  let soEdicion = os.version();
+  let soBuild = os.release().split('.').pop() || os.release();
+  let soDisplayVer = null;
+
+  try {
+    if (process.platform === 'win32') {
+      const psCmd =
+        'powershell -NoProfile -Command "$o = Get-CimInstance Win32_OperatingSystem; $dv = (Get-ItemProperty \'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\' -ErrorAction SilentlyContinue).DisplayVersion; Write-Output ($o.Caption + \'|\' + $o.Version + \'|\' + $o.BuildNumber + \'|\' + $dv)"';
+      const out = execSync(psCmd, { encoding: 'utf8' }).trim();
+      const [cap, ver, bld, dv] = out.split('|');
+      if (cap) soEdicion = cap.trim();
+      if (bld) soBuild = bld.trim();
+      if (dv) soDisplayVer = dv.trim();
+    }
+  } catch (_) {
+    // Fallback a node:os si CIM no responde
+  }
+
+  return {
+    cpu: {
+      modelo: cpus[0]?.model?.trim() || 'Desconocido',
+      velocidad_reportada_node_mhz: cpus[0]?.speed || null,
+      nucleos_logicos: cpus.length,
+      arquitectura: os.arch(),
+    },
+    ram: {
+      capacidad_utilizable_gb: Number((totalBytes / 1024 ** 3).toFixed(2)),
+      capacidad_utilizable_bytes: totalBytes,
+    },
+    sistema_operativo: {
+      edicion: soEdicion,
+      version: soDisplayVer,
+      version_nt: os.release(),
+      compilacion_build: soBuild,
+      arquitectura: os.arch() === 'x64' ? '64 bits' : os.arch(),
+    },
+  };
+}
+
+async function consultarIspPublico() {
+  for (const url of ['https://ipapi.co/json/', 'https://ipinfo.io/json']) {
+    try {
+      const resp = await fetch(url, { headers: { 'User-Agent': 'curl/8.0' } });
+      if (resp.ok) {
+        const j = await resp.json();
+        const org = j.org || j.asn || null;
+        if (org) {
+          return {
+            isp: j.asn && !org.includes(j.asn) ? `${org} (${j.asn})` : org,
+            provider: org.replace(/^AS\d+\s+/i, '').trim(),
+            org,
+            asn: j.asn || (org.match(/^AS\d+/i)?.[0] ?? null),
+            fuente: url,
+          };
+        }
+      }
+    } catch (_) {
+      // Intentar siguiente endpoint
+    }
+  }
+  return null;
 }
 
 async function medirFastComEs(page) {
@@ -61,6 +129,9 @@ async function medirFastComEs(page) {
     };
   });
 
+  const ispExterno = await consultarIspPublico();
+  const hardwareEnvironment = obtenerHardwareEnvironment();
+
   const descarga = normalizarMbps(raw.dlVal, raw.dlUnit);
   const subida = normalizarMbps(raw.ulVal, raw.ulUnit);
   const ping = Number.parseFloat(String(raw.pingUnloaded || '0').replace(',', '.'));
@@ -71,6 +142,7 @@ async function medirFastComEs(page) {
     urlEvidencia: 'https://fast.com/es/',
     timestamp: new Date().toISOString(),
     viewport: `${VIEWPORT.width}x${VIEWPORT.height}`,
+    hardware_environment: hardwareEnvironment,
     valoresPantallaExactos: {
       descargaTexto: `${raw.dlVal} ${raw.dlUnit}`,
       subidaTexto: `${raw.ulVal} ${raw.ulUnit}`,
@@ -85,14 +157,22 @@ async function medirFastComEs(page) {
       diferencia_subida_vs_descarga_mbps: Number((subida - descarga).toFixed(2)),
     },
     proveedorRed: {
-      isp: raw.isp,
+      isp: raw.isp || ispExterno?.isp || 'No disponible',
+      provider: raw.isp || ispExterno?.provider || 'No disponible',
+      asn: ispExterno?.asn || null,
       ipCliente: raw.ip,
       ubicacionCliente: raw.location,
       servidoresPrueba: raw.servers,
+      fuenteVerificacionIsp: raw.isp ? 'FAST.com DOM (#user-isp)' : ispExterno?.fuente || null,
     },
-    evaluacionPrerrequisitoIso25010: {
-      umbralDescargaMbps: '> 30 Mbps',
-      umbralSubidaMbps: '> 8 Mbps',
+    criterioAceptacionEstudio: {
+      taxonomiaIso25010:
+        'Prerrequisito de control ambiental para evaluar Eficiencia de Desempeño (Comportamiento temporal y Utilización de recursos)',
+      notaMetodologica:
+        'La norma ISO/IEC 25010 define las características y subcaracterísticas de calidad; los límites numéricos corresponden al criterio de aceptación definido por el equipo evaluador.',
+      limiteDecisionDescargaMbps: '> 30 Mbps',
+      limiteDecisionSubidaMbps: '> 8 Mbps',
+      limiteDecisionPingMs: '< 100 ms (estable)',
       cumpleDescarga: descarga > 30,
       cumpleSubida: subida > 8,
       pingEstable: ping < 100,
@@ -116,7 +196,7 @@ async function main() {
 
   try {
     const resultado = await medirFastComEs(page);
-    await fs.writeFile(DATOS_PATH, JSON.stringify(resultado, null, 2), 'utf-8');
+    await fs.writeFile(DATOS_PATH, JSON.stringify(resultado, null, 2) + '\n', 'utf-8');
     console.log(`[01_red] Datos guardados en ${DATOS_PATH}`);
   } finally {
     await browser.close();

@@ -29,7 +29,11 @@
       "gradienteDecorativoHeaderFooter": "linear-gradient(to right, #191654 / #1d1cf2 -> #00c6ff) sobre #292B2C"
     },
     "hallazgoCromaticoYContraste": "Consistencia cromática parcial: aunque se mantienen los colores #0275D8 y #34A853, el texto gris #868688 sobre #FFFFFF tiene un ratio de contraste de 3.63:1 (< 4.5:1 WCAG AA) y el botón Place Order (#FFFFFF sobre #34A853, 16px normal) apenas alcanza 3.05:1 (< 4.5:1 WCAG AA). Además, el botón Add to cart usa 20px (<a>) mientras Place Order usa 16px (<button>).",
-    "dictamenIso25010": "NO CUMPLE (Falta de uniformidad tipográfica al 100% entre <a> y <button>, asimetría de tamaños en CTAs y bajo contraste WCAG AA)"
+    "criterioAceptacionEstudio": {
+      "taxonomiaIso25010": "Capacidad de Interacción (Usabilidad) — Estética de la interfaz de usuario y Accesibilidad",
+      "notaMetodologica": "La norma ISO/IEC 25010 establece las subcaracterísticas evaluadas; los límites de 100% de uniformidad tipográfica y relación de contraste >= 4.5:1 corresponden a los criterios de aceptación definidos por el equipo evaluador con base en los lineamientos del estudio y WCAG 2.1 Nivel AA.",
+      "dictamen": "NO CUMPLE (Falta de uniformidad tipográfica entre <a> LatoWeb y <button> sans-serif, asimetría de tamaños 20px vs 16px en CTAs y relación de contraste inferior a 4.5:1 WCAG AA)"
+    }
   },
   "capturaAsociada": "./capturas/06_whatfont_colorzilla.png",
   "componentesEvaluados": [

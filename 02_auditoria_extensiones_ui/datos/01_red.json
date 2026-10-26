@@ -3,6 +3,37 @@
   "urlEvidencia": "https://fast.com/es/",
   "timestamp": "2026-10-26T03:42:57.533Z",
   "viewport": "1440x900",
+  "hardware_environment": {
+    "equipo": "LENOVO 83JC",
+    "cpu": {
+      "modelo": "AMD Ryzen 7 7435HS",
+      "velocidad_base_ghz": 3.1,
+      "velocidad_base_mhz": 3100,
+      "velocidad_reportada_node_mhz": 3094,
+      "nucleos_fisicos": 8,
+      "nucleos_logicos": 16,
+      "arquitectura": "x64"
+    },
+    "ram": {
+      "capacidad_instalada_gb": 24,
+      "configuracion_modulos": "2 x 12 GB DDR5 @ 4800 MHz (Ramaxel Technology)",
+      "capacidad_utilizable_gb": 23.69,
+      "capacidad_utilizable_bytes": 25439199232
+    },
+    "sistema_operativo": {
+      "edicion": "Microsoft Windows 11 Home Single Language",
+      "version": "26H2",
+      "version_nt": "10.0.26300",
+      "compilacion_build": "26300",
+      "arquitectura": "64 bits"
+    },
+    "entorno_software_auditoria": {
+      "node_js": "v24.19.0",
+      "motor_automatizacion": "Playwright Chromium (1440x900)",
+      "lighthouse": "v13.5.0",
+      "validador_w3c": "W3C Nu Html Checker v26.10.18"
+    }
+  },
   "valoresPantallaExactos": {
     "descargaTexto": "80 Mbps",
     "subidaTexto": "88 Mbps",
@@ -17,14 +48,22 @@
     "diferencia_subida_vs_descarga_mbps": 8
   },
   "proveedorRed": {
-    "isp": null,
+    "isp": "NETWORKS TV S.A.S (AS274223)",
+    "provider": "NETWORKS TV S.A.S",
+    "org": "AS274223 NETWORKS TV S.A.S",
+    "asn": "AS274223",
     "ipCliente": "2803:6bd0:6:8285:d5fe:2391:3daf:b0d1",
-    "ubicacionCliente": "Rivera, CO",
-    "servidoresPrueba": "Medellin, CO  |  Bogota, CO  |  Miami, US"
+    "ipv4Publica": "38.236.106.239",
+    "ubicacionCliente": "Rivera / Neiva, Huila, CO",
+    "servidoresPrueba": "Medellin, CO  |  Bogota, CO  |  Miami, US",
+    "fuenteVerificacionIsp": "https://ipapi.co/json/ y https://ipinfo.io/json"
   },
-  "evaluacionPrerrequisitoIso25010": {
-    "umbralDescargaMbps": "> 30 Mbps",
-    "umbralSubidaMbps": "> 8 Mbps",
+  "criterioAceptacionEstudio": {
+    "taxonomiaIso25010": "Prerrequisito de control ambiental para evaluar Eficiencia de Desempeño (Comportamiento temporal y Utilización de recursos)",
+    "notaMetodologica": "La norma ISO/IEC 25010 define las características y subcaracterísticas de calidad; los límites numéricos corresponden al criterio de aceptación definido por el equipo evaluador.",
+    "limiteDecisionDescargaMbps": "> 30 Mbps",
+    "limiteDecisionSubidaMbps": "> 8 Mbps",
+    "limiteDecisionPingMs": "< 100 ms (estable)",
     "cumpleDescarga": true,
     "cumpleSubida": true,
     "pingEstable": true,

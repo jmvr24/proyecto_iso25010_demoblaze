@@ -1,5 +1,5 @@
 {
-  "herramienta": "W3C Nu Html Checker v26.10.18 (Markup Validation Service)",
+  "herramienta": "W3C Nu Html Checker v26.10.18 (Markup Validation Service) + Inspección DOM de etiquetas <img>",
   "urlValidada": "https://www.demoblaze.com/index.html",
   "urlReporteHtml": "https://validator.w3.org/nu/?doc=https%3A%2F%2Fwww.demoblaze.com%2Findex.html",
   "timestamp": "2026-10-26T03:49:42.072Z",
@@ -10,10 +10,33 @@
     "advertencias_warnings": 4,
     "informativos": 0
   },
-  "evaluacionIso25010": {
-    "caracteristica": "Capacidad de Interacción — Accesibilidad e Interoperabilidad (Estándares W3C)",
-    "umbralExigido": "0 errores críticos de estructura HTML que comprometan interoperabilidad o tecnologías de asistencia",
-    "cumpleUmbral": false,
+  "auditoriaAtributoAltImagenesDom": {
+    "totalEtiquetasImgEnDomRenderizado": 14,
+    "sinAtributoAltPorCompleto": {
+      "cantidad": 2,
+      "porcentaje": 14.29,
+      "detalle": [
+        "Línea 435 (a#nava en Navbar): <img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\"> — marcado como Error de sintaxis por W3C.",
+        "Línea 555 (div#fotcont en Footer): <img width=\"50\" height=\"50\" style=\"margin-right:10px\" src=\"blazemeter-favicon-512x512.png\"> — marcado como Error de sintaxis por W3C."
+      ]
+    },
+    "conAtributoAltVacioCadenaVacia": {
+      "cantidad": 9,
+      "porcentaje": 64.29,
+      "detalle": "Las 9 fotografías de productos del catálogo inicial (#tbodyid .card img.card-img-top.img-fluid) inyectadas dinámicamente por js/index.js se renderizan con alt=\"\" (<img class=\"card-img-top img-fluid\" src=\"imgs/...\" alt=\"\">).",
+      "implicacionSemanticaWcag": "Usar alt=\"\" (cadena vacía) en fotografías comerciales de productos que transmiten contenido relevante —y que además son el único hijo de enlaces funcionales <a href=\"prod.html?idp_=...\">— constituye una mala práctica semántica de accesibilidad (WCAG 2.1 Criterio 1.1.1 y 2.4.4): provoca que los lectores de pantalla ignoren las imágenes al asumir que son puramente decorativas, aunque el Validador HTML W3C no marque alt=\"\" como error de sintaxis."
+    },
+    "conAtributoAltNoVacioGenerico": {
+      "cantidad": 3,
+      "porcentaje": 21.43,
+      "detalle": "Las 3 imágenes del carrusel promocional (.carousel-item img: Samsung1.jpg, nexus1.jpg, iphone1.jpg) poseen textos de plantilla no descriptivos: alt=\"First slide\", alt=\"Second slide\" y alt=\"Third slide\"."
+    }
+  },
+  "criterioAceptacionEstudio": {
+    "taxonomiaIso25010": "Capacidad de Interacción (Usabilidad) — Accesibilidad e Interoperabilidad",
+    "notaMetodologica": "La norma ISO/IEC 25010 define el modelo de calidad; el límite cuantitativo de 0 errores de sintaxis/semántica HTML5 corresponde al criterio de aceptación definido por el equipo evaluador con base en estándares W3C y WCAG 2.1.",
+    "limiteDecisionEstudio": "0 errores críticos de sintaxis o estructura HTML5 en W3C Nu Html Checker y alternativas textuales semánticas válidas (WCAG 1.1.1)",
+    "cumpleLimite": false,
     "dictamen": "NO CUMPLE"
   },
   "capturaAsociada": "./capturas/05_w3c_validator.png",

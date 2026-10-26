@@ -89,10 +89,13 @@ async function main() {
         advertencias_warnings: advertencias.length,
         informativos: informativos.length,
       },
-      evaluacionIso25010: {
-        caracteristica: 'Capacidad de Interacción — Accesibilidad e Interoperabilidad (Estándares W3C)',
-        umbralExigido: '0 errores críticos de estructura HTML que comprometan interoperabilidad o tecnologías de asistencia',
-        cumpleUmbral: errores.length === 0,
+      criterioAceptacionEstudio: {
+        taxonomiaIso25010: 'Capacidad de Interacción (Usabilidad) — Accesibilidad e Interoperabilidad',
+        notaMetodologica:
+          'La norma ISO/IEC 25010 define el modelo de calidad; el límite cuantitativo de 0 errores de sintaxis/semántica HTML5 corresponde al criterio de aceptación definido por el equipo evaluador con base en estándares W3C y WCAG 2.1.',
+        limiteDecisionEstudio:
+          '0 errores críticos de sintaxis o estructura HTML5 en W3C Nu Html Checker y alternativas textuales semánticas válidas (WCAG 1.1.1)',
+        cumpleLimite: errores.length === 0,
         dictamen: errores.length === 0 ? 'CUMPLE' : 'NO CUMPLE',
       },
       capturaAsociada: './capturas/05_w3c_validator.png',

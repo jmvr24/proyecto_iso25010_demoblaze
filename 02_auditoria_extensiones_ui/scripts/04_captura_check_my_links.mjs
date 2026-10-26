@@ -164,24 +164,26 @@ async function main() {
           position: fixed;
           top: 66px;
           right: 18px;
-          width: 315px;
+          width: 410px;
           background: #1f2937;
           color: #f9fafb;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
           border-radius: 8px;
           border: 1px solid #374151;
-          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55);
           z-index: 999999;
           overflow: hidden;
         `;
 
         panel.innerHTML = `
-          <div style="background:#111827;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #374151;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10b981;"></span>
-              <span style="font-weight:700;font-size:14px;letter-spacing:0.3px;">Check My Links</span>
+          <div style="background:#111827;padding:10px 14px;border-bottom:1px solid #374151;">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">
+              <div style="display:flex;align-items:flex-start;gap:8px;">
+                <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10b981;margin-top:4px;flex-shrink:0;"></span>
+                <span style="font-weight:700;font-size:13px;line-height:1.35;color:#ffffff;">Auditoría Programática de Enlaces DOM (Equivalente funcional a Check My Links vía Playwright)</span>
+              </div>
             </div>
-            <span style="font-size:11px;color:#9ca3af;">100% Completado</span>
+            <div style="font-size:11px;color:#9ca3af;margin-top:5px;padding-left:18px;">Verificación HTTP fetch() real en tiempo de ejecución — 100% Completado</div>
           </div>
           <div style="padding:12px 14px;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #374151;">
@@ -225,7 +227,9 @@ async function main() {
     console.log(`[04_enlaces] Captura guardada en ${CAPTURA_PATH}`);
 
     const reporte = {
-      herramienta: 'Check My Links (Inspección DOM y Verificación HTTP Real con Playwright)',
+      herramienta: 'Auditoría Programática de Enlaces DOM (Equivalente funcional a Check My Links vía Playwright)',
+      instrumentacionTecnica:
+        'Inspección automatizada en Playwright sobre la totalidad de nodos <a> del DOM hidratado y verificación HTTP real mediante fetch() (cache: "no-store"), replicando la clasificación cromática y funcional de Check My Links.',
       urlAuditada: TARGET_URL,
       timestamp: new Date().toISOString(),
       viewport: `${VIEWPORT.width}x${VIEWPORT.height}`,
@@ -238,13 +242,16 @@ async function main() {
         enlacesRotosRojos_HTTP404_500: rotosRojos,
         porcentajeRotos: pctRojos,
       },
-      evaluacionIso25010: {
-        caracteristica: 'Capacidad de Interacción — Operabilidad (Integridad de Enlaces)',
-        umbralEnlacesRotos404: '0 enlaces rotos HTTP 404 permitidos',
+      criterioAceptacionEstudio: {
+        taxonomiaIso25010: 'Capacidad de Interacción (Usabilidad) — Operabilidad',
+        notaMetodologica:
+          'La norma ISO/IEC 25010 define el modelo de calidad; el límite cuantitativo de 0 enlaces rotos HTTP 404/500 y ausencia de anclas vacías href="#" corresponde al criterio de aceptación definido por el equipo evaluador.',
+        limiteDecisionEnlacesRotos404: '0 enlaces rotos HTTP 404 / 500 permitidos',
         cumpleCeroRotos404: rotosRojos === 0,
         observacionAnclasSinDestino:
           'Existen 10 enlaces (30.3%) con href="#" empleados para disparar modales Bootstrap (Contact, About us, Log in, Sign up) o filtros JS (Phones, Laptops, Monitors) en vez de botones <button> o rutas semánticas, afectando navegación por teclado, historial y abrir en nueva pestaña.',
-        dictamen: rotosRojos === 0 ? 'CUMPLE CON OBSERVACIONES (0 rotos HTTP 404; 10 advertencias href="#")' : 'NO CUMPLE',
+        dictamenEnlacesRotos: rotosRojos === 0 ? 'CUMPLE (0 enlaces HTTP 404/500)' : 'NO CUMPLE',
+        dictamenNavegacionSemantica: vaciosAmarillos === 0 ? 'CUMPLE' : `NO CUMPLE (${vaciosAmarillos} enlaces emplean href="#")`,
       },
       capturaAsociada: './capturas/04_check_my_links.png',
       enlacesDetallados: enlacesClasificados,

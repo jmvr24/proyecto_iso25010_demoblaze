@@ -1,9 +1,11 @@
 {
-  "herramienta": "Auditoría de Recursos y Waterfall estilo GTmetrix (Playwright PerformanceResourceTiming + CDP Network)",
-  "motivoFallbackGtmetrix": "GTmetrix.com restringe la ejecución de pruebas a cuentas autenticadas (login obligatorio).",
+  "herramienta": "Auditoría de Recursos Performance API (Métricas equivalentes a GTmetrix vía Playwright)",
+  "instrumentacionTecnica": "Recolección automatizada con Playwright Chromium sobre la API estándar window.performance.getEntriesByType(\"resource\") (PerformanceResourceTiming) y sesión CDP Network con caché deshabilitada (Network.setCacheDisabled: true) para medir carga real en frío.",
+  "motivoEmulacionGtmetrix": "GTmetrix.com exige cuenta autenticada para ejecutar análisis; la instrumentación directa sobre PerformanceResourceTiming y CDP garantiza reproducibilidad exacta en consola sobre los mismos indicadores de utilización de recursos y cascada HTTP.",
   "urlAuditada": "https://www.demoblaze.com/index.html",
   "timestamp": "2026-10-26T03:46:32.130Z",
   "viewport": "1440x900",
+  "condicionCache": "Carga en frío sin caché de navegador (CDP Network.setCacheDisabled = true)",
   "resumenCarga": {
     "ttfb_ms": 262,
     "dom_interactive_ms": 797,
@@ -16,36 +18,55 @@
     "peso_total_kb": 2230.24,
     "peso_total_mb": 2.18
   },
+  "analisisPesoVideoHls": {
+    "formulaCalculo": "(bytes_video_media_hls / peso_total_pagina_transferido_sin_cache) * 100",
+    "bytesVideoMediaTotal": 548764,
+    "kbVideoMediaTotal": 535.9,
+    "bytesSegmentoTsPrincipal": 542224,
+    "kbSegmentoTsPrincipal": 529.52,
+    "bytesManifiestosM3u8": 6540,
+    "kbManifiestosM3u8": 6.39,
+    "pesoTotalPaginaTransferidoBytes": 2283764,
+    "pesoTotalPaginaTransferidoKB": 2230.24,
+    "porcentajeExactoVideoMediaSobreTotal": 24.03,
+    "porcentajeSegmentoTsSobreTotal": 23.74,
+    "notaSeparacionLibreriasReproductor": "Las librerías del reproductor (video.min.js = 155.16 KB [6.96%], videojs-contrib-hls.min.js = 70.25 KB [3.15%] y video-js.min.css = 11.80 KB [0.53%]) se contabilizan dentro de sus respectivas categorías JS (12.83%) y CSS (1.84%), evitando duplicidades con el flujo Video/Media (24.03%)."
+  },
+  "criterioAceptacionEstudio": {
+    "taxonomiaIso25010": "Eficiencia de Desempeño — Comportamiento temporal y Utilización de recursos",
+    "notaMetodologica": "La norma ISO/IEC 25010 establece las características y subcaracterísticas de calidad; los límites numéricos (< 3.0 s Fully Loaded, < 1.6 MB de transferencia inicial y < 50 solicitudes HTTP) son criterios de aceptación definidos por el equipo evaluador.",
+    "dictamen": "NO CUMPLE (Sobrecarga de imágenes sin comprimir [52.45%] y precarga oculta de video HLS [24.03%])"
+  },
   "desglosePorTipoRecurso": {
     "HTML": {
       "solicitudes": 1,
       "bytes": 17436,
       "kb": 17.03,
-      "porcentajePeso": 0.8
+      "porcentajePeso": 0.76
     },
     "CSS": {
       "solicitudes": 4,
       "bytes": 42049,
       "kb": 41.06,
-      "porcentajePeso": 1.8
+      "porcentajePeso": 1.84
     },
     "Image": {
       "solicitudes": 12,
       "bytes": 1197788,
       "kb": 1169.71,
-      "porcentajePeso": 52.4
+      "porcentajePeso": 52.45
     },
     "JS": {
       "solicitudes": 6,
       "bytes": 292994,
       "kb": 286.13,
-      "porcentajePeso": 12.8
+      "porcentajePeso": 12.83
     },
     "Font": {
       "solicitudes": 1,
       "bytes": 183088,
       "kb": 178.8,
-      "porcentajePeso": 8
+      "porcentajePeso": 8.02
     },
     "Other": {
       "solicitudes": 1,
@@ -57,13 +78,13 @@
       "solicitudes": 2,
       "bytes": 1645,
       "kb": 1.61,
-      "porcentajePeso": 0.1
+      "porcentajePeso": 0.07
     },
     "Video/Media": {
       "solicitudes": 4,
       "bytes": 548764,
       "kb": 535.9,
-      "porcentajePeso": 24
+      "porcentajePeso": 24.03
     }
   },
   "top5RecursosMasPesados_CuellosDeBotellaPeso": [
@@ -78,7 +99,7 @@
       "tamanoKB": 529.52,
       "duracionMs": 139.4,
       "inicioMs": 1372.2,
-      "porcentajeDelTotal": 23.7
+      "porcentajeDelTotal": 23.74
     },
     {
       "posicion": 2,
@@ -91,7 +112,7 @@
       "tamanoKB": 226.83,
       "duracionMs": 284.2,
       "inicioMs": 1221.8,
-      "porcentajeDelTotal": 10.2
+      "porcentajeDelTotal": 10.17
     },
     {
       "posicion": 3,
@@ -104,7 +125,7 @@
       "tamanoKB": 196.57,
       "duracionMs": 265.8,
       "inicioMs": 1222,
-      "porcentajeDelTotal": 8.8
+      "porcentajeDelTotal": 8.81
     },
     {
       "posicion": 4,
@@ -117,7 +138,7 @@
       "tamanoKB": 178.8,
       "duracionMs": 268.1,
       "inicioMs": 520.7,
-      "porcentajeDelTotal": 8
+      "porcentajeDelTotal": 8.02
     },
     {
       "posicion": 5,
@@ -130,7 +151,7 @@
       "tamanoKB": 155.16,
       "duracionMs": 455.4,
       "inicioMs": 299.1,
-      "porcentajeDelTotal": 7
+      "porcentajeDelTotal": 6.96
     }
   ],
   "top5RecursosMasLentos_CuellosDeBotellaTiempo": [
