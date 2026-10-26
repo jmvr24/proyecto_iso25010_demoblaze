@@ -1,0 +1,2756 @@
+{
+  "norma": "ISO/IEC 25010",
+  "caracteristica": "Capacidad de interacción",
+  "subcaracteristica": "Inclusividad",
+  "metrica": "Etiquetado programático de campos de formulario en modales abiertos (regla WCAG label)",
+  "fecha_ejecucion": "2026-10-26T02:10:06.426Z",
+  "script_fuente": "01_pruebas_automatizadas_cli/scripts/auditoria_labels_modales_abiertos.mjs",
+  "herramientas": "Playwright 1.64.1 + @axe-core/playwright 4.14.0 (axe-core 4.14.0) + inspección directa del DOM",
+  "contexto_metodologico": "En la corrida inicial de Lighthouse sobre index.html, los modales Bootstrap permanecían cerrados (display: none), por lo que la auditoría \"label\" se reportó como notApplicable (score: null). Al abrir secuencialmente los 4 modales con campos de formulario (#orderModal en cart.html; #exampleModal, #logInModal y #signInModal en index.html) y auditarlos con axe-core e inspección DOM, se determinó el estado real de asociación <label for=\"...\"> -> <input id=\"...\">.",
+  "resumen_consolidado": {
+    "total_modales_auditados": 4,
+    "total_campos_formulario_auditados": 13,
+    "campos_con_label_programatico_valido": 10,
+    "campos_sin_label_programatico_valido": 3,
+    "porcentaje_campos_correctamente_etiquetados": 76.92,
+    "porcentaje_campos_huerfanos_sin_label": 23.08,
+    "total_nodos_violacion_regla_label_axe": 3,
+    "impacto_regla_label_axe": "critical",
+    "criterios_wcag_afectados": [
+      "WCAG 2.1 SC 1.3.1 (Info and Relationships - Nivel A)",
+      "WCAG 2.1 SC 4.1.2 (Name, Role, Value - Nivel A)"
+    ],
+    "resumen_por_modal": [
+      {
+        "nombreModal": "Place Order (#orderModal)",
+        "modalSelector": "#orderModal",
+        "urlPagina": "https://www.demoblaze.com/cart.html",
+        "totalCampos": 6,
+        "camposConLabelValido": 6,
+        "camposSinLabelValido": 0,
+        "estadoReglaLabelAxe": "PASS",
+        "nodosViolacionLabelAxe": 0,
+        "reglasVioladasEnModal": [],
+        "detalleCampos": [
+          {
+            "id": "name",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Name:",
+            "labelForAttr": "name",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "country",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Country:",
+            "labelForAttr": "country",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "city",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "City:",
+            "labelForAttr": "city",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "card",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Credit card:",
+            "labelForAttr": "card",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "month",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Month:",
+            "labelForAttr": "month",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "year",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Year:",
+            "labelForAttr": "year",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          }
+        ]
+      },
+      {
+        "nombreModal": "Contact (#exampleModal)",
+        "modalSelector": "#exampleModal",
+        "urlPagina": "https://www.demoblaze.com/index.html",
+        "totalCampos": 3,
+        "camposConLabelValido": 2,
+        "camposSinLabelValido": 1,
+        "estadoReglaLabelAxe": "VIOLATION (critical)",
+        "nodosViolacionLabelAxe": 1,
+        "reglasVioladasEnModal": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 4
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "nodesCount": 1
+          }
+        ],
+        "detalleCampos": [
+          {
+            "id": "recipient-email",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Contact Email:",
+            "labelForAttr": "recipient-name",
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"recipient-name\" pero el campo tiene id=\"recipient-email\""
+          },
+          {
+            "id": "recipient-name",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Contact Name:",
+            "labelForAttr": "recipient-name",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "message-text",
+            "tag": "textarea",
+            "type": "textarea",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Message:",
+            "labelForAttr": "message-text",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          }
+        ]
+      },
+      {
+        "nombreModal": "Log in (#logInModal)",
+        "modalSelector": "#logInModal",
+        "urlPagina": "https://www.demoblaze.com/index.html",
+        "totalCampos": 2,
+        "camposConLabelValido": 0,
+        "camposSinLabelValido": 2,
+        "estadoReglaLabelAxe": "VIOLATION (critical)",
+        "nodosViolacionLabelAxe": 2,
+        "reglasVioladasEnModal": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 3
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "nodesCount": 2
+          }
+        ],
+        "detalleCampos": [
+          {
+            "id": "loginusername",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Username:",
+            "labelForAttr": "log-name",
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"log-name\" pero el campo tiene id=\"loginusername\""
+          },
+          {
+            "id": "loginpassword",
+            "tag": "input",
+            "type": "password",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Password:",
+            "labelForAttr": "log-pass",
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"log-pass\" pero el campo tiene id=\"loginpassword\""
+          }
+        ]
+      },
+      {
+        "nombreModal": "Sign up (#signInModal)",
+        "modalSelector": "#signInModal",
+        "urlPagina": "https://www.demoblaze.com/index.html",
+        "totalCampos": 2,
+        "camposConLabelValido": 2,
+        "camposSinLabelValido": 0,
+        "estadoReglaLabelAxe": "PASS",
+        "nodosViolacionLabelAxe": 0,
+        "reglasVioladasEnModal": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 3
+          }
+        ],
+        "detalleCampos": [
+          {
+            "id": "sign-username",
+            "tag": "input",
+            "type": "text",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Username:",
+            "labelForAttr": "sign-username",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          },
+          {
+            "id": "sign-password",
+            "tag": "input",
+            "type": "password",
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "labelVisualTexto": "Password:",
+            "labelForAttr": "sign-password",
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null
+          }
+        ]
+      }
+    ]
+  },
+  "auditoria_detallada_modales": [
+    {
+      "nombreModal": "Place Order (#orderModal)",
+      "modalSelector": "#orderModal",
+      "urlPagina": "https://www.demoblaze.com/cart.html",
+      "timestamp": "2026-10-26T02:09:58.295Z",
+      "estadoReglaLabelAxe": "PASS",
+      "nodosAfectadosReglaLabelAxe": 0,
+      "detalleReglaLabelAxe": {
+        "id": "label",
+        "description": "Ensure every form element has a label",
+        "help": "Form elements must have labels",
+        "nodesCount": 6,
+        "targets": [
+          [
+            "#name"
+          ],
+          [
+            "#country"
+          ],
+          [
+            "#city"
+          ],
+          [
+            "#card"
+          ],
+          [
+            "#month"
+          ],
+          [
+            "#year"
+          ]
+        ]
+      },
+      "resumenAxeModal": {
+        "totalViolationsRules": 0,
+        "totalAffectedNodes": 0,
+        "totalPassesRules": 23,
+        "totalIncompleteRules": 3,
+        "reglasVioladasIds": [],
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "help": "Elements must only use supported ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-allowed-role",
+            "description": "Ensure role attribute has an appropriate value for the element",
+            "help": "ARIA role should be appropriate for the element",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-conditional-attr",
+            "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+            "help": "ARIA attributes must be used as specified for the element's role",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-deprecated-role",
+            "description": "Ensure elements do not use deprecated roles",
+            "help": "Deprecated ARIA roles must not be used",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-dialog-name",
+            "description": "Ensure every ARIA dialog and alertdialog node has an accessible name",
+            "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModal"
+              ]
+            ]
+          },
+          {
+            "id": "aria-hidden-focus",
+            "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+            "help": "ARIA hidden element must not be focusable or contain focusable elements",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "help": "Elements must only use permitted ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-required-attr",
+            "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+            "help": "Required ARIA attributes must be provided",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-roles",
+            "description": "Ensure all elements with a role attribute use a valid value",
+            "help": "ARIA roles used must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr",
+            "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+            "help": "ARIA attributes must conform to valid names",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#orderModal"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+            "help": "Inline text spacing must be adjustable with custom stylesheets",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModal"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"purchaseOrder()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 14,
+            "targets": [
+              [
+                "#orderModalLabel"
+              ],
+              [
+                "#totalm"
+              ],
+              [
+                ".form-group:nth-child(2) > .form-control-label[for=\"name\"]"
+              ],
+              [
+                "#name"
+              ],
+              [
+                "label[for=\"country\"]"
+              ],
+              [
+                "#country"
+              ],
+              [
+                "label[for=\"city\"]"
+              ],
+              [
+                "#city"
+              ],
+              [
+                "label[for=\"card\"]"
+              ],
+              [
+                "#card"
+              ],
+              [
+                "label[for=\"month\"]"
+              ],
+              [
+                "#month"
+              ],
+              [
+                "label[for=\"year\"]"
+              ],
+              [
+                "#year"
+              ]
+            ]
+          },
+          {
+            "id": "duplicate-id-aria",
+            "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+            "help": "IDs used in ARIA and labels must be unique",
+            "nodesCount": 7,
+            "targets": [
+              [
+                "#orderModalLabel"
+              ],
+              [
+                "#name"
+              ],
+              [
+                "#country"
+              ],
+              [
+                "#city"
+              ],
+              [
+                "#card"
+              ],
+              [
+                "#month"
+              ],
+              [
+                "#year"
+              ]
+            ]
+          },
+          {
+            "id": "empty-heading",
+            "description": "Ensure headings have discernible text",
+            "help": "Headings should not be empty",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "nodesCount": 5,
+            "targets": [
+              [
+                "#country"
+              ],
+              [
+                "#city"
+              ],
+              [
+                "#card"
+              ],
+              [
+                "#month"
+              ],
+              [
+                "#year"
+              ]
+            ]
+          },
+          {
+            "id": "heading-order",
+            "description": "Ensure the order of headings is semantically correct",
+            "help": "Heading levels should only increase by one",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "label-title-only",
+            "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+            "help": "Form elements should have a visible label",
+            "nodesCount": 6,
+            "targets": [
+              [
+                "#name"
+              ],
+              [
+                "#country"
+              ],
+              [
+                "#city"
+              ],
+              [
+                "#card"
+              ],
+              [
+                "#month"
+              ],
+              [
+                "#year"
+              ]
+            ]
+          },
+          {
+            "id": "label",
+            "description": "Ensure every form element has a label",
+            "help": "Form elements must have labels",
+            "nodesCount": 6,
+            "targets": [
+              [
+                "#name"
+              ],
+              [
+                "#country"
+              ],
+              [
+                "#city"
+              ],
+              [
+                "#card"
+              ],
+              [
+                "#month"
+              ],
+              [
+                "#year"
+              ]
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "help": "Interactive controls must not be nested",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"purchaseOrder()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+            "help": "Scrollable region must have keyboard access",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModal"
+              ]
+            ]
+          },
+          {
+            "id": "tabindex",
+            "description": "Ensure tabindex attribute values are not greater than 0",
+            "help": "Elements should not have tabindex greater than zero",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#orderModal"
+              ]
+            ]
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<span aria-hidden=\"true\">×</span>",
+                "target": [
+                  "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "impact": "moderate",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/form-field-multiple-labels?application=playwright",
+            "tags": [
+              "cat.forms",
+              "wcag2a",
+              "wcag332",
+              "TTv5",
+              "TT5.c",
+              "EN-301-549",
+              "EN-9.3.3.2",
+              "RGAAv4",
+              "RGAA-11.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<input type=\"text\" class=\"form-control\" id=\"name\">",
+                "target": [
+                  "#name"
+                ],
+                "failureSummary": "Fix all of the following:\n  Multiple label elements is not widely supported in assistive technologies. Ensure the first label contains all necessary information.",
+                "impact": "moderate"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">×</span>\n          </button>",
+                "target": [
+                  "#orderModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name",
+                "impact": "serious"
+              }
+            ]
+          }
+        ]
+      },
+      "inspeccionDirectaDOM": {
+        "modalSelector": "#orderModal",
+        "modalId": "orderModal",
+        "modalTitle": "Place order",
+        "ariaLabelledbyModal": "orderModalLabel",
+        "ariaHiddenModal": null,
+        "modalVisible": true,
+        "displayStyle": "block",
+        "totalCamposFormulario": 6,
+        "camposConLabelProgramaticoValido": 6,
+        "camposHuerfanosSinLabelProgramatico": 0,
+        "labelsEnModal": [
+          {
+            "text": "Total:",
+            "forAttr": "name",
+            "id": "totalm",
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"name\" class=\"form-control-label\" id=\"totalm\">Total:</label>"
+          },
+          {
+            "text": "Name:",
+            "forAttr": "name",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"name\" class=\"form-control-label\">Name:</label>"
+          },
+          {
+            "text": "Country:",
+            "forAttr": "country",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"country\" class=\"form-control-label\">Country:</label>"
+          },
+          {
+            "text": "City:",
+            "forAttr": "city",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"city\" class=\"form-control-label\">City:</label>"
+          },
+          {
+            "text": "Credit card:",
+            "forAttr": "card",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"card\" class=\"form-control-label\">Credit card:</label>"
+          },
+          {
+            "text": "Month:",
+            "forAttr": "month",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"month\" class=\"form-control-label\">Month:</label>"
+          },
+          {
+            "text": "Year:",
+            "forAttr": "year",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"year\" class=\"form-control-label\">Year:</label>"
+          },
+          {
+            "text": "",
+            "forAttr": null,
+            "id": "errors",
+            "className": "form-control-label",
+            "outerHTML": "<label id=\"errors\" style=\"color:red\" class=\"form-control-label\"></label>"
+          }
+        ],
+        "controlesFormulario": [
+          {
+            "tag": "input",
+            "id": "name",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Name:",
+              "forAttr": "name",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Total:",
+              "forAttr": "name"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"name\">"
+          },
+          {
+            "tag": "input",
+            "id": "country",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Country:",
+              "forAttr": "country",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Country:",
+              "forAttr": "country"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"country\">"
+          },
+          {
+            "tag": "input",
+            "id": "city",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "City:",
+              "forAttr": "city",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "City:",
+              "forAttr": "city"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"city\">"
+          },
+          {
+            "tag": "input",
+            "id": "card",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Credit card:",
+              "forAttr": "card",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Credit card:",
+              "forAttr": "card"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"card\">"
+          },
+          {
+            "tag": "input",
+            "id": "month",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Month:",
+              "forAttr": "month",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Month:",
+              "forAttr": "month"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"month\">"
+          },
+          {
+            "tag": "input",
+            "id": "year",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Year:",
+              "forAttr": "year",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Year:",
+              "forAttr": "year"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"year\">"
+          }
+        ]
+      }
+    },
+    {
+      "nombreModal": "Contact (#exampleModal)",
+      "modalSelector": "#exampleModal",
+      "urlPagina": "https://www.demoblaze.com/index.html",
+      "timestamp": "2026-10-26T02:10:02.465Z",
+      "estadoReglaLabelAxe": "VIOLATION (critical)",
+      "nodosAfectadosReglaLabelAxe": 1,
+      "detalleReglaLabelAxe": {
+        "id": "label",
+        "impact": "critical",
+        "description": "Ensure every form element has a label",
+        "help": "Form elements must have labels",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=playwright",
+        "tags": [
+          "cat.forms",
+          "wcag2a",
+          "wcag412",
+          "section508",
+          "section508.22.n",
+          "TTv5",
+          "TT5.c",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-11.1.1"
+        ],
+        "nodesCount": 1,
+        "nodes": [
+          {
+            "html": "<input type=\"text\" class=\"form-control\" id=\"recipient-email\">",
+            "target": [
+              "#recipient-email"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+            "impact": "critical"
+          }
+        ]
+      },
+      "resumenAxeModal": {
+        "totalViolationsRules": 2,
+        "totalAffectedNodes": 5,
+        "totalPassesRules": 22,
+        "totalIncompleteRules": 3,
+        "reglasVioladasIds": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 4
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "nodesCount": 1
+          }
+        ],
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 4,
+            "nodes": [
+              {
+                "html": "<h5 class=\"modal-title\" id=\"exampleModalLabel\">New message</h5>",
+                "target": [
+                  "#exampleModalLabel"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"recipient-name\" class=\"form-control-label\">Contact Email:</label>",
+                "target": [
+                  ".form-group:nth-child(1) > .form-control-label[for=\"recipient-name\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"recipient-name\" class=\"form-control-label\">Contact Name:</label>",
+                "target": [
+                  ".form-group:nth-child(2) > .form-control-label[for=\"recipient-name\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"message-text\" class=\"form-control-label\">Message:</label>",
+                "target": [
+                  "label[for=\"message-text\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "description": "Ensure every form element has a label",
+            "help": "Form elements must have labels",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=playwright",
+            "tags": [
+              "cat.forms",
+              "wcag2a",
+              "wcag412",
+              "section508",
+              "section508.22.n",
+              "TTv5",
+              "TT5.c",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "ACT",
+              "RGAAv4",
+              "RGAA-11.1.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<input type=\"text\" class=\"form-control\" id=\"recipient-email\">",
+                "target": [
+                  "#recipient-email"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+                "impact": "critical"
+              }
+            ]
+          }
+        ],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "help": "Elements must only use supported ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-allowed-role",
+            "description": "Ensure role attribute has an appropriate value for the element",
+            "help": "ARIA role should be appropriate for the element",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-conditional-attr",
+            "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+            "help": "ARIA attributes must be used as specified for the element's role",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-deprecated-role",
+            "description": "Ensure elements do not use deprecated roles",
+            "help": "Deprecated ARIA roles must not be used",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-dialog-name",
+            "description": "Ensure every ARIA dialog and alertdialog node has an accessible name",
+            "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModal"
+              ]
+            ]
+          },
+          {
+            "id": "aria-hidden-focus",
+            "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+            "help": "ARIA hidden element must not be focusable or contain focusable elements",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "help": "Elements must only use permitted ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-required-attr",
+            "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+            "help": "Required ARIA attributes must be provided",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-roles",
+            "description": "Ensure all elements with a role attribute use a valid value",
+            "help": "ARIA roles used must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr",
+            "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+            "help": "ARIA attributes must conform to valid names",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#exampleModal"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+            "help": "Inline text spacing must be adjustable with custom stylesheets",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModal"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"send()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 5,
+            "targets": [
+              [
+                "#recipient-email"
+              ],
+              [
+                "#recipient-name"
+              ],
+              [
+                "#message-text"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"send()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "duplicate-id-aria",
+            "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+            "help": "IDs used in ARIA and labels must be unique",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#exampleModalLabel"
+              ],
+              [
+                "#recipient-name"
+              ],
+              [
+                "#message-text"
+              ]
+            ]
+          },
+          {
+            "id": "empty-heading",
+            "description": "Ensure headings have discernible text",
+            "help": "Headings should not be empty",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#recipient-email"
+              ],
+              [
+                "#message-text"
+              ]
+            ]
+          },
+          {
+            "id": "heading-order",
+            "description": "Ensure the order of headings is semantically correct",
+            "help": "Heading levels should only increase by one",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "label-title-only",
+            "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+            "help": "Form elements should have a visible label",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#recipient-email"
+              ],
+              [
+                "#recipient-name"
+              ],
+              [
+                "#message-text"
+              ]
+            ]
+          },
+          {
+            "id": "label",
+            "description": "Ensure every form element has a label",
+            "help": "Form elements must have labels",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#recipient-name"
+              ],
+              [
+                "#message-text"
+              ]
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "help": "Interactive controls must not be nested",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"send()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "tabindex",
+            "description": "Ensure tabindex attribute values are not greater than 0",
+            "help": "Elements should not have tabindex greater than zero",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#exampleModal"
+              ]
+            ]
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<span aria-hidden=\"true\">×</span>",
+                "target": [
+                  "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "impact": "moderate",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/form-field-multiple-labels?application=playwright",
+            "tags": [
+              "cat.forms",
+              "wcag2a",
+              "wcag332",
+              "TTv5",
+              "TT5.c",
+              "EN-301-549",
+              "EN-9.3.3.2",
+              "RGAAv4",
+              "RGAA-11.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<input type=\"text\" class=\"form-control\" id=\"recipient-name\">",
+                "target": [
+                  "#recipient-name"
+                ],
+                "failureSummary": "Fix all of the following:\n  Multiple label elements is not widely supported in assistive technologies. Ensure the first label contains all necessary information.",
+                "impact": "moderate"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">×</span>\n          </button>",
+                "target": [
+                  "#exampleModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name",
+                "impact": "serious"
+              }
+            ]
+          }
+        ]
+      },
+      "inspeccionDirectaDOM": {
+        "modalSelector": "#exampleModal",
+        "modalId": "exampleModal",
+        "modalTitle": "New message",
+        "ariaLabelledbyModal": "exampleModalLabel",
+        "ariaHiddenModal": null,
+        "modalVisible": true,
+        "displayStyle": "block",
+        "totalCamposFormulario": 3,
+        "camposConLabelProgramaticoValido": 2,
+        "camposHuerfanosSinLabelProgramatico": 1,
+        "labelsEnModal": [
+          {
+            "text": "Contact Email:",
+            "forAttr": "recipient-name",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"recipient-name\" class=\"form-control-label\">Contact Email:</label>"
+          },
+          {
+            "text": "Contact Name:",
+            "forAttr": "recipient-name",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"recipient-name\" class=\"form-control-label\">Contact Name:</label>"
+          },
+          {
+            "text": "Message:",
+            "forAttr": "message-text",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"message-text\" class=\"form-control-label\">Message:</label>"
+          }
+        ],
+        "controlesFormulario": [
+          {
+            "tag": "input",
+            "id": "recipient-email",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Contact Email:",
+              "forAttr": "recipient-name",
+              "apuntaCorrectamenteAlId": false
+            },
+            "labelAsociadoProgramaticamente": null,
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"recipient-name\" pero el campo tiene id=\"recipient-email\"",
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"recipient-email\">"
+          },
+          {
+            "tag": "input",
+            "id": "recipient-name",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Contact Name:",
+              "forAttr": "recipient-name",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Contact Email:",
+              "forAttr": "recipient-name"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"recipient-name\">"
+          },
+          {
+            "tag": "textarea",
+            "id": "message-text",
+            "type": "textarea",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Message:",
+              "forAttr": "message-text",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Message:",
+              "forAttr": "message-text"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<textarea class=\"form-control\" id=\"message-text\"></textarea>"
+          }
+        ]
+      }
+    },
+    {
+      "nombreModal": "Log in (#logInModal)",
+      "modalSelector": "#logInModal",
+      "urlPagina": "https://www.demoblaze.com/index.html",
+      "timestamp": "2026-10-26T02:10:04.061Z",
+      "estadoReglaLabelAxe": "VIOLATION (critical)",
+      "nodosAfectadosReglaLabelAxe": 2,
+      "detalleReglaLabelAxe": {
+        "id": "label",
+        "impact": "critical",
+        "description": "Ensure every form element has a label",
+        "help": "Form elements must have labels",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=playwright",
+        "tags": [
+          "cat.forms",
+          "wcag2a",
+          "wcag412",
+          "section508",
+          "section508.22.n",
+          "TTv5",
+          "TT5.c",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-11.1.1"
+        ],
+        "nodesCount": 2,
+        "nodes": [
+          {
+            "html": "<input type=\"text\" class=\"form-control\" id=\"loginusername\">",
+            "target": [
+              "#loginusername"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+            "impact": "critical"
+          },
+          {
+            "html": "<input type=\"password\" class=\"form-control\" id=\"loginpassword\">",
+            "target": [
+              "#loginpassword"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+            "impact": "critical"
+          }
+        ]
+      },
+      "resumenAxeModal": {
+        "totalViolationsRules": 2,
+        "totalAffectedNodes": 5,
+        "totalPassesRules": 21,
+        "totalIncompleteRules": 2,
+        "reglasVioladasIds": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 3
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "nodesCount": 2
+          }
+        ],
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 3,
+            "nodes": [
+              {
+                "html": "<h5 class=\"modal-title\" id=\"logInModalLabel\">Log in</h5>",
+                "target": [
+                  "#logInModalLabel"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"log-name\" class=\"form-control-label\">Username:</label>",
+                "target": [
+                  "label[for=\"log-name\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"log-pass\" class=\"form-control-label\">Password:</label>",
+                "target": [
+                  ".form-group:nth-child(2) > .form-control-label[for=\"log-pass\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "description": "Ensure every form element has a label",
+            "help": "Form elements must have labels",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=playwright",
+            "tags": [
+              "cat.forms",
+              "wcag2a",
+              "wcag412",
+              "section508",
+              "section508.22.n",
+              "TTv5",
+              "TT5.c",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "ACT",
+              "RGAAv4",
+              "RGAA-11.1.1"
+            ],
+            "nodesCount": 2,
+            "nodes": [
+              {
+                "html": "<input type=\"text\" class=\"form-control\" id=\"loginusername\">",
+                "target": [
+                  "#loginusername"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+                "impact": "critical"
+              },
+              {
+                "html": "<input type=\"password\" class=\"form-control\" id=\"loginpassword\">",
+                "target": [
+                  "#loginpassword"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+                "impact": "critical"
+              }
+            ]
+          }
+        ],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "help": "Elements must only use supported ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-allowed-role",
+            "description": "Ensure role attribute has an appropriate value for the element",
+            "help": "ARIA role should be appropriate for the element",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-conditional-attr",
+            "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+            "help": "ARIA attributes must be used as specified for the element's role",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-deprecated-role",
+            "description": "Ensure elements do not use deprecated roles",
+            "help": "Deprecated ARIA roles must not be used",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-dialog-name",
+            "description": "Ensure every ARIA dialog and alertdialog node has an accessible name",
+            "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModal"
+              ]
+            ]
+          },
+          {
+            "id": "aria-hidden-focus",
+            "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+            "help": "ARIA hidden element must not be focusable or contain focusable elements",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "help": "Elements must only use permitted ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-required-attr",
+            "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+            "help": "Required ARIA attributes must be provided",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-roles",
+            "description": "Ensure all elements with a role attribute use a valid value",
+            "help": "ARIA roles used must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr",
+            "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+            "help": "ARIA attributes must conform to valid names",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#logInModal"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+            "help": "Inline text spacing must be adjustable with custom stylesheets",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModal"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"logIn()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 4,
+            "targets": [
+              [
+                "#loginusername"
+              ],
+              [
+                "#loginpassword"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"logIn()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "duplicate-id-aria",
+            "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+            "help": "IDs used in ARIA and labels must be unique",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "empty-heading",
+            "description": "Ensure headings have discernible text",
+            "help": "Headings should not be empty",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#loginusername"
+              ],
+              [
+                "#loginpassword"
+              ]
+            ]
+          },
+          {
+            "id": "heading-order",
+            "description": "Ensure the order of headings is semantically correct",
+            "help": "Heading levels should only increase by one",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "label-title-only",
+            "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+            "help": "Form elements should have a visible label",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#loginusername"
+              ],
+              [
+                "#loginpassword"
+              ]
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "help": "Interactive controls must not be nested",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"logIn()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "tabindex",
+            "description": "Ensure tabindex attribute values are not greater than 0",
+            "help": "Elements should not have tabindex greater than zero",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#logInModal"
+              ]
+            ]
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<span aria-hidden=\"true\">×</span>",
+                "target": [
+                  "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">×</span>\n          </button>",
+                "target": [
+                  "#logInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name",
+                "impact": "serious"
+              }
+            ]
+          }
+        ]
+      },
+      "inspeccionDirectaDOM": {
+        "modalSelector": "#logInModal",
+        "modalId": "logInModal",
+        "modalTitle": "Log in",
+        "ariaLabelledbyModal": "logInModalLabel",
+        "ariaHiddenModal": null,
+        "modalVisible": true,
+        "displayStyle": "block",
+        "totalCamposFormulario": 2,
+        "camposConLabelProgramaticoValido": 0,
+        "camposHuerfanosSinLabelProgramatico": 2,
+        "labelsEnModal": [
+          {
+            "text": "Username:",
+            "forAttr": "log-name",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"log-name\" class=\"form-control-label\">Username:</label>"
+          },
+          {
+            "text": "Password:",
+            "forAttr": "log-pass",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"log-pass\" class=\"form-control-label\">Password:</label>"
+          },
+          {
+            "text": "",
+            "forAttr": "log-pass",
+            "id": "errorl",
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"log-pass\" id=\"errorl\" class=\"form-control-label\"></label>"
+          }
+        ],
+        "controlesFormulario": [
+          {
+            "tag": "input",
+            "id": "loginusername",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Username:",
+              "forAttr": "log-name",
+              "apuntaCorrectamenteAlId": false
+            },
+            "labelAsociadoProgramaticamente": null,
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"log-name\" pero el campo tiene id=\"loginusername\"",
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"loginusername\">"
+          },
+          {
+            "tag": "input",
+            "id": "loginpassword",
+            "type": "password",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Password:",
+              "forAttr": "log-pass",
+              "apuntaCorrectamenteAlId": false
+            },
+            "labelAsociadoProgramaticamente": null,
+            "tieneAsociacionProgramaticaValida": false,
+            "causaIncumplimiento": "Discrepancia de atributos for/id: el <label> vecino tiene for=\"log-pass\" pero el campo tiene id=\"loginpassword\"",
+            "outerHTML": "<input type=\"password\" class=\"form-control\" id=\"loginpassword\">"
+          }
+        ]
+      }
+    },
+    {
+      "nombreModal": "Sign up (#signInModal)",
+      "modalSelector": "#signInModal",
+      "urlPagina": "https://www.demoblaze.com/index.html",
+      "timestamp": "2026-10-26T02:10:05.688Z",
+      "estadoReglaLabelAxe": "PASS",
+      "nodosAfectadosReglaLabelAxe": 0,
+      "detalleReglaLabelAxe": {
+        "id": "label",
+        "description": "Ensure every form element has a label",
+        "help": "Form elements must have labels",
+        "nodesCount": 2,
+        "targets": [
+          [
+            "#sign-username"
+          ],
+          [
+            "#sign-password"
+          ]
+        ]
+      },
+      "resumenAxeModal": {
+        "totalViolationsRules": 1,
+        "totalAffectedNodes": 3,
+        "totalPassesRules": 22,
+        "totalIncompleteRules": 2,
+        "reglasVioladasIds": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodesCount": 3
+          }
+        ],
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 3,
+            "nodes": [
+              {
+                "html": "<h5 class=\"modal-title\" id=\"signInModalLabel\">Sign up</h5>",
+                "target": [
+                  "#signInModalLabel"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"sign-username\" class=\"form-control-label\">Username:</label>",
+                "target": [
+                  "label[for=\"sign-username\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              },
+              {
+                "html": "<label for=\"sign-password\" class=\"form-control-label\">Password:</label>",
+                "target": [
+                  "label[for=\"sign-password\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #868688, background color: #ffffff, font size: 11.0pt (14.6667px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "impact": "serious"
+              }
+            ]
+          }
+        ],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "description": "Ensure an element's role supports its ARIA attributes",
+            "help": "Elements must only use supported ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-allowed-role",
+            "description": "Ensure role attribute has an appropriate value for the element",
+            "help": "ARIA role should be appropriate for the element",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-conditional-attr",
+            "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+            "help": "ARIA attributes must be used as specified for the element's role",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-deprecated-role",
+            "description": "Ensure elements do not use deprecated roles",
+            "help": "Deprecated ARIA roles must not be used",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-dialog-name",
+            "description": "Ensure every ARIA dialog and alertdialog node has an accessible name",
+            "help": "ARIA dialog and alertdialog nodes should have an accessible name",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModal"
+              ]
+            ]
+          },
+          {
+            "id": "aria-hidden-focus",
+            "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+            "help": "ARIA hidden element must not be focusable or contain focusable elements",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "help": "Elements must only use permitted ARIA attributes",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-required-attr",
+            "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+            "help": "Required ARIA attributes must be provided",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-roles",
+            "description": "Ensure all elements with a role attribute use a valid value",
+            "help": "ARIA roles used must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "aria-valid-attr",
+            "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+            "help": "ARIA attributes must conform to valid names",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#signInModal"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ]
+            ]
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+            "help": "Inline text spacing must be adjustable with custom stylesheets",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModal"
+              ]
+            ]
+          },
+          {
+            "id": "button-name",
+            "description": "Ensure buttons have discernible text",
+            "help": "Buttons must have discernible text",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"register()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodesCount": 4,
+            "targets": [
+              [
+                "#sign-username"
+              ],
+              [
+                "#sign-password"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"register()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "duplicate-id-aria",
+            "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+            "help": "IDs used in ARIA and labels must be unique",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#signInModalLabel"
+              ],
+              [
+                "#sign-username"
+              ],
+              [
+                "#sign-password"
+              ]
+            ]
+          },
+          {
+            "id": "empty-heading",
+            "description": "Ensure headings have discernible text",
+            "help": "Headings should not be empty",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "description": "Ensure form field does not have multiple label elements",
+            "help": "Form field must not have multiple label elements",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#sign-username"
+              ],
+              [
+                "#sign-password"
+              ]
+            ]
+          },
+          {
+            "id": "heading-order",
+            "description": "Ensure the order of headings is semantically correct",
+            "help": "Heading levels should only increase by one",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModalLabel"
+              ]
+            ]
+          },
+          {
+            "id": "label-title-only",
+            "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+            "help": "Form elements should have a visible label",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#sign-username"
+              ],
+              [
+                "#sign-password"
+              ]
+            ]
+          },
+          {
+            "id": "label",
+            "description": "Ensure every form element has a label",
+            "help": "Form elements must have labels",
+            "nodesCount": 2,
+            "targets": [
+              [
+                "#sign-username"
+              ],
+              [
+                "#sign-password"
+              ]
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "help": "Interactive controls must not be nested",
+            "nodesCount": 3,
+            "targets": [
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+              ],
+              [
+                "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-footer > .btn-secondary.btn[data-dismiss=\"modal\"]"
+              ],
+              [
+                "button[onclick=\"register()\"]"
+              ]
+            ]
+          },
+          {
+            "id": "tabindex",
+            "description": "Ensure tabindex attribute values are not greater than 0",
+            "help": "Elements should not have tabindex greater than zero",
+            "nodesCount": 1,
+            "targets": [
+              [
+                "#signInModal"
+              ]
+            ]
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<span aria-hidden=\"true\">×</span>",
+                "target": [
+                  "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"] > span[aria-hidden=\"true\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "impact": "serious"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "nodesCount": 1,
+            "nodes": [
+              {
+                "html": "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">×</span>\n          </button>",
+                "target": [
+                  "#signInModal > .modal-dialog[role=\"document\"] > .modal-content > .modal-header > .close[aria-label=\"Close\"][data-dismiss=\"modal\"]"
+                ],
+                "failureSummary": "Fix any of the following:\n  Unable to determine if the visible text is part of the accessible name",
+                "impact": "serious"
+              }
+            ]
+          }
+        ]
+      },
+      "inspeccionDirectaDOM": {
+        "modalSelector": "#signInModal",
+        "modalId": "signInModal",
+        "modalTitle": "Sign up",
+        "ariaLabelledbyModal": "signInModalLabel",
+        "ariaHiddenModal": null,
+        "modalVisible": true,
+        "displayStyle": "block",
+        "totalCamposFormulario": 2,
+        "camposConLabelProgramaticoValido": 2,
+        "camposHuerfanosSinLabelProgramatico": 0,
+        "labelsEnModal": [
+          {
+            "text": "Username:",
+            "forAttr": "sign-username",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"sign-username\" class=\"form-control-label\">Username:</label>"
+          },
+          {
+            "text": "Password:",
+            "forAttr": "sign-password",
+            "id": null,
+            "className": "form-control-label",
+            "outerHTML": "<label for=\"sign-password\" class=\"form-control-label\">Password:</label>"
+          },
+          {
+            "text": "",
+            "forAttr": null,
+            "id": "errors",
+            "className": "form-control-label",
+            "outerHTML": "<label id=\"errors\" style=\"color:red\" class=\"form-control-label\"></label>"
+          }
+        ],
+        "controlesFormulario": [
+          {
+            "tag": "input",
+            "id": "sign-username",
+            "type": "text",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Username:",
+              "forAttr": "sign-username",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Username:",
+              "forAttr": "sign-username"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"text\" class=\"form-control\" id=\"sign-username\">"
+          },
+          {
+            "tag": "input",
+            "id": "sign-password",
+            "type": "password",
+            "name": null,
+            "required": false,
+            "placeholder": null,
+            "ariaLabel": null,
+            "ariaLabelledby": null,
+            "title": null,
+            "labelVisualEnFormGroup": {
+              "text": "Password:",
+              "forAttr": "sign-password",
+              "apuntaCorrectamenteAlId": true
+            },
+            "labelAsociadoProgramaticamente": {
+              "text": "Password:",
+              "forAttr": "sign-password"
+            },
+            "tieneAsociacionProgramaticaValida": true,
+            "causaIncumplimiento": null,
+            "outerHTML": "<input type=\"password\" class=\"form-control\" id=\"sign-password\">"
+          }
+        ]
+      }
+    }
+  ]
+}
