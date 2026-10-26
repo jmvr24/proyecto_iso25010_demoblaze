@@ -13,7 +13,7 @@ Integrantes:
 - Santiago Marquez Murcia
 - Juan Manuel Villalba Rincón
 
-Neiva, 27 de octubre de 2026
+Neiva, 26 de octubre de 2026
 
 ## Índice
 
