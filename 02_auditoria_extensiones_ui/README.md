@@ -47,8 +47,8 @@ El **Integrante 2** debe ejecutar, capturar y documentar en Markdown los resulta
 ├── capturas/                              # Evidencias gráficas en viewport 1440x900 (.png)
 │   ├── 01_speedtest.png                   # Línea base de red en Fast.com (descarga, subida y latencia)
 │   ├── 02_pagespeed.png                   # Puntajes y Core Web Vitals con Lighthouse / PageSpeed Insights
-│   ├── 03_gtmetrix_recursos.png           # Desglose de recursos, peso total y tiempos estilo GTmetrix
-│   ├── 04_check_my_links.png              # Auditoría visual de hipervínculos (200 OK vs. href="#")
+│   ├── 03_gtmetrix_recursos.png           # Auditoría de Recursos Performance API (equivalente a GTmetrix vía Playwright)
+│   ├── 04_check_my_links.png              # Auditoría Programática de Enlaces DOM (equivalente a Check My Links vía Playwright)
 │   ├── 05_w3c_validator.png               # Validación oficial en W3C Nu Html Checker (errores y advertencias)
 │   └── 06_whatfont_colorzilla.png         # Inspección tipográfica (WhatFont) y paleta cromática (ColorZilla)
 ├── datos/                                 # Respaldos estructurados de mediciones (.json / .html)
