@@ -11,6 +11,7 @@ Este documento presenta el diseño metodológico, los registros de observación 
 * **Técnica de Muestreo:** Muestreo **no probabilístico por conveniencia**, seleccionando 5 participantes externos al equipo evaluador (evaluación de caja negra).
 * **Justificación del Tamaño de Muestra ($n = 5$):** Fundamentado en el modelo heurístico de **Jakob Nielsen (Nielsen Norman Group)**, el cual establece que una muestra de 5 usuarios permite identificar aproximadamente el $85\%$ de los problemas de usabilidad e interacción de una interfaz en un flujo crítico.
 * **Estratificación Demográfica:** La muestra abarca un rango etario de **23 a 50 años** (media: $39.2$ años; mediana: $45.0$ años), permitiendo contrastar el desempeño de adultos jóvenes habituados a patrones modernos de e-commerce ($23$ y $28$ años) frente a adultos intermedios ($45$ y $50$ años).
+* **Experiencia previa:** Los 5 participantes ya habían comprado en línea al menos una vez y cada uno afirmó no conocer DemoBlaze.
 * **Anonimización:** Los participantes se identifican únicamente como **U1 a U5**. No se publican nombres en las tablas ni en los archivos de datos.
 
 ### Tabla 1. Perfilamiento Anónimo Demográfico y Tecnológico de la Muestra
