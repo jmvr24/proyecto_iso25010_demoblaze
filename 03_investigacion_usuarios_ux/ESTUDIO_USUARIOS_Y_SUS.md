@@ -11,6 +11,7 @@ Este documento presenta el diseño metodológico, los registros de observación 
 * **Técnica de Muestreo:** Muestreo **no probabilístico por conveniencia**, seleccionando 5 participantes externos al equipo evaluador (evaluación de caja negra).
 * **Justificación del Tamaño de Muestra ($n = 5$):** Fundamentado en el modelo heurístico de **Jakob Nielsen (Nielsen Norman Group)**, el cual establece que una muestra de 5 usuarios permite identificar aproximadamente el $85\%$ de los problemas de usabilidad e interacción de una interfaz en un flujo crítico.
 * **Estratificación Demográfica:** La muestra abarca un rango etario de **23 a 50 años** (media: $39.2$ años; mediana: $45.0$ años), permitiendo contrastar el desempeño de adultos jóvenes habituados a patrones modernos de e-commerce ($23$ y $28$ años) frente a adultos intermedios ($45$ y $50$ años).
+* **Experiencia previa:** Los 5 participantes ya habían comprado en línea al menos una vez y cada uno afirmó no conocer DemoBlaze.
 * **Anonimización:** Los participantes se identifican únicamente como **U1 a U5**. No se publican nombres en las tablas ni en los archivos de datos.
 
 ### Tabla 1. Perfilamiento Anónimo Demográfico y Tecnológico de la Muestra
@@ -56,7 +57,7 @@ Los hitos se detectaron analizando los cambios de brillo de la pantalla (cada `a
 | **U2** | 50 años | Sí (`100%`) | `04:05` | `245 s` | `1` | Tuvo problemas para encontrar cómo acceder al carrito. | No sabía en qué formato escribir el mes, el año y el número de tarjeta de crédito. |
 | **U3** | 28 años | Sí (`100%`) | `02:07` | `127 s` | `0` | Intuyó cómo filtrar artículos por categorías y salir de la confirmación de carrito. | Escribió los datos de la tarjeta de crédito como pensó que era (sin restricción del sistema). |
 | **U4** | 45 años | Sí (`100%`) | `03:04` | `184 s` | `1` | Le pareció extraño que no se puedan buscar los productos por el nombre. | Preguntó cómo escribir la tarjeta de crédito y sus datos. |
-| **U5** | 23 años | Sí (`100%`) | `02:37` | `157 s` | `1` | Preguntó si había una barra de búsqueda de productos. | Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos. |
+| **U5** | 23 años | Sí (`100%`) | `02:37` | `157 s` | `1` | Durante la tarea 2 preguntó si había una barra de búsqueda de productos. | Preguntó sobre los datos de la tarjeta de crédito y si debía llenar todos los campos. |
 | **GLOBAL** | **23 a 50 años ($n=5$)** | **100% Éxito** | **`03:05`** | **185.00 s** | **0.80** | **80% de los usuarios presentó al menos 1 fricción de operabilidad o pertinencia funcional.** | **80% de los usuarios (4 de 5) expresó dudas sobre el formato o la obligatoriedad de los campos; solo U3 completó el formulario sin dudas.** |
 
 ### Tabla 3. Tiempos por Tarea (segundos) y Permanencia del `alert` Nativo
