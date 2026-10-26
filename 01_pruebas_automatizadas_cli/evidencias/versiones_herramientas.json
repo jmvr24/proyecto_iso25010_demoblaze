@@ -1,0 +1,78 @@
+{
+  "norma": "ISO/IEC 25010",
+  "paso": "Paso 1: Inventario Exacto de Herramientas, Versiones y Entorno de Ejecución",
+  "fecha_extraccion": "2026-10-26T02:04:13.445Z",
+  "sistema_operativo_y_hardware": {
+    "plataforma": "win32",
+    "arquitectura": "x64",
+    "tipo_so": "Windows_NT",
+    "version_kernel_os_release": "10.0.26200",
+    "edicion_os_version": "Windows 11 Pro",
+    "windows_ver_cli": "Microsoft Windows [Version 10.0.26200.9711]",
+    "procesador_modelo": "12th Gen Intel(R) Core(TM) i5-12500H",
+    "nucleos_logicos": 16,
+    "velocidad_base_mhz": 3110,
+    "memoria_ram_total_bytes": 42619752448,
+    "memoria_ram_total_gb": 39.69
+  },
+  "herramientas_cli_y_entorno": {
+    "nodejs": {
+      "version": "v24.16.0",
+      "version_sin_prefijo": "24.16.0",
+      "v8": "13.6.233.17-node.49",
+      "comando_verificacion": "node -v"
+    },
+    "pnpm": {
+      "version": "12.15.0",
+      "especificacion_package_json": "^12.15.0",
+      "comando_verificacion": "pnpm -v"
+    },
+    "k6": {
+      "version_completa": "k6.exe v2.2.0 (commit/00a9a1b7f5, go1.26.5, windows/amd64)",
+      "version_corta": "2.2.0",
+      "runtime_go": "go1.26.5",
+      "arquitectura": "windows/amd64",
+      "ruta_binario": "C:\\Program Files\\k6\\k6.exe",
+      "comando_verificacion": "\"C:\\Program Files\\k6\\k6.exe\" version"
+    },
+    "fast_cli": {
+      "version": "6.0.0",
+      "salida_pnpm_global": "Legend: production dependency, optional only, dev only\n\nC:\\Users\\Juan Manuel Villalba\\AppData\\Local\\pnpm\\global\\v11 (PRIVATE)\n│\n│   dependencies:\n└── fast-cli@6.0.0",
+      "comando_verificacion": "pnpm list -g fast-cli"
+    },
+    "lighthouse_cli": {
+      "version": "13.5.0",
+      "user_agent_headless_chrome": "HeadlessChrome/155.0.0.0",
+      "comando_verificacion": "lighthouse --version"
+    },
+    "playwright": {
+      "playwright_instalado": "1.64.1",
+      "playwright_test_instalado": "1.64.1",
+      "especificacion_package_json": "^1.64.1",
+      "rutas_package_json": [
+        "./package.json",
+        "./node_modules/playwright/package.json",
+        "./node_modules/@playwright/test/package.json"
+      ]
+    },
+    "axe_core": {
+      "axe_core_playwright_instalado": "4.14.0",
+      "axe_core_motor_instalado": "4.14.0",
+      "especificacion_package_json": "^4.14.0",
+      "rutas_package_json": [
+        "./node_modules/@axe-core/playwright/package.json",
+        "node_modules/.pnpm/@axe-core+playwright@4.14.0_playwright-core@1.64.1/node_modules/axe-core/package.json"
+      ]
+    },
+    "git": {
+      "version_completa": "git version 2.51.0.windows.1",
+      "version_corta": "2.51.0.windows.1",
+      "comando_verificacion": "git --version"
+    },
+    "github_cli": {
+      "version_completa": "gh version 2.103.0 (2026-10-21)",
+      "version_corta": "2.103.0",
+      "comando_verificacion": "gh --version"
+    }
+  }
+}
