@@ -950,11 +950,76 @@ Walton, P., y Pollard, B. (2025, 4 de septiembre). *Largest Contentful Paint (LC
 
 ## Anexos
 
-Reúne el material de soporte que respalda las cifras del informe.
+Los anexos reúnen el material de soporte técnico y empírico que respalda las evaluaciones desarrolladas en los numerales previos del informe. En este apartado consolidamos el inventario de los archivos de evidencia versionados en el repositorio (Anexo A), el cuestionario SUS aplicado durante las sesiones de evaluación (Anexo B) y el protocolo de observación directa empleado con los participantes (Anexo C).
 
 ### Anexo A. Inventario de evidencias
 
-Relaciona cada archivo de evidencia del repositorio con la sección del informe que lo usa.
+La Tabla A1 relaciona cada archivo de evidencia citado a lo largo del informe con una síntesis de su contenido y las tablas, figuras o apartados específicos donde se utiliza. Las rutas son relativas a la raíz del repositorio del proyecto (https://github.com/jmvr24/proyecto_iso25010_demoblaze). Las carpetas que el informe cita no llevan fila propia; sí la llevan los archivos que contienen.
+
+Tabla A1. Inventario de evidencias citadas en el informe
+
+| Ruta | Integrante | Contenido | Dónde se usa |
+| :--- | :---: | :--- | :--- |
+| `01_pruebas_automatizadas_cli/evidencias/01_red_fast_cli/linea_base_red.json` | 1 | Registro en formato JSON con mediciones de velocidad, latencia y tiempos de respuesta. | Tablas 11 y 12 |
+| `01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/01_home_catalogo.png` | 1 | Captura de la página principal con el catálogo de productos. | Paso 1 |
+| `01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/02_detalle_producto.png` | 1 | Captura de la página de detalle del producto con el botón Add to cart. | Paso 1 |
+| `01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/03_carrito_compras.png` | 1 | Captura de la tabla del carrito con el producto agregado. | Paso 1 |
+| `01_pruebas_automatizadas_cli/evidencias/02_capturas_flujo/06_borrado_sin_confirmacion_carrito.png` | 1 | Captura del carrito después de pulsar Delete, sin diálogo de confirmación. | Tabla 16 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/accesibilidad_axe.json` | 1 | Resultados estructurados de la auditoría de accesibilidad web ejecutada con el motor axe-core. | Tablas 13 y 16; Pasos 2, 4 y 5 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/auditoria_labels_modales_abiertos.json` | 1 | Reporte de inspección de controles de formulario y etiquetas asociadas en modales abiertos. | Tablas 11 y 16; Pasos 4 y 5 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/estilos_ui_colorzilla_whatfont.json` | 1 | Extracción en formato JSON de paleta de colores, tipografías y selectores CSS inspeccionados. | Tabla 16 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/integridad_enlaces.json` | 1 | Registro de verificación automatizada del estado HTTP y destino de enlaces e imágenes. | Tablas 9 y 16; apartado 1.1; Pasos 2 y 4 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/prueba_delete_carrito.json` | 1 | Registro de prueba automatizada sobre eliminación de productos en la tabla del carrito. | Tablas 9, 11 y 16 |
+| `01_pruebas_automatizadas_cli/evidencias/03_adecuacion_e_interaccion/pruebas_funcionales_y_errores.json` | 1 | Consolidado de validaciones funcionales, navegación del flujo y pruebas de protección ante errores. | Tablas 4, 11, 14 y 16; apartados 1.4, 1.5 y 3.2; Pasos 1 y 2 |
+| `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/k6_summary.json` | 1 | Resumen de métricas de rendimiento y tiempos de respuesta bajo carga concurrente. | Tabla 15; Paso 2 |
+| `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/lighthouse_report.report.json` | 1 | Reporte JSON de Lighthouse en emulación móvil (primera corrida). | Tablas 11, 13, 15 y 16; Paso 4 |
+| `01_pruebas_automatizadas_cli/evidencias/04_desempeno_metricas_y_k6/tiempos_http_view_bycat.json` | 1 | Tiempos de respuesta HTTP de los servicios /view y /bycat, en bloques secuenciales y concurrentes. | Tablas 11 y 15; Paso 4 |
+| `01_pruebas_automatizadas_cli/evidencias/versiones_herramientas.json` | 1 | Registro de versiones del entorno de ejecución, sistema operativo y herramientas de prueba. | Tabla 11 |
+| `01_pruebas_automatizadas_cli/scripts/auditoria_funcional_ui.mjs` | 1 | Script de Playwright para ejecutar pruebas de flujo funcional, accesibilidad y captura de interfaz. | Tablas 11, 13 y 14 |
+| `01_pruebas_automatizadas_cli/scripts/auditoria_labels_modales_abiertos.mjs` | 1 | Script de automatización que abre ventanas modales e inspecciona accesibilidad de sus campos. | Tablas 13 y 16 |
+| `01_pruebas_automatizadas_cli/scripts/carga_k6.js` | 1 | Script de k6 con la prueba de carga concurrente sobre index.html y el servicio /entries. | Tabla 13; Paso 1 |
+| `01_pruebas_automatizadas_cli/scripts/medir_endpoints_view_bycat.mjs` | 1 | Script de Node.js que mide con fetch el tiempo de respuesta de /view y /bycat. | Tablas 13 y 15 |
+| `01_pruebas_automatizadas_cli/scripts/prueba_delete_carrito.mjs` | 1 | Script de Playwright que valida el comportamiento y ausencia de confirmación al borrar ítems. | Tablas 13 y 16 |
+| `02_auditoria_extensiones_ui/capturas/01_speedtest.png` | 2 | Captura de pantalla de la medición de ancho de banda y latencia en Fast.com. | Paso 1 |
+| `02_auditoria_extensiones_ui/capturas/02_pagespeed.png` | 2 | Captura del reporte HTML generado por la auditoría móvil local ejecutada con Lighthouse. | Paso 2 |
+| `02_auditoria_extensiones_ui/capturas/03_gtmetrix_recursos.png` | 2 | Captura del panel que el script escribe sobre la página con el resumen de recursos. | Paso 2 |
+| `02_auditoria_extensiones_ui/capturas/04_check_my_links.png` | 2 | Captura del panel que el script escribe sobre la página con el conteo de enlaces. | Paso 2 |
+| `02_auditoria_extensiones_ui/capturas/05_w3c_validator.png` | 2 | Captura de la página de resultados del W3C Nu Html Checker para index.html. | Tabla 16 |
+| `02_auditoria_extensiones_ui/capturas/06_whatfont_colorzilla.png` | 2 | Captura del panel que el script escribe sobre la página con tipografías y colores. | Paso 2 |
+| `02_auditoria_extensiones_ui/datos/01_red.json` | 2 | Datos estructurados de la prueba de velocidad de conexión a internet realizada en Fast.com. | Tablas 11 y 12 |
+| `02_auditoria_extensiones_ui/datos/02_pagespeed.json` | 2 | Extracto JSON con puntuaciones de categorías y métricas de rendimiento de la segunda corrida. | Tabla 13 |
+| `02_auditoria_extensiones_ui/datos/03_recursos_gtmetrix.json` | 2 | Reporte de tamaño de recursos y tiempos de carga obtenido con Resource Timing. | Tablas 13 y 15 |
+| `02_auditoria_extensiones_ui/datos/04_enlaces.json` | 2 | Clasificación y estado HTTP de los enlaces de index.html. | Tablas 13 y 16 |
+| `02_auditoria_extensiones_ui/datos/05_w3c.json` | 2 | Registro de mensajes de error y advertencias devueltos por el validador oficial. | Tablas 11, 13 y 16 |
+| `02_auditoria_extensiones_ui/datos/06_estilos_ui.json` | 2 | Familia, tamaño, peso y colores computados de componentes de index.html, prod.html y cart.html. | Tablas 11, 13 y 16; Paso 2 |
+| `02_auditoria_extensiones_ui/datos/pagespeed_lighthouse.report.json` | 2 | Reporte JSON de Lighthouse correspondiente a la segunda ejecución de auditoría en emulación móvil. | Tablas 11, 13, 15 y 25; Pasos 4 y 5 |
+| `02_auditoria_extensiones_ui/scripts/01_captura_red.mjs` | 2 | Script automatizado de Playwright para registrar métricas de red mediante la interfaz Fast.com. | Paso 1 |
+| `02_auditoria_extensiones_ui/scripts/02_captura_pagespeed.mjs` | 2 | Script que intenta PageSpeed Insights y, como respaldo, ejecuta Lighthouse CLI en local. | Tablas 11 y 13 |
+| `02_auditoria_extensiones_ui/scripts/03_captura_gtmetrix_recursos.mjs` | 2 | Script de Playwright que intenta GTmetrix y mide los recursos con Resource Timing y CDP. | Tabla 13; Paso 2 |
+| `02_auditoria_extensiones_ui/scripts/04_captura_check_my_links.mjs` | 2 | Script de Playwright que inspecciona hipervínculos de la página y consulta sus respuestas HTTP. | Tabla 13; Paso 2 |
+| `02_auditoria_extensiones_ui/scripts/05_captura_w3c.mjs` | 2 | Script que consulta la API JSON del validador W3C con la URL de index.html. | Tabla 13 |
+| `02_auditoria_extensiones_ui/scripts/06_captura_whatfont_colorzilla.mjs` | 2 | Script de Playwright que inspecciona propiedades calculadas de tipografías y colores en el DOM. | Tabla 13; Paso 2 |
+| `03_investigacion_usuarios_ux/datos/calculo_cuestionario_sus.csv` | 3 | Tabla con respuestas individuales a diez ítems, puntuaciones convertidas y puntaje SUS calculado. | Paso 3 |
+| `03_investigacion_usuarios_ux/datos/hitos_video.csv` | 3 | Registro cronológico de marcas de tiempo e hitos observados en las grabaciones audiovisuales. | Tabla 17; Paso 3 |
+| `03_investigacion_usuarios_ux/datos/matriz_observacion_5_usuarios.csv` | 3 | Matriz que consolida tiempos de tarea, extravíos observados y puntuaciones SUS por participante. | Tabla 18; apartado 4.3; Paso 4 |
+| `03_investigacion_usuarios_ux/Encuesta.csv` | 3 | Respuestas crudas de los participantes a los diez ítems del cuestionario SUS, con marca temporal. | Tablas 20 y 21; Pasos 3 y 4 |
+| `03_investigacion_usuarios_ux/ESTUDIO_USUARIOS_Y_SUS.md` | 3 | Documento metodológico con caracterización de la muestra, protocolo de pruebas y análisis cualitativo. | Tablas 7, 9, 16, 18 y C1; apartados 3.4, 3.5 y 4.3; Paso 3; Anexos B y C |
+| `03_investigacion_usuarios_ux/evidencia_sesiones/Cuestionario.pdf` | 3 | Formulario del cuestionario SUS en PDF, con la instrucción de la misión de compra. | Tablas 9 y B1; apartado 4.2; Anexo C |
+| `04_informe_final/capturas/01_inicio.png` | 4 | Captura de pantalla del catálogo inicial mostrando menú superior, carrusel y barra de categorías. | Figura 2 |
+| `04_informe_final/capturas/02_categoria_laptops.png` | 4 | Captura de pantalla de la cuadrícula filtrada con la lista de computadores portátiles disponibles. | Figura 3 |
+| `04_informe_final/capturas/03_detalle_producto.png` | 4 | Captura de pantalla con la descripción del producto seleccionado y el botón de compra. | Figura 4 |
+| `04_informe_final/capturas/04_carrito_sin_contador.png` | 4 | Captura de pantalla de la barra de navegación que evidencia la ausencia de contador. | Figura 5 |
+| `04_informe_final/capturas/05_carrito.png` | 4 | Captura de pantalla de la vista del carrito con los artículos agregados y total. | Figura 6 |
+| `04_informe_final/capturas/06_formulario_pedido.png` | 4 | Captura anotada del modal Place Order con los datos del pedido. | Figura 7 |
+| `04_informe_final/capturas/07_confirmacion_compra.png` | 4 | Captura de pantalla del mensaje emergente que notifica la compra exitosa con su identificador. | Figura 8 |
+| `04_informe_final/diagramas/casos_de_uso_demoblaze.png` | 4 | Diagrama gráfico de casos de uso que modela los actores y funcionalidades del sistema. | Figura 1 |
+| `04_informe_final/diagramas/casos_de_uso_demoblaze.puml` | 4 | Código fuente en lenguaje PlantUML que define el diagrama general de casos de uso. | Tabla 3 |
+| `04_informe_final/evidencias/capturas_flujo.json` | 4 | Registro de datos de la sesión de compra, respuestas de red y comprobante emitido. | Tablas 2, 3, 4, 11, 13, 14 y 16; apartados 1.2, 1.4, 2.3 y 2.4; Paso 1 |
+| `04_informe_final/evidencias/recorrido_sitio.json` | 4 | Inventario estructurado de elementos observables, catálogo de productos, peticiones de red y errores. | Tablas 1, 2, 3, 4, 9 y 11; apartados 1.1, 1.2, 1.4, 1.5, 1.6 y 2.1 |
+
+Fuente: elaboración propia a partir del repositorio del grupo.
+
+Por otra parte, el repositorio versiona quince archivos de soporte que no se citan individualmente en las tablas del informe debido a su naturaleza complementaria o interpretativa. En primer lugar, se encuentran las cinco grabaciones de video de las sesiones de prueba (`Usuario 1.mp4` a `Usuario 5.mp4`), las cuales son abordadas de manera agregada dentro del Paso 3. En segundo lugar, figuran los dos reportes de Lighthouse en formato HTML (`lighthouse_report.report.html` y `pagespeed_lighthouse.report.html`), que contienen los mismos datos que los reportes JSON citados. En tercer lugar, se hallan las capturas de pantalla `04_modal_checkout_vacio.png` y `05_fallo_proteccion_errores_checkout.png` correspondientes al integrante 1. Finalmente, se conservan los resúmenes de ejecución, documentos explicativos y archivos de lectura generados por los integrantes 1, 2 y 3 (`RESPUESTAS_LISTAS_PARA_PR.md`, `RESUMEN_EJECUCION_TECNICA_PASO2.md`, `root_cause_codigo_cliente.md`, `REPORTE_TECNICO_INTEGRANTE_2.md` y los archivos README de los directorios `02_auditoria_extensiones_ui/` y `03_investigacion_usuarios_ux/`), que son textos interpretativos de cada integrante; el informe se apoya en los datos primarios.
 
 ### Anexo B. Cuestionario SUS aplicado
 
