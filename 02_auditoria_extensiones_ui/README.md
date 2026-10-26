@@ -38,38 +38,53 @@ El **Integrante 2** debe ejecutar, capturar y documentar en Markdown los resulta
 
 ---
 
-## 3. Estructura Sugerida del Directorio
+## 3. Estructura del Directorio
 
 ```text
 02_auditoria_extensiones_ui/
-├── README.md                        # Esta guía de trabajo
-├── ANALISIS_EXTENSIONES_UI.md       # Documento con tablas de resultados y hallazgos ISO/IEC 25010
-└── capturas/                        # Carpeta con las evidencias gráficas (.png / .jpg)
-    ├── 01_speedtest_red.png
-    ├── 02_pagespeed_mobile.png
-    ├── 03_pagespeed_desktop.png
-    ├── 04_gtmetrix_reporte.png
-    ├── 05_check_my_links.png
-    ├── 06_validador_w3c.png
-    ├── 07_whatfont_tipografia.png
-    └── 08_colorzilla_paleta.png
+├── README.md                              # Esta guía de trabajo
+├── REPORTE_TECNICO_INTEGRANTE_2.md        # Reporte técnico consolidado ISO/IEC 25010 (Secciones 1 a 6)
+├── capturas/                              # Evidencias gráficas en viewport 1440x900 (.png)
+│   ├── 01_speedtest.png                   # Línea base de red en Fast.com (descarga, subida y latencia)
+│   ├── 02_pagespeed.png                   # Puntajes y Core Web Vitals con Lighthouse / PageSpeed Insights
+│   ├── 03_gtmetrix_recursos.png           # Desglose de recursos, peso total y tiempos estilo GTmetrix
+│   ├── 04_check_my_links.png              # Auditoría visual de hipervínculos (200 OK vs. href="#")
+│   ├── 05_w3c_validator.png               # Validación oficial en W3C Nu Html Checker (errores y advertencias)
+│   └── 06_whatfont_colorzilla.png         # Inspección tipográfica (WhatFont) y paleta cromática (ColorZilla)
+├── datos/                                 # Respaldos estructurados de mediciones (.json / .html)
+│   ├── 01_red.json
+│   ├── 02_pagespeed.json
+│   ├── pagespeed_lighthouse.report.html
+│   ├── pagespeed_lighthouse.report.json
+│   ├── 03_recursos_gtmetrix.json
+│   ├── 04_enlaces.json
+│   ├── 05_w3c.json
+│   └── 06_estilos_ui.json
+└── scripts/                               # Scripts modulares de recolección con Playwright (.mjs)
+    ├── 01_captura_red.mjs
+    ├── 02_captura_pagespeed.mjs
+    ├── 03_captura_gtmetrix_recursos.mjs
+    ├── 04_captura_check_my_links.mjs
+    ├── 05_captura_w3c.mjs
+    └── 06_captura_whatfont_colorzilla.mjs
 ```
 
 ---
 
-## 4. Contenido Mínimo de `ANALISIS_EXTENSIONES_UI.md`
-- **Tabla resumen de Línea Base (Speedtest):** Ping (ms), Descarga (Mbps), Subida (Mbps) y cumplimiento del prerrequisito.
-- **Tabla comparativa de Desempeño (PageSpeed Insights vs. GTmetrix):** LCP ($< 2.5\text{ s}$), CLS ($< 0.1$), TBT, peso total de recursos y número de peticiones HTTP, indicando si **APRUEBA** o **REPRUEBA**.
-- **Tabla de Operabilidad y Estándares (Check My Links + W3C Validator):** Total de enlaces analizados, porcentaje de enlaces válidos vs. anclas `href="#"`, y conteo de errores HTML en W3C.
-- **Ficha de Estética UI (WhatFont + ColorZilla):** Fuentes tipográficas detectadas y tabla de códigos `#HEX` con evaluación de contraste y consistencia visual.
+## 4. Contenido de `REPORTE_TECNICO_INTEGRANTE_2.md`
+- **Tabla resumen de Línea Base (Fast.com / Speedtest):** Ping (ms), Descarga (Mbps), Subida (Mbps) y cumplimiento del prerrequisito.
+- **Tabla comparativa de Desempeño (PageSpeed Insights / Lighthouse y GTmetrix):** LCP ($< 2.5\text{ s}$), CLS ($< 0.1$), TBT, peso total de recursos y número de peticiones HTTP, indicando si **APRUEBA** o **REPRUEBA**.
+- **Tabla de Operabilidad y Estándares (Check My Links + W3C Validator):** Total de enlaces analizados, porcentaje de enlaces válidos vs. anclas `href="#"`, y conteo detallado de errores y advertencias HTML en W3C.
+- **Ficha de Estética UI (WhatFont + ColorZilla):** Fuentes tipográficas renderizadas por componente y tabla de códigos `#HEX` / RGB con evaluación de consistencia visual.
+- **Matriz Consolidada ISO/IEC 25010:** Veredictos integrados de Eficiencia de Desempeño y Capacidad de Interacción.
 
 ---
 
 ## 5. Flujo de Entrega en Git
 
 ```bash
-git pull origin main
+git checkout -b feat/integrante2-auditoria-web
 git add 02_auditoria_extensiones_ui/
-git commit -m "docs: evidencias y análisis de auditoría con extensiones UI"
-git push origin main
+git commit -m "docs: reporte técnico de herramientas web y estándares ISO 25010"
+git push -u origin feat/integrante2-auditoria-web
 ```
