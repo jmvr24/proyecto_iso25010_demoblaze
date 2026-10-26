@@ -1,5 +1,18 @@
-﻿node_modules/
+# Dependencias
+node_modules/
 .pnpm-store/
+.pnpm-debug.log*
 *.log
+
+# Reportes automáticos temporales de testing
+test-results/
+playwright-report/
+
+# Archivos de sistema y variables de entorno
 .DS_Store
 Thumbs.db
+.env
+
+# Carpeta local de instrucciones IA (NO SUBIR AL REPOSITORIO)
+prompts_ia/
+**/PROMPT*.md
