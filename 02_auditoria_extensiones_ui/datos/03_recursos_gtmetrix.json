@@ -1,0 +1,542 @@
+{
+  "herramienta": "Auditoría de Recursos y Waterfall estilo GTmetrix (Playwright PerformanceResourceTiming + CDP Network)",
+  "motivoFallbackGtmetrix": "GTmetrix.com restringe la ejecución de pruebas a cuentas autenticadas (login obligatorio).",
+  "urlAuditada": "https://www.demoblaze.com/index.html",
+  "timestamp": "2026-10-26T03:46:32.130Z",
+  "viewport": "1440x900",
+  "resumenCarga": {
+    "ttfb_ms": 262,
+    "dom_interactive_ms": 797,
+    "dom_content_loaded_ms": 797,
+    "onload_time_ms": 819,
+    "fully_loaded_time_ms": 6722,
+    "fully_loaded_time_s": 6.72,
+    "total_solicitudes_http": 31,
+    "peso_total_bytes": 2283764,
+    "peso_total_kb": 2230.24,
+    "peso_total_mb": 2.18
+  },
+  "desglosePorTipoRecurso": {
+    "HTML": {
+      "solicitudes": 1,
+      "bytes": 17436,
+      "kb": 17.03,
+      "porcentajePeso": 0.8
+    },
+    "CSS": {
+      "solicitudes": 4,
+      "bytes": 42049,
+      "kb": 41.06,
+      "porcentajePeso": 1.8
+    },
+    "Image": {
+      "solicitudes": 12,
+      "bytes": 1197788,
+      "kb": 1169.71,
+      "porcentajePeso": 52.4
+    },
+    "JS": {
+      "solicitudes": 6,
+      "bytes": 292994,
+      "kb": 286.13,
+      "porcentajePeso": 12.8
+    },
+    "Font": {
+      "solicitudes": 1,
+      "bytes": 183088,
+      "kb": 178.8,
+      "porcentajePeso": 8
+    },
+    "Other": {
+      "solicitudes": 1,
+      "bytes": 0,
+      "kb": 0,
+      "porcentajePeso": 0
+    },
+    "XHR/API": {
+      "solicitudes": 2,
+      "bytes": 1645,
+      "kb": 1.61,
+      "porcentajePeso": 0.1
+    },
+    "Video/Media": {
+      "solicitudes": 4,
+      "bytes": 548764,
+      "kb": 535.9,
+      "porcentajePeso": 24
+    }
+  },
+  "top5RecursosMasPesados_CuellosDeBotellaPeso": [
+    {
+      "posicion": 1,
+      "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "nombreCorto": "hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "metodo": "GET",
+      "status": 206,
+      "tipo": "Video/Media",
+      "tamanoBytes": 542224,
+      "tamanoKB": 529.52,
+      "duracionMs": 139.4,
+      "inicioMs": 1372.2,
+      "porcentajeDelTotal": 23.7
+    },
+    {
+      "posicion": 2,
+      "url": "https://www.demoblaze.com/imgs/Nexus_6.jpg",
+      "nombreCorto": "Nexus_6.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 232270,
+      "tamanoKB": 226.83,
+      "duracionMs": 284.2,
+      "inicioMs": 1221.8,
+      "porcentajeDelTotal": 10.2
+    },
+    {
+      "posicion": 3,
+      "url": "https://www.demoblaze.com/imgs/iphone_6.jpg",
+      "nombreCorto": "iphone_6.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 201291,
+      "tamanoKB": 196.57,
+      "duracionMs": 265.8,
+      "inicioMs": 1222,
+      "porcentajeDelTotal": 8.8
+    },
+    {
+      "posicion": 4,
+      "url": "https://www.demoblaze.com/css/fonts/Lato-Regular.woff2",
+      "nombreCorto": "Lato-Regular.woff2",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Font",
+      "tamanoBytes": 183088,
+      "tamanoKB": 178.8,
+      "duracionMs": 268.1,
+      "inicioMs": 520.7,
+      "porcentajeDelTotal": 8
+    },
+    {
+      "posicion": 5,
+      "url": "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
+      "nombreCorto": "video.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 158881,
+      "tamanoKB": 155.16,
+      "duracionMs": 455.4,
+      "inicioMs": 299.1,
+      "porcentajeDelTotal": 7
+    }
+  ],
+  "top5RecursosMasLentos_CuellosDeBotellaTiempo": [
+    {
+      "posicion": 1,
+      "url": "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
+      "nombreCorto": "video.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 158881,
+      "tamanoKB": 155.16,
+      "duracionMs": 455.4,
+      "inicioMs": 299.1
+    },
+    {
+      "posicion": 2,
+      "url": "https://www.demoblaze.com/blazemeter-favicon-512x512.png",
+      "nombreCorto": "blazemeter-favicon-512x512.png",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 57191,
+      "tamanoKB": 55.85,
+      "duracionMs": 443.3,
+      "inicioMs": 298.4
+    },
+    {
+      "posicion": 3,
+      "url": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+      "nombreCorto": "videojs-contrib-hls.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 71938,
+      "tamanoKB": 70.25,
+      "duracionMs": 442.9,
+      "inicioMs": 299.3
+    },
+    {
+      "posicion": 4,
+      "url": "https://www.demoblaze.com/iphone1.jpg",
+      "nombreCorto": "iphone1.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 34913,
+      "tamanoKB": 34.09,
+      "duracionMs": 409.4,
+      "inicioMs": 298.6
+    },
+    {
+      "posicion": 5,
+      "url": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+      "nombreCorto": "tether.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 8903,
+      "tamanoKB": 8.69,
+      "duracionMs": 394.4,
+      "inicioMs": 299.4
+    }
+  ],
+  "todosLosRecursos": [
+    {
+      "url": "https://www.demoblaze.com/index.html",
+      "nombreCorto": "index.html",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "HTML",
+      "tamanoBytes": 17436,
+      "tamanoKB": 17.03,
+      "duracionMs": 296,
+      "inicioMs": 0
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "nombreCorto": "bootstrap.min.css",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "CSS",
+      "tamanoBytes": 27987,
+      "tamanoKB": 27.33,
+      "duracionMs": 241.5,
+      "inicioMs": 269.1
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
+      "nombreCorto": "video-js.min.css",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "CSS",
+      "tamanoBytes": 12084,
+      "tamanoKB": 11.8,
+      "duracionMs": 169.1,
+      "inicioMs": 269.6
+    },
+    {
+      "url": "https://www.demoblaze.com/css/latofonts.css",
+      "nombreCorto": "latofonts.css",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "CSS",
+      "tamanoBytes": 1149,
+      "tamanoKB": 1.12,
+      "duracionMs": 144.5,
+      "inicioMs": 269.6
+    },
+    {
+      "url": "https://www.demoblaze.com/css/latostyle.css",
+      "nombreCorto": "latostyle.css",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "CSS",
+      "tamanoBytes": 829,
+      "tamanoKB": 0.81,
+      "duracionMs": 140.3,
+      "inicioMs": 269.8
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/front.jpg",
+      "nombreCorto": "front.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 24963,
+      "tamanoKB": 24.38,
+      "duracionMs": 358.3,
+      "inicioMs": 298.2
+    },
+    {
+      "url": "https://www.demoblaze.com/blazemeter-favicon-512x512.png",
+      "nombreCorto": "blazemeter-favicon-512x512.png",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 57191,
+      "tamanoKB": 55.85,
+      "duracionMs": 443.3,
+      "inicioMs": 298.4
+    },
+    {
+      "url": "https://www.demoblaze.com/Samsung1.jpg",
+      "nombreCorto": "Samsung1.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 27693,
+      "tamanoKB": 27.04,
+      "duracionMs": 292.3,
+      "inicioMs": 298.4
+    },
+    {
+      "url": "https://www.demoblaze.com/nexus1.jpg",
+      "nombreCorto": "nexus1.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 34154,
+      "tamanoKB": 33.35,
+      "duracionMs": 313,
+      "inicioMs": 298.5
+    },
+    {
+      "url": "https://www.demoblaze.com/iphone1.jpg",
+      "nombreCorto": "iphone1.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 34913,
+      "tamanoKB": 34.09,
+      "duracionMs": 409.4,
+      "inicioMs": 298.6
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+      "nombreCorto": "jquery.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 35428,
+      "tamanoKB": 34.6,
+      "duracionMs": 284.8,
+      "inicioMs": 298.7
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
+      "nombreCorto": "video.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 158881,
+      "tamanoKB": 155.16,
+      "duracionMs": 455.4,
+      "inicioMs": 299.1
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
+      "nombreCorto": "videojs-contrib-hls.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 71938,
+      "tamanoKB": 70.25,
+      "duracionMs": 442.9,
+      "inicioMs": 299.3
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+      "nombreCorto": "tether.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 8903,
+      "tamanoKB": 8.69,
+      "duracionMs": 394.4,
+      "inicioMs": 299.4
+    },
+    {
+      "url": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "nombreCorto": "bootstrap.min.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 15123,
+      "tamanoKB": 14.77,
+      "duracionMs": 367.2,
+      "inicioMs": 299.7
+    },
+    {
+      "url": "https://www.demoblaze.com/js/index.js",
+      "nombreCorto": "index.js",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "JS",
+      "tamanoBytes": 2721,
+      "tamanoKB": 2.66,
+      "duracionMs": 381.2,
+      "inicioMs": 299.9
+    },
+    {
+      "url": "https://www.demoblaze.com/css/fonts/Lato-Regular.woff2",
+      "nombreCorto": "Lato-Regular.woff2",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Font",
+      "tamanoBytes": 183088,
+      "tamanoKB": 178.8,
+      "duracionMs": 268.1,
+      "inicioMs": 520.7
+    },
+    {
+      "url": "blob:https://www.demoblaze.com/2f322126-db0b-42cf-b803-0b012c223742",
+      "nombreCorto": "/2f322126-db0b-42cf-b803-0b012c223742",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Other",
+      "tamanoBytes": 0,
+      "tamanoKB": 0,
+      "duracionMs": 0,
+      "inicioMs": 0
+    },
+    {
+      "url": "https://www.demoblaze.com/config.json",
+      "nombreCorto": "config.json",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "XHR/API",
+      "tamanoBytes": 384,
+      "tamanoKB": 0.38,
+      "duracionMs": 135.5,
+      "inicioMs": 800.5
+    },
+    {
+      "url": "https://api.demoblaze.com/entries",
+      "nombreCorto": "api.demoblaze.com/entries",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "XHR/API",
+      "tamanoBytes": 1261,
+      "tamanoKB": 1.23,
+      "duracionMs": 280,
+      "inicioMs": 938.9
+    },
+    {
+      "url": "https://hls.demoblaze.com/index.m3u8",
+      "nombreCorto": "hls.demoblaze.com/index.m3u8",
+      "metodo": "GET",
+      "status": 206,
+      "tipo": "Video/Media",
+      "tamanoBytes": 993,
+      "tamanoKB": 0.97,
+      "duracionMs": 316.7,
+      "inicioMs": 971.2
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/galaxy_s6.jpg",
+      "nombreCorto": "galaxy_s6.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 107746,
+      "tamanoKB": 105.22,
+      "duracionMs": 184,
+      "inicioMs": 1221.7
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/Lumia_1520.jpg",
+      "nombreCorto": "Lumia_1520.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 145527,
+      "tamanoKB": 142.12,
+      "duracionMs": 226.3,
+      "inicioMs": 1221.8
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/Nexus_6.jpg",
+      "nombreCorto": "Nexus_6.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 232270,
+      "tamanoKB": 226.83,
+      "duracionMs": 284.2,
+      "inicioMs": 1221.8
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/iphone_6.jpg",
+      "nombreCorto": "iphone_6.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 201291,
+      "tamanoKB": 196.57,
+      "duracionMs": 265.8,
+      "inicioMs": 1222
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/xperia_z5.jpg",
+      "nombreCorto": "xperia_z5.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 144007,
+      "tamanoKB": 140.63,
+      "duracionMs": 245.8,
+      "inicioMs": 1222.1
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/HTC_M9.jpg",
+      "nombreCorto": "HTC_M9.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 97248,
+      "tamanoKB": 94.97,
+      "duracionMs": 281.8,
+      "inicioMs": 1222.1
+    },
+    {
+      "url": "https://www.demoblaze.com/imgs/sony_vaio_5.jpg",
+      "nombreCorto": "sony_vaio_5.jpg",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Image",
+      "tamanoBytes": 90785,
+      "tamanoKB": 88.66,
+      "duracionMs": 268.5,
+      "inicioMs": 1222.2
+    },
+    {
+      "url": "https://hls.demoblaze.com/about_demo_hls_600k.m3u8",
+      "nombreCorto": "hls.demoblaze.com/about_demo_hls_600k.m3u8",
+      "metodo": "GET",
+      "status": 206,
+      "tipo": "Video/Media",
+      "tamanoBytes": 5547,
+      "tamanoKB": 5.42,
+      "duracionMs": 75.9,
+      "inicioMs": 1290.5
+    },
+    {
+      "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "nombreCorto": "hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "metodo": "GET",
+      "status": 200,
+      "tipo": "Video/Media",
+      "tamanoBytes": 0,
+      "tamanoKB": 0,
+      "duracionMs": 139.4,
+      "inicioMs": 1372.2
+    },
+    {
+      "url": "https://hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "nombreCorto": "hls.demoblaze.com/about_demo_hls_600k00000.ts",
+      "metodo": "GET",
+      "status": 206,
+      "tipo": "Video/Media",
+      "tamanoBytes": 542224,
+      "tamanoKB": 529.52,
+      "duracionMs": 139.4,
+      "inicioMs": 1372.2
+    }
+  ],
+  "capturaAsociada": "./capturas/03_gtmetrix_recursos.png"
+}
